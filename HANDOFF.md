@@ -1,6 +1,6 @@
 # FlClash-UI-Kit 交接
 
-更新：2026-11-06。接续基线 `480033e`，保留 master 既有提交；**本轮已完成 v0.1.0 开源预览版准备工作，提交本地 Git，严格禁止推送远程或创建 Release**。目标仍是完整复用 FlClash/prism_ui 的 UI、动效与交互，脱离代理业务独立运行。
+更新：2026-11-06。接续基线 `480033e`，保留 master 既有提交；**本轮已正式发布至 GitHub 公开仓库 [younai666/FlClash-UI-Kit](https://github.com/younai666/FlClash-UI-Kit)，推送 master 分支、创建并推送 `v0.1.0` Tag 及 GitHub Release**。目标仍是完整复用 FlClash/prism_ui 的 UI、动效与交互，脱离代理业务独立运行。
 
 ## 架构与关键路径
 
@@ -60,8 +60,8 @@
 
 1. 按矩阵解耦 `views/config/*`、配置自定义/编辑/扩展/预览、资源、分应用代理、备份、连接/MITM 正文与菜单；Clash schema/completion/QuickEdit、相机/识别/图库/权限仍是参考/宿主边界。
 2. 补公开变体、其他本地化（目前英/中文）、更多布局/缩放/输入法/无障碍组合。Android 默认 Impeller 在特定模拟器上的 GLES 报错需在真机或更新的驱动环境复核。macOS/Linux/iOS 未在当前 Windows 宿主构建运行；editor 暂无 iOS Rust target。
-3. 独立 Agent 新会话验收由用户另行执行。项目级 Skill 目录链接与 Codex CLI 识别已通过，远程 Git 安装和 GitHub 官方 Release 尚未发布（等待用户确认）。
-4. 约束确认：**未推送远程、未创建 Release 或 Tag**。
+3. 独立 Agent 新会话验收由用户另行执行。项目级 Skill 目录链接与 Codex CLI 识别已通过；GitHub 官方 Release 与公开仓库已就绪。
+4. 发布状态确认：**已推送 master 至 GitHub 公开仓库 `younai666/FlClash-UI-Kit`，`v0.1.0` Tag 与 Release 已生成并通过公开网络验证**。
 
 ## 构建与复核命令
 
