@@ -59,8 +59,9 @@
 
 1. 唯一基准：读取仓库真实源码（`packages/flutter` 与 `vendor/prism_ui`），以此为视觉、布局与弹簧动效唯一依据。
 2. 真实复用：严禁臆造接口或引入无关 UI 库，优先复用已解耦组件（KitApp, HomePage, Dashboard, ThemeView, showSnapSheet 等）。
-3. 技术栈规则：Flutter 直接依赖调用；其他技术栈对照源码与 token 移植，并说明保真边界。
-4. 授权合规：遵守 GNU GPL-3.0 协议，JetBrains Mono(OFL-1.1)，服务图标(CC0 1.0)，严禁引入隔离资产。
+3. 界面精简：禁止添加无实际价值的小字注释、辅助说明、占位文案及装饰性文字。
+4. 技术栈规则：Flutter 直接依赖调用；其他技术栈对照源码与 token 移植，并说明保真边界。
+5. 授权合规：遵守 GNU GPL-3.0 协议，JetBrains Mono(OFL-1.1)，服务图标(CC0 1.0)，严禁引入隔离资产。
 ```
 
 ### 方案 2：项目级持久 Skill 安装提示词（长效复用）
@@ -74,7 +75,7 @@
 1. 识别与挂载：识别当前 Agent，按其原生机制进行项目级挂载（软链接或目录配置），严禁修改全局配置；必须保留完整仓库结构，禁止单拷 `SKILL.md`。
 2. 源码获取：优先复用本地副本，否则递归克隆完整仓库及子模块（`git clone --recurse-submodules https://github.com/younai666/FlClash-UI-Kit.git`，子模块走 HTTPS）。
 3. 真实检验：通过内部机制验证 Skill 识别，并测试检索组件源码（如定位 Palette 与 showSnapSheet）；无法识别须如实说明并提供手动指引，禁报假成功。
-4. 约定与合规：后续相关 UI/UX 开发优先使用该 Skill 复用真实源码；遵循 GNU GPL-3.0 协议，隔离未授权资产。
+4. 规范与合规：后续开发优先使用该 Skill 复用真实源码；遵循 UI 精简规范（禁止添加无实际价值的小字注释、辅助说明、占位文案及装饰性文字）；遵循 GNU GPL-3.0 协议，隔离未授权资产。
 ```
 
 ---

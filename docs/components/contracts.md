@@ -14,6 +14,7 @@
 |生命周期|ActivePollingMixin 在前台、活动页面与 TickerMode 启用时串行轮询；poll 收到的 isCurrent 必须在异步结果写回前判断。错误交给 FlutterError|src/widgets/active_polling.dart|
 |字体|默认使用系统字体；JetBrains Mono 2.304 已按 OFL 注册并使用 package 命名空间。原 Twemoji 字库仍隔离。appFontFamilyFallback 只返回平台字体名|vendor/prism_ui/lib/font.dart|
 |授权|上游 GPL 与嵌入第三方许可保留；参考页面不等于已解耦的组件|NOTICE.md、extraction-matrix.md|
+|文案与视觉|禁止添加无实际价值的小字注释、辅助说明、占位文案及装饰性文字；保持界面克制、专注核心任务与真实数据|全库遵循|
 
 支持类（MeasureScope、RouteMotionHold、BarItemPresence、FocusRing、Sliver 计算等）通过原组件的组合路径使用。绕过这些层前先阅读其调用者，不能只因为没有可见像素而删除它们。
 

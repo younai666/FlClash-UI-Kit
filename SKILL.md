@@ -29,6 +29,7 @@ Read [docs/usage/flutter.md](docs/usage/flutter.md) and the relevant example in 
 - Use `ThemeView`/`FontFamilyView`, `HotKeyView`/`HotKeyRecorder`, `ProfilesView`/`AddProfileMenu`, `ToolsView`, `AboutView` and `DisclaimerView` (or `requestDisclaimerConsent`) with their documented scopes. Profile file/update/scan/edit/export operations and OS shortcut registration are host callbacks, not built-in services. Missing operations stay unavailable. Creating a local URL entry does not download or set a successful update timestamp.
 - Use `showSnapSheet`'s supplied scroll controller for the sheet body. Give floating navigation and charts finite height. Keep stable row keys and stable Dashboard GlobalKeys across editing. Read [docs/components/contracts.md](docs/components/contracts.md) for these integration constraints.
 - Use the existing `SurfaceLevel`, `AppTextStyle`, `AppShape` and seed-based `ColorScheme` rather than guessing colors or replacing superellipses with ordinary round rectangles. Preserve the original spring, gesture velocity, state transition and accessibility behavior. Changing the reduced-motion behavior is a separate, verified change.
+- **UI/UX copy & layout discipline**: Strictly prohibit adding low-value footnote captions, secondary explanatory notes, placeholder copy, or decorative text (`禁止添加无实际价值的小字注释、辅助说明、占位文案及装饰性文字`). Keep interfaces clean, purposeful, and focused directly on user data and essential actions.
 
 ## Optional native and JavaScript implementations
 

@@ -30,7 +30,7 @@
    - 结果：**0 个敏感密钥，0 处隐私信息泄露**，仅包含交接文档中规范的复核指导命令与路径。
    - 版本统一：`packages/flutter` (0.1.0), `packages/platform` (0.1.0), `packages/editor` (0.1.0), `showcase` (0.1.0+1), `packages/web` (0.1.0), Rust `rust_api` (0.1.0)。
 2. **发布整理与双语文档**：
-   - 编写全新中文 [`README.md`](README.md) 与英文 [`README_EN.md`](README_EN.md)，包含完整版本徽标、两套独立 Agent 方案（单次 UI/UX 唯一约束提示词与项目级持久 Skill 安装提示词）、6 大核心组件使用示例（`KitApp`、`HomePage`、`Dashboard`、`ThemeView`、`DisclaimerView`、`FormSheet/Records`）、扩展模块矩阵、已知限制与解耦边界。
+   - 编写全新中文 [`README.md`](README.md) 与英文 [`README_EN.md`](README_EN.md)，包含完整版本徽标、两套独立 Agent 方案（单次 UI/UX 唯一约束提示词与项目级持久 Skill 安装提示词，内置禁止无价值注释/占位文案约束）、6 大核心组件使用示例（`KitApp`、`HomePage`、`Dashboard`、`ThemeView`、`DisclaimerView`、`FormSheet/Records`）、扩展模块矩阵、已知限制与解耦边界。
    - 更新 `tools/check_repository.py` 将 `README_EN.md` 纳入链接与目录校验，全库 23 个文档路由相对链接 100% 校验通过。
 3. **开源合规核查**：
    - 衍生代码基于 **GPL-3.0**，保留作者 **chen08209** 及贡献者版权声明与 upstream 冻结 commit 映射。

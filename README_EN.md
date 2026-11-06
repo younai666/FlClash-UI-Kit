@@ -59,8 +59,9 @@ For this task only, use FlClash-UI-Kit (https://github.com/younai666/FlClash-UI-
 
 1. Sole Standard: Inspect real source in `packages/flutter` (and `vendor/prism_ui`) as the single baseline for styling, layout, and spring physics.
 2. Real Reuse: Prohibit phantom APIs and unrelated UI libraries. Directly reuse extracted components (KitApp, HomePage, Dashboard, ThemeView, showSnapSheet, etc.).
-3. Tech Stack Rules: Call directly in Flutter. For other stacks, port from source and document fidelity limits.
-4. Compliance: Follow GNU GPL-3.0, OFL-1.1 (fonts), CC0 1.0 (icons); do not import quarantined assets.
+3. Clean UI: Strictly prohibit adding low-value footnote captions, secondary explanatory notes, placeholder copy, or decorative text.
+4. Tech Stack Rules: Call directly in Flutter. For other stacks, port from source and document fidelity limits.
+5. Compliance: Follow GNU GPL-3.0, OFL-1.1 (fonts), CC0 1.0 (icons); do not import quarantined assets.
 ```
 
 ### Option 2: Project-Level Persistent Skill Installation Prompt (Long-Term Reuse)
@@ -74,7 +75,7 @@ Install FlClash-UI-Kit (https://github.com/younai666/FlClash-UI-Kit) as a persis
 1. Detect & Mount: Identify Agent runtime and mount at project scope (symlink or project skill dir) without altering global configs. Retain full repo structure; never copy `SKILL.md` in isolation.
 2. Full Source: Prefer existing local checkout; otherwise clone recursively (`git clone --recurse-submodules https://github.com/younai666/FlClash-UI-Kit.git`, submodules via HTTPS).
 3. Verify Genuinely: Verify skill discovery and retrieve real component code (e.g., locate Palette and showSnapSheet). Report issues truthfully if unrecognized; do not report false success.
-4. Reuse & Comply: Prioritize this Skill for subsequent UI/UX requests. Adhere to GNU GPL-3.0 and keep unconfirmed assets quarantined.
+4. Discipline & Compliance: Prioritize this Skill for subsequent UI/UX requests; strictly observe clean copy rules (prohibit low-value footnote captions, auxiliary explanatory notes, placeholder copy, or decorative text); adhere to GNU GPL-3.0 and keep unconfirmed assets quarantined.
 ```
 
 ---
