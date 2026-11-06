@@ -3,6 +3,7 @@
 // (adapted from FlClash lib/providers/state/navigation.dart,
 // lib/models/common.dart, and lib/enum/enum.dart,
 // commit be84736605527034689c95bf27828ff27d912c5e). GPL-3.0.
+// Modified 2026-11-06: stable page keys belong to each independent shell.
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -100,13 +101,13 @@ class NavigationItem {
 
   @override
   int get hashCode => Object.hash(
-        glyph,
-        label,
-        title,
-        titleBuilder,
-        builder,
-        Object.hashAll(modes),
-      );
+    glyph,
+    label,
+    title,
+    titleBuilder,
+    builder,
+    Object.hashAll(modes),
+  );
 }
 
 Object shownPageLabelOf(
@@ -145,11 +146,11 @@ class NavigationState {
 
   @override
   int get hashCode => Object.hash(
-        pageLabel,
-        Object.hashAll(navigationItems),
-        viewMode,
-        currentIndex,
-      );
+    pageLabel,
+    Object.hashAll(navigationItems),
+    viewMode,
+    currentIndex,
+  );
 }
 
 @immutable
@@ -239,6 +240,10 @@ class HomeShellController extends ChangeNotifier {
   Locale? _locale;
   final List<Locale> supportedLocales;
   bool _developerMode;
+  // A reusable shell must not share global page keys with another instance.
+  final _pageKeys = <Object, GlobalKey>{};
+  GlobalKey pageKeyOf(Object label) =>
+      _pageKeys.putIfAbsent(label, GlobalKey.new);
 
   final ValueChanged<Object>? onPageChanged;
   final ValueChanged<bool>? onSidebarExpandedChanged;
@@ -258,7 +263,8 @@ class HomeShellController extends ChangeNotifier {
   Locale? get locale => _locale;
   bool get developerMode => _developerMode;
 
-  Size viewSizeOf(BuildContext context) => _viewSize ?? ViewScope.sizeOf(context);
+  Size viewSizeOf(BuildContext context) =>
+      _viewSize ?? ViewScope.sizeOf(context);
 
   ViewMode viewModeOf(BuildContext context) =>
       getViewMode(viewSizeOf(context).width);
@@ -275,11 +281,7 @@ class HomeShellController extends ChangeNotifier {
 
   Object shownPageLabel(BuildContext context) {
     final items = currentNavigationItemsOf(context);
-    return shownPageLabelOf(
-      _pageLabel,
-      items,
-      fallback: fallbackPageLabel,
-    );
+    return shownPageLabelOf(_pageLabel, items, fallback: fallbackPageLabel);
   }
 
   NavigationState navigationStateOf(BuildContext context) {

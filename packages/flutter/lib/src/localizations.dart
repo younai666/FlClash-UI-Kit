@@ -408,7 +408,7 @@ class KitLocalizations implements UiLocalizations {
   String get textScalePreview => _zh ? '应用内的文字将以这个大小显示' : 'Text in the app will look like this';
   String get customColor => _zh ? '自定义颜色' : 'Custom color';
   String get hotkeyManagement => _zh ? '快捷键管理' : 'Hotkey management';
-  String get hotkeyDesc => _zh ? '全局快捷键在窗口隐藏时依然生效，点击操作即可录制组合键。' : 'Global hotkeys work even while the window is hidden. Tap an action to record its key combination.';
+  String get hotkeyDesc => _zh ? '点击操作录制组合键；由宿主注册并执行快捷键。' : 'Tap an action to record its key combination. The host registers and executes shortcuts.';
   String get hotkeyNotSet => _zh ? '未设置' : 'Not set';
   String get hotkeyUnavailable => _zh ? '未能注册，可能已被其他应用占用' : 'Not registered, it may be taken by another app';
   String get pressKeyboard => _zh ? '请按下组合键' : 'Press a key combination';

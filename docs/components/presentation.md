@@ -4,6 +4,14 @@
 
 |实现|宿主输入与责任|真实调用|
 |---|---|---|
+|HomePage / AppSidebarContainer|HomeShellScope：NavigationItem、任意页面 ID、宽度、展开/浮动导航、fade/slide、返回回调；每个壳层独立控制器|[app_pages.dart](../../showcase/lib/app_pages.dart)、[独立应用](../../examples/standalone/lib/main.dart)|
+|ThemeView / FontFamilyView|ThemeScope：ThemeProps、字体 reader、导航与转场变更回调；宿主将主题映射至 KitApp|app_pages.dart；theme_test.dart 覆盖滚动/路由时延迟字体预览与文本缩放|
+|HotKeyView / HotKeyRecorder|HotKeyScope：任意操作 ID、分组/文案、绑定、冲突/注册失败；系统注册另由宿主负责|独立应用的 Create note + [reuse_test.dart](../../examples/standalone/test/reuse_test.dart)|
+|ProfilesView / ProfileItem / ReorderableProfilesSheet / AddProfileMenu|ProfilesScope：配置数据、选中/分组数和导入/更新/编辑/预览等回调；无回调的业务操作禁用|app_pages.dart；shell_profiles_test.dart 覆盖迟到更新、重排与接收器关闭|
+|ToolsView / AboutView|工具入口、Locale/导航 Scope；关于页接收元数据、合法 logo/贡献者、链接和更新/开发者回调|app_pages.dart；无内置 FlClash 头像、品牌或外部服务|
+|DashboardView / DashboardDesktopSlots|独立手机卡片列表、桌面各布局槽位、编辑回调；桌面模式栏使用 OutboundModeBar，手机使用 OutboundModeCard|app_pages.dart；手机/桌面应用导航测试与原生验收|
+|ProxiesView / ProxiesListView / ProxiesTabView / ProxyCard|ProxiesScope：组/节点/选择链、测速 reader、失败与加载状态、排序/布局样式；不连接核心|app_pages.dart；控制器和 grid/tab/focus 测试|
+|RequestsView / DnsQueriesView / LogsView / ConnectionsTableCard|ValueListenable 数据流、连接 reader、筛选/详情/列宽存储回调；保留三类 feed 与页面活跃生命周期|app_pages.dart；可追加本地记录并实际查看|
 |CurrentOutboundCard|OutboundInfo、OutboundQuality、运行/暂停/加载/失败/隐藏 IP 状态、毫秒 runTime；onToggle、onRefresh、可选 onDetails。宿主负责探测与服务启停|dashboard.dart 的 _StatusExample|
 |SpeedCard / NetworkSpeedCard|有界 FixedList&lt;Traffic&gt;、累计流量；采样由宿主 append。保留缓冲区 revision、曲线与移动端/桌面排版|dashboard.dart 的 _TrafficExample|
 |MemoryInfo / MemoryDetailSheet|必需异步 memoryReader，可选 onRelease。详情独立轮询，卡片休眠；释放失败不会报告成功|dashboard.dart 的 _MemoryExample|

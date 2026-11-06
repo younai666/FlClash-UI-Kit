@@ -611,6 +611,48 @@
       }
     ]
   },
+  "FlClash/lib/common/system_fonts.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/lib/src/system_fonts.dart",
+    "status": "已提取原生系统字体枚举与测试；Web 不提供枚举，见 verification.md",
+    "modifications": [
+      {
+        "from": "import 'package:fl_clash/enum/enum.dart';\n",
+        "to": ""
+      },
+      {
+        "from": "import 'package:flutter/foundation.dart' show visibleForTesting;",
+        "to": "import 'package:flutter/foundation.dart' show visibleForTesting, debugPrint;"
+      },
+      {
+        "from": "import 'print.dart';\n",
+        "to": ""
+      },
+      {
+        "from": "loadSystemFontFamilies",
+        "to": "loadNativeFontFamilies"
+      },
+      {
+        "from": "commonPrint.log('loadNativeFontFamilies: $e', logLevel: LogLevel.warning);",
+        "to": "debugPrint('loadNativeFontFamilies: $e');"
+      }
+    ]
+  },
+  "FlClash/test/common/system_fonts_test.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/test/system_fonts_test.dart",
+    "status": "已提取原生系统字体枚举与测试；Web 不提供枚举，见 verification.md",
+    "modifications": [
+      {
+        "from": "package:fl_clash/common/system_fonts.dart",
+        "to": "package:flclash_ui_platform/src/system_fonts.dart"
+      },
+      {
+        "from": "loadSystemFontFamilies",
+        "to": "loadNativeFontFamilies"
+      }
+    ]
+  },
   "FlClash/lint_options.yaml": {
     "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
     "target": "packages/platform/lint_options.yaml",

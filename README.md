@@ -19,7 +19,7 @@
 以后我要求采用 FlClash 的视觉和交互时，请先按该 Skill 检索并复用实际实现。Flutter 直接调用；其他技术栈阅读原始源码再移植，并说明保真边界。
 ```
 
-完整 `prism_ui` 运行时、FlClash 通用控件、搜索/表单/筛选、Dashboard 的状态/流量/内网/内存/服务/网络开关/配置摘要与详情、主题预览和扫描绘制已纳入库。可选包保留真实 CodeForge + Rust 编辑器，以及窗口、托盘、系统颜色插件。另有从官网独立发现的原生 JavaScript Canvas 动效。
+完整 `prism_ui` 运行时，以及 FlClash 主壳层、Dashboard、代理列表/标签页、配置列表与添加、连接/请求/DNS/日志、工具、主题/字体、快捷键录制、关于页面已按宿主数据和回调解耦。通用控件、表单、筛选、扫描绘制和原始动效保留。可选包提供真实 CodeForge + Rust 编辑器、窗口/托盘/系统颜色和原生字体枚举，另含官网原生 JavaScript Canvas 动效。
 
 完整业务页面、部分应用特有交互和所有平台的运行验收仍未完成。**源码清点完整不等于全部页面已解耦或逐行人工审查完成。** 当前范围以 [提取矩阵](docs/audit/extraction-matrix.md)、[独立复查](docs/audit/review-findings.md) 和 [验证记录](docs/audit/verification.md) 为准。
 
@@ -31,6 +31,8 @@ git -c url.https://github.com/.insteadOf=git@github.com: clone --recurse-submodu
 ```
 
 Agent 支持项目级 Skill 目录时，将**完整仓库**放入或链接到它支持的 `flclash-ui-kit` 目录。例如支持 `.agents/skills` 的 Agent 可使用 `.agents/skills/flclash-ui-kit/SKILL.md` 作为入口。目录链接是否有效取决于该 Agent 的实际实现。若只有项目指引机制，在当前项目 Agent 指引中记录本仓库绝对路径并要求先读取该路径下的 `SKILL.md`；这属于指引方式，不宣称原生 Skill 自动发现。
+
+本机 Codex CLI 0.149.1 已通过项目目录链接及 `skills/list` 的发现验证；新会话自动调用未通过环境验收，其他 Agent 的自动发现机制尚未验证。提示词中的结果检查和手动路径方式必须保留，详见 [验证记录](docs/audit/verification.md)。
 
 不要将本资源库安装到自身子目录中形成递归链接。不要只下载单个 Skill 文件，也不要把仓库 ZIP 缺失的子模块误认为完整审计源。
 
@@ -64,12 +66,16 @@ cd showcase
 flutter pub get
 flutter run -d windows   # 原生桌面
 flutter run -d chrome    # Flutter Web
-# Android/iOS/macOS/Linux 使用对应已配置的 Flutter 目标。
+# Android/macOS/Linux 使用对应已配置的 Flutter 目标；验收状态见下文。
 ```
 
-Showcase 包含 17 个可交互分类、图标检索、状态与动效切换、代码展开/复制、明暗主题与四种色彩风格、纯黑、玻璃质量和减少动效选项。手机采用分类页与容器转场，桌面采用侧栏。Web 明确显示原生编辑器不可用；原生版本使用真实 Rust 实现；各平台构建与实际运行状态分别记录。
+Showcase 默认进入原版自适应主壳层与仪表盘，可切换完整页面；“工具 → 组件目录”保留 17 个交互分类、源码示例和图标检索。“工具 → 主题”使用提取的完整主题页，提供调色板、字体、缩放、玻璃和导航/转场预览；工具页另有预览宽度和减少动效开关。数据均为明确标示的本地样本，不执行代理服务或系统网络操作。Web 明确显示原生编辑器不可用；原生版本使用真实 Rust 实现。
+
+[独立应用示例](examples/standalone/lib/main.dart) 使用任意页面/操作 ID 构建笔记与布局应用，只依赖核心包。复现全新项目安装、交互测试及构建：`python tools/verify_consumer.py --flutter /path/to/flutter`；Windows 可追加 `--windows --native-runtime`。临时项目只包含核心包副本，不依赖上游源码树或可选原生包。
 
 [可选原生编辑器与平台集成](docs/usage/native.md) 说明初始化、控制器释放、编译要求与实际验证边界。只用基础 UI 时，无需依赖 `packages/editor` 或安装 Rust。
+
+锁定上游应用的平台为 Android、Windows、macOS、Linux。Showcase 的 iOS 工程只是额外 Flutter 模板，未构建验证；可选 editor 缺少 iOS Rust target，不能将模板存在视为支持。
 
 原生 JavaScript 动效使用 [packages/web](packages/web/README.md)，独立可交互展示为 [showcase/web-field.html](showcase/web-field.html)。从仓库根运行 `python -m http.server 8767 --bind 127.0.0.1`，打开 `http://127.0.0.1:8767/showcase/web-field.html`；浏览器模块应通过 HTTP 加载。
 
@@ -84,6 +90,7 @@ packages/platform/            可选窗口、托盘、动态系统颜色及窗�
 packages/web/                 原生 JavaScript Canvas 动效；不依赖 Flutter
 source/upstream/              原始 Git 子模块与 upstream-lock.json
 showcase/                     Flutter 交互展示应用，含平台工程与测试
+examples/standalone/          核心包独立应用与真实复用测试
 docs/audit/                   全文件索引、六项调研、提取矩阵、验证结果
 docs/components/, docs/usage/ 调用、契约、移植与维护说明
 tools/                        审计、差异复现、许可证与交付检查

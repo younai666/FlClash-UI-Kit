@@ -61,6 +61,38 @@ def main():
         'source_lines': [original.count('\n', 0, begin) + 1, original.count('\n', 0, end)],
         'status': '部分提取：WindowCaptionController；应用持久化、退出策略仍在上游',
         'modifications': ['explicit Flutter/kit/window imports', *[{'from': old, 'to': new} for old, new in changes]]}
+    # Keep native font enumeration outside the Web-safe base package. The
+    # platform APIs, COM/CoreFoundation ownership and isolate remain upstream.
+    for source, destination, changes in [
+        ('lib/common/system_fonts.dart', 'lib/src/system_fonts.dart', [
+            ("import 'package:fl_clash/enum/enum.dart';\n", ''),
+            ("import 'package:flutter/foundation.dart' show visibleForTesting;", "import 'package:flutter/foundation.dart' show visibleForTesting, debugPrint;"),
+            ("import 'print.dart';\n", ''),
+            ('loadSystemFontFamilies', 'loadNativeFontFamilies'),
+            ("commonPrint.log('loadNativeFontFamilies: $e', logLevel: LogLevel.warning);", "debugPrint('loadNativeFontFamilies: $e');"),
+        ]),
+        ('test/common/system_fonts_test.dart', 'test/system_fonts_test.dart', [
+            ("package:fl_clash/common/system_fonts.dart", "package:flclash_ui_platform/src/system_fonts.dart"),
+            ('loadSystemFontFamilies', 'loadNativeFontFamilies'),
+        ]),
+    ]:
+        data = (BASE / source).read_text(encoding='utf-8')
+        for old, new in changes:
+            if old not in data:
+                raise SystemExit(f'Review native font adaptation: {old}')
+            data = data.replace(old, new)
+        data = (f'// Derived from FlClash {source}, commit {COMMIT}. GPL-3.0.\n'
+                '// Modified 2026-11-06: optional native package imports, API name and diagnostics.\n' + data)
+        target = ROOT / 'packages/platform' / destination
+        if args.check:
+            if target.read_text(encoding='utf-8') != data:
+                raise SystemExit(f'Native fonts adaptation drift: {destination}')
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(data, encoding='utf-8')
+        ledger['FlClash/' + source] = {'source_commit': COMMIT, 'target': target.relative_to(ROOT).as_posix(),
+            'status': '已提取原生系统字体枚举与测试；Web 不提供枚举，见 verification.md',
+            'modifications': [{'from': old, 'to': new} for old, new in changes]}
     for source in ['lint_options.yaml', 'LICENSE']:
         target = ROOT / 'packages/platform' / source
         if args.check:

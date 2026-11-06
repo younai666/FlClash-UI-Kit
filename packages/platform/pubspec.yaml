@@ -6,6 +6,8 @@ environment:
   sdk: '>=3.13.2 <4.0.0'
   flutter: '>=3.47.2'
 dependencies:
+  ffi: ^2.2.0
+  win32: ^6.4.0
   flclash_ui_kit:
     path: ../flutter
   flutter:

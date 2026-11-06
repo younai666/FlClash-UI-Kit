@@ -20,6 +20,13 @@
 |图标加载含隐藏服务依赖|`widgets/icon.dart`、`common/cache.dart`|保留缓存、8 并发、192 px 解码、回退与迟到结果隔离；PackageIcon 接宿主 loadIcon/cachedIconOf。保留的 8 个上游图标行为测试通过|
 |许可随源树存在，独立运行包可能丢失|prism 嵌入第三方代码、字体、SVG、Rust crates|收集实际 Dart 图与 Cargo.lock 全图；补 crate 包遗漏的固定 Commit 许可、Dart C API BSD；必要原文进运行时资产与 LicenseRegistry。APK 中已查到这些资产|
 |审计只检查文件存在，不比较账册|各 extraction ledger 与生成器|主库、editor、platform、web 的 --check 都比较输出与完整账册；矩阵合并同一源文件的多个目标，保留部分摘录边界|
+|阶段 3.5 仅有模型，视图未进入库|`pages/home.dart`、`manager/app_manager.dart` 的 sidebar、`views/{theme,font_family,hotkey,tools,about}.dart`、`views/profiles/{profiles,add}.dart`|本轮补齐源视图及显式 Scope，保留远距离切页、快照/活跃状态、焦点、返回、字体延迟预览、录制冲突和重排。core 新增 53 项测试，现合计 247 项通过|
+|主壳层键跨实例冲突|Home 原 `GlobalObjectKey(item.label)`|相同标识的两个独立壳层会冲突，改为每个 HomeShellController 持有稳定页面键；真实双实例回归通过|
+|无宿主回调却报告更新成功|ProfilesController 原默认分支刷新 lastUpdateDate|未接更新回调明确拒绝、菜单禁用；本地添加 URL 不伪造下载时间；异步更新结束后不通知已销毁控制器|
+|手机传链接的异步错误与迟到接收器|`views/profiles/add.dart` 的启动/等待链接/关闭链路|显示启动或接收失败诊断，取消后迟到创建的接收器关闭一次；三条错误/取消测试通过|
+|完整页面 Showcase 的布局和状态问题|桌面模式栏误用手机卡片；手机 feed 不在常驻导航；const 壳层捕获宿主可变字段|恢复 OutboundModeBar、手机 feed 推入实际页面、宿主状态变化重建壳层；手机/桌面实际导航及按钮状态回归通过|
+|Showcase 主题绕过字体策略|自建 ThemeData 只传 colorScheme，使 KitApp 的 fontFamily/fallback 与暗色 elevated 策略失效|移除重复主题构建，直接复用 KitApp；新增字体实际进入 ThemeData、导航英/中文切换回归；请求/DNS 导航图标对齐上游 Navigation|
+|字体枚举为隐性原生依赖|`common/system_fonts.dart` 使用 FFI/Isolate、DirectWrite/CoreText/fontconfig|原实现进入 platform，核心包只注入 reader，Web 使用条件空实现；原生包 7 项测试通过，Windows 原生读到 111 个 family|
 
 ## 字体与资源核对
 
@@ -33,12 +40,10 @@ JetBrains Mono 内部版本为 2.304，与官方 v2.304 字体字节一致。已
 
 |范围|当前缺口与下一步契约|
 |---|---|
-|完整配置/设置/代理等业务页面|84 个 page 分类**文件**包含 views 子组件，不能当成 84 个独立屏幕。逐文件参考、依赖与状态在 extraction-matrix。仍需将数据库、全局 provider、文件/VPN/核心动作改为宿主数据与回调，逐页面保留布局后运行|
-|代理组与连接业务组合|`proxy_groups.dart` 的完整 grid/summary/选中链路，`connections_table.dart` 的三类 feed、节流计数、轮询与 snapshot 生命周期尚未完整抽离；需要分组显示数据、选中/详情回调、feed reader 与取消/节流契约。通用记录表格已提取，不等同于这些业务组合|
-|更新与核心状态 UI|`update_status.dart`、`core_status_button.dart` 仍含下载/安装/核心连通状态；需提取状态模型与 onRetry/onInstall 等动作，保留消失占位和动画衔接|
-|其他业务呈现|连接/MITM 请求正文、IP 质量详情、规则/资源/配置等自定义编辑和选择页仍有业务依赖；不能将一个通用表单替代它们后标为完成|
+|剩余业务页面|`views/config/*`、`views/profiles/custom/*`、`profiles/edit/extend/preview`、`resources`、`access`、`backup_and_restore` 等仍未独立抽离。page 分类是文件数量，含子组件和聚合入口，不能当成屏幕数；具体依赖与状态以 extraction-matrix 为准|
+|其他业务呈现|连接/MITM 正文与 exchange 菜单、规则/资源选择、QuickEdit 等完整工作流仍有核心、数据库或文件依赖。Dashboard grid/summary、三类 feed、更新/核心状态 UI、IP 质量详情已在现有实现内，不再重复列为缺失|
 |编辑器应用层|Clash schema、业务 completion、文件安全加载/保存、QuickEdit 的完整工作流仍保留参考。CodeForge 自身与 NativeCodeEditor 可运行并非整页 EditorPage 全部迁移|
 |相机与平台服务|扫描绘制可用，实际相机权限、二维码识别、图库、返回与应用服务生命周期未独立接入验证；窗口/托盘实际系统效果也需各平台运行|
 |本地化与所有变体|目前 Kit 提供英/中文；上游完整 ARB 与调用者保留。公开支持类型不都拥有独立 Showcase，目录列出真实调用与缺口|
-|平台与视觉|构建、运行、截图与测试各自记录在 verification；未运行的平台不算通过。Windows 原生截图通道故障不再反复排查；Android 原生与 Web 的实测不能替代所有系统的字体、材质、输入法和性能验收|
-|Skill 与发布|格式、目录、链接和独立包使用可自动检查；新的 Agent 会话主动发现/调用行为与其他 Agent 机制仍需分别证明。没有发布 GitHub 远程或宣称整体目标完成|
+|平台与视觉|Windows 原生 Profile 导航/主题/配置及引擎帧捕获已通过；系统截图通道故障不再排查。Android/Web 本轮与历史证据、渲染器限制分别见 verification；macOS/Linux/iOS 未构建运行，逐帧对照、长时性能和全部输入/材质仍未验收|
+|Skill 与发布|Codex CLI 项目链接被 skills/list 识别并启用；自动调用尝试先遇到只读命令策略拒绝，后遇到当前 CLI 的模型不支持，未宣称通过。其他 Agent 自动机制、远程 Git 安装、正式签名与 GitHub 发布均未验收|

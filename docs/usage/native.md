@@ -70,6 +70,8 @@ final seeds = await DynamicColorPlugin.getSystemSeeds();
 
 ## 维护与验证
 
+字体枚举同样属于此可选包：`ThemeController(fontFamiliesReader: loadNativeFontFamilies)` 接回原生 DirectWrite/CoreText/fontconfig/Android reader。基库不导入 FFI/IO/Isolate；Web 的条件入口返回空列表。枚举字体名称不代表拥有字体文件的分发许可。Windows 已读到 111 个 family，Android 模拟器读到 9 个；macOS/Linux/iOS 未在本机验证。
+
 编辑器修改通过 `tools/extract_editor.py` 重现；插件与窗口控制器通过 `tools/extract_platform.py` 重现。不要改写原始快照或未修改的 vendor 代码来消除样式提示。
 
 生成桥接使用 `flutter_rust_bridge_codegen 2.13.0`，在 `packages/editor/vendor/rust_api` 执行 `flutter_rust_bridge_codegen generate`。配置、API 和 Cargo.lock 已随包提供。编译时 Native Assets 构建 editor-only crate；不加载原 app 的 QuickJS、IPC、热键或代理服务。完整 Rust 依赖许可由 `tools/rust_licenses.py` 根据 `cargo metadata --locked --format-version 1` 与 Cargo.lock 交叉核对。

@@ -9,6 +9,8 @@ Original copyright holders retain their rights. This project does not claim auth
 
 The runtime prism_ui copy is in `packages/flutter/vendor/prism_ui`. Its only runtime implementation change is the explicitly supplied `Clip.antiAlias` argument to `SceneBuilder.pushClipRSuperellipse` for Flutter 3.47.9 Web compilation. Application adaptations remove service/provider/singleton access in favor of localization, scoped measurement, presentation data and callbacks. The complete outbound card, traffic, memory, services, network controls, profile summaries/details, form/filter/preview and scan presentation are adapted with host-owned data and callbacks. Partial-page boundaries remain explicit in the extraction ledgers. Some regression suites were adapted by changing imports and test hosts. New KitApp, localization, documentation, tooling and Showcase composition are GPL-3.0-only.
 
+The application shell/sidebar, proxy and record views, theme/font-family/shortcut settings, tools/about pages and profile list/addition views retain upstream presentation and motion with explicit host scopes. Shell page keys are isolated per controller; unavailable host updates do not simulate success, and late asynchronous profile/phone-receiver completion is handled explicitly. Native system font enumeration from FlClash lib/common/system_fonts.dart is retained in the optional platform package with renamed public entry, standalone imports and diagnostics; its original FFI/isolate implementation remains outside the Web-safe core. The ledgers record the full source and adaptation scope.
+
 Third-party notices retained from prism_ui:
 
 - `lib/hct/`: material_color_utilities, Copyright 2021 Google LLC, Apache-2.0.

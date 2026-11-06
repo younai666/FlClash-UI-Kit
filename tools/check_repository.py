@@ -17,7 +17,7 @@ def main():
     if records != audit.census():
         raise SystemExit('Source census drift; review and regenerate the audit.')
     failures = []
-    files = [ROOT / 'README.md', ROOT / 'SKILL.md', ROOT / 'NOTICE.md', *(ROOT / 'docs').rglob('*.md')]
+    files = [ROOT / 'README.md', ROOT / 'SKILL.md', ROOT / 'NOTICE.md', ROOT / 'HANDOFF.md', *(ROOT / 'docs').rglob('*.md')]
     files += [p for p in (ROOT / 'packages').glob('*/README.md')]
     for file in files:
         for target in re.findall(r'\]\(([^)]+)\)', file.read_text(encoding='utf-8')):
@@ -61,6 +61,12 @@ def main():
         for target in re.findall(r'^\s+-\s+(?:asset:\s*)?(assets/\S+)', text, re.M):
             if not (spec.parent / target).exists():
                 failures.append(f'Broken runtime asset declaration: {spec} -> {target}')
+    # The core's declared Web-safe boundary must survive native integrations.
+    # Native font enumeration and editor/OS services belong to optional packages.
+    for file in (ROOT / 'packages/flutter/lib').rglob('*.dart'):
+        for uri in re.findall(r"^\s*(?:import|export)\s+['\"]([^'\"]+)['\"]", file.read_text(encoding='utf-8'), re.M):
+            if uri in {'dart:io', 'dart:ffi', 'dart:isolate'} or uri.startswith(('package:fl_clash/', 'package:flutter_riverpod/')):
+                failures.append(f'Core portability contract violated: {file.relative_to(ROOT)} -> {uri}')
     if failures:
         raise SystemExit('\n'.join(failures))
     for script in ['extract.py', 'extract_editor.py', 'extract_platform.py', 'extract_web.py', 'bundled_notices.py']:

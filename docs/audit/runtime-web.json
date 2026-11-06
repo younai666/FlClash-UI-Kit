@@ -1,0 +1,30 @@
+{
+  "url": "http://127.0.0.1:8768",
+  "viewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "captureMethod": "headless Chrome CDP; real compiled Flutter Web",
+  "runtimeExceptions": [],
+  "semanticsCount": 63,
+  "interactions": [
+    {
+      "action": "click Tools",
+      "passed": true
+    },
+    {
+      "action": "append local record, open Requests",
+      "passed": true
+    },
+    {
+      "action": "open Theme",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "screenshots/stage4-web-dashboard.png",
+    "screenshots/stage4-web-theme.png"
+  ],
+  "browser": "Chrome/157.0.8103.38",
+  "tested_at": "2026-11-06"
+}

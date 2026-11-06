@@ -8,10 +8,12 @@ BASE = ROOT / 'source/upstream/FlClash'
 COMMIT = 'be84736605527034689c95bf27828ff27d912c5e'
 FILES = {}
 EXCERPTS = {}
+MODIFIED_DATES = {}
 
 
-def register(source, target, changes=(), *, excerpt=None):
+def register(source, target, changes=(), *, excerpt=None, modified='2026-11-05'):
     FILES[source] = (target, changes)
+    MODIFIED_DATES[source] = modified
     if excerpt:
         EXCERPTS[source] = excerpt
 
@@ -201,7 +203,7 @@ def main():
             content += '\nenum TrafficUnit { B, KB, MB, GB, TB }\ntypedef TrafficShow = ({String value, String unit});\n'
             content += "\n// From lib/models/common.dart:560-562, adapted to the record projection.\nextension TrafficShowExt on TrafficShow {\n  String get show => '$value$unit';\n}\n"
         relative = ('packages/flutter/' + target[1:]) if target.startswith('@') else f'packages/flutter/lib/src/{target}'
-        provenance = f'// Derived from chen08209/FlClash, {source}\n// Commit: {COMMIT}; GPL-3.0, except retained third-party headers.\n// Modified 2026-11-05 for FlClash-UI-Kit: '
+        provenance = f'// Derived from chen08209/FlClash, {source}\n// Commit: {COMMIT}; GPL-3.0, except retained third-party headers.\n// Modified {MODIFIED_DATES[source]} for FlClash-UI-Kit: '
         note = 'imports, localization/host contracts; original drawing and motion retained.' if changes else 'provenance header only.'
         content = provenance + note + '\n\n' + content
         file = ROOT / relative

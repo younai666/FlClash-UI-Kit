@@ -49,6 +49,14 @@ Flutter Web 的 CanvasKit 字体来自注册资产和引擎回退，不能靠填
 
 ## 常见集成
 
+完整应用组合见 [standalone/lib/main.dart](../../examples/standalone/lib/main.dart) 与 [app_pages.dart](../../showcase/lib/app_pages.dart)。`HomeShellController` 接收 `NavigationItem` 列表、任意 `Object` 页面标识和 fallback；在 `KitApp.builder` 中将 `HomeShellScope`、`ThemeScope`、`ProfilesScope`、`HotKeyScope` 放在 Navigator **上方**，弹层才能访问同一控制器。每个同时挂载的 HomePage 使用自己的 HomeShellController，销毁时释放控制器。
+
+页面 builder 捕获宿主 `setState` 字段时，宿主构建返回 `HomePage()`，保证新的字段传入页面；不要将捕获可变字段的整棵入口固定成 `const HomePage()`。由独立 Listenable 驱动的页面也可自行监听。示例测试实际验证了按钮状态、跨页草稿、任意 ID 的快捷键录制和主题变更。
+
+`ThemeController` 保存主题设置；宿主将其映射到 `KitApp`，并将导航回调接到 HomeShellController。字体列表通过 `fontFamiliesReader` 注入。需要原生枚举时依赖可选 `flclash_ui_platform` 并传入 `loadNativeFontFamilies`；其 DirectWrite/CoreText/fontconfig/Android 实现不进入核心包。Web 不提供本机字体枚举，字体文件仍需宿主依法注册。
+
+`ProfilesController` 的默认添加/重命名/重排是内存操作；添加 URL 不下载内容，也不会伪造更新时间。下载、文件导入、扫码、预览/编辑/扩展/导出均由明确回调接入；未提供的菜单操作禁用。`onPutProfile`、重排和删除回调接持久化时采用先更新内存的契约，宿主负责存储失败的恢复。`PhoneLinkSession` 提供地址、链接 Future 和异步 close；关闭应完成资源释放且不抛错。快捷键录制只保存绑定，系统注册与执行由宿主完成。
+
 `Palette` 接收宿主创建并释放的 `ValueNotifier<Color>`；`QrCodeView` 保持白底和安静区，超容量时显示文字。`ListItem.open` 在手机使用 OpenContainer、桌面使用扩展页面/面板。
 
 `showSnapSheet(context, builder: (context, scroll) => Scaffold(body: ListView(controller: scroll, ...)))` 让列表与拖动手势共享控制器。不要再嵌套一个玻璃主机。FloatingNavigationBar 与 LineChart 必须获得有限高度。Dashboard 编辑需要稳定的 GlobalKey 和唯一 id；回调只报告展示顺序，持久化交给宿主。
@@ -58,11 +66,11 @@ Flutter Web 的 CanvasKit 字体来自注册资产和引擎回退，不能靠填
 ```bash
 cd packages/flutter
 flutter pub get
-flutter analyze --no-fatal-infos
+flutter analyze
 flutter test
 cd ../../showcase
 flutter pub get
-flutter analyze --no-fatal-infos
+flutter analyze
 flutter test
 flutter build windows --release
 flutter build web --release

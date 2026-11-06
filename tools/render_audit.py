@@ -39,6 +39,17 @@ PURPOSE = {
     'network_takeover': '系统代理/TUN/VPN 的卡片与磁贴变体、尺寸感知图标及形状反馈',
     'window_manager': '原生窗口事件、标题栏拖动、双击、置顶、最大化、全屏及关闭策略',
     'field': 'Canvas 胶囊场：避让、弹簧伸缩、鼠标唤起、滚动加速、可见性暂停、明暗调色',
+    'home': '响应式主壳层；远距离切页重排、淡入/滑动、快照、页面活跃与焦点隔离、返回行为',
+    'app_manager': '侧栏宽度与材质已摘录；网络、后台服务与应用生命周期保留宿主边界',
+    'theme': '种子调色板、色彩风格、玻璃、文字缩放、导航/转场配置与实时缩略预览',
+    'font_family': '字体选择、每帧延迟预览、滚动与转场暂停；原生枚举由 platform 提供',
+    'system_fonts': 'DirectWrite/CoreText/fontconfig/Android 字体枚举；isolate 与原生资源释放',
+    'hotkey': '热键录制、USB HID、修饰键验证、冲突移动与失败详情；宿主负责系统注册',
+    'profiles': '配置网格、焦点/选中定位、拖动重排、上下文菜单；文件与同步由宿主提供',
+    'about': '元数据、贡献者、链接和五次点击入口；品牌资源由宿主合法提供',
+    'tools': '更多导航、语言与设置/工具入口；通过宿主 Scope 连接实际视图',
+    'connections_table': '连接/请求/DNS 三类 feed、快照/节流/轮询、列宽与页面活跃状态',
+    'proxy_groups': '策略组 grid、summary、选中节点与跳转交互；选择数据来自宿主',
 }
 
 
@@ -57,6 +68,12 @@ def state(r, extracted):
         items = extracted[key]
         return '；'.join(dict.fromkeys(item['status'] for item in items)), '；'.join(dict.fromkeys(
             target for item in items for target in [item['target'], *item.get('additional_targets', [])]))
+    if r['repo'] == 'FlClash' and r['path'] in {
+        'lib/pages/pages.dart', 'lib/views/views.dart', 'lib/features/features.dart',
+        'lib/features/form/form.dart', 'lib/ui/ui.dart', 'lib/ui/icons/icons.dart',
+        'lib/widgets/widgets.dart', 'lib/views/dashboard/widgets/widgets.dart',
+    }:
+        return '上游 export 聚合入口；无独立 UI，不作为缺失组件计数', '统一入口 packages/flutter/lib/flclash_ui_kit.dart；业务 export 仍为参考'
     if r['repo'] == 'prism_ui':
         return ('原样依赖（待运行验证）', 'packages/flutter → pinned prism_ui') if r['path'].startswith(('lib/', 'shaders/')) else ('保留上游验证/文档', 'source/upstream/prism_ui')
     if r['category'] in {'app-ui', 'app-widget'}:
@@ -138,7 +155,7 @@ def main():
             if 'LICENSE' in r['path'] or len(p['text']) > 240:
                 continue
             licenses.append(f"|[{r['repo']}/{r['path']}:L{p['line']}]({src(r,p['line'])})|{p['text'].replace('|','/')}|")
-    licenses += ['', '四个实际消费包的 Dart 依赖完整许可见 ../../licenses/dependencies/index.json；Rust Cargo.lock 全图见 ../../licenses/rust/index.json。tools/dependency_licenses.py、rust_licenses.py 与 bundled_notices.py 保存完整许可证并将必要原文装入运行时包；许可证缺失或字体授权未清之前，不发布含这些内容的二进制/资产包。法律条文以各原始许可证为准。']
+    licenses += ['', '五个实际消费包（含 standalone 示例）的 Dart 依赖完整许可见 ../../licenses/dependencies/index.json；Rust Cargo.lock 全图见 ../../licenses/rust/index.json。tools/dependency_licenses.py、rust_licenses.py 与 bundled_notices.py 保存完整许可证并将必要原文装入运行时包；许可证缺失或字体授权未清之前，不发布含这些内容的二进制/资产包。法律条文以各原始许可证为准。']
     write('license-inventory.md', licenses)
     print(f'Rendered six audit documents; {len(records)} source records; {len(frontend)} associated frontend records.')
 

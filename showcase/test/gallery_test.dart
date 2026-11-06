@@ -6,22 +6,32 @@ import 'package:flclash_ui_showcase/section.dart';
 import 'package:flclash_ui_showcase/main.dart';
 
 void main() {
-  testWidgets('mobile home keeps content below its bar and opens live controls', (tester) async {
-    tester.view.physicalSize = const Size(390, 844);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    await tester.pumpWidget(const ShowcaseApp());
-    await tester.pumpAndSettle();
-    expect(tester.getTopLeft(find.text('原生组件 · 可交互动效 · 可检索源码')).dy,
-        greaterThan(tester.getBottomLeft(find.text('FlClash UI Kit')).dy));
-    await tester.tap(find.text('基础控件'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('确认'));
-    await tester.pump();
-    expect(find.text('已触发 1 次'), findsOneWidget);
-    expect(tester.takeException(), isNull);
-  });
+  testWidgets(
+    'mobile home keeps content below its bar and opens live controls',
+    (tester) async {
+      tester.view.physicalSize = const Size(390, 844);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        KitApp(
+          locale: const Locale('zh'),
+          home: GalleryHome(onSettings: (_) {}),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(
+        tester.getTopLeft(find.text('原生组件 · 可交互动效 · 可检索源码')).dy,
+        greaterThan(tester.getBottomLeft(find.text('FlClash UI Kit')).dy),
+      );
+      await tester.tap(find.text('基础控件'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('确认'));
+      await tester.pump();
+      expect(find.text('已触发 1 次'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    },
+  );
   for (final size in const [Size(390, 844), Size(1280, 900)]) {
     testWidgets('all live demo pages render and scroll at $size', (
       tester,

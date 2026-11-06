@@ -112,4 +112,4 @@
 |[prism_ui/shaders/ink_sparkle.frag:L3](https://github.com/chen08209/prism_ui/blob/63450c0ac0e8e1b2c0f3ed4ad7926dc94e083185/shaders/ink_sparkle.frag#L3)|// Copyright 2013 The Flutter Authors|
 |[prism_ui/shaders/ink_sparkle.frag:L4](https://github.com/chen08209/prism_ui/blob/63450c0ac0e8e1b2c0f3ed4ad7926dc94e083185/shaders/ink_sparkle.frag#L4)|// Use of this source code is governed by a BSD-style license that can be|
 
-四个实际消费包的 Dart 依赖完整许可见 ../../licenses/dependencies/index.json；Rust Cargo.lock 全图见 ../../licenses/rust/index.json。tools/dependency_licenses.py、rust_licenses.py 与 bundled_notices.py 保存完整许可证并将必要原文装入运行时包；许可证缺失或字体授权未清之前，不发布含这些内容的二进制/资产包。法律条文以各原始许可证为准。
+五个实际消费包（含 standalone 示例）的 Dart 依赖完整许可见 ../../licenses/dependencies/index.json；Rust Cargo.lock 全图见 ../../licenses/rust/index.json。tools/dependency_licenses.py、rust_licenses.py 与 bundled_notices.py 保存完整许可证并将必要原文装入运行时包；许可证缺失或字体授权未清之前，不发布含这些内容的二进制/资产包。法律条文以各原始许可证为准。

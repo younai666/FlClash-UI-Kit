@@ -4762,6 +4762,1162 @@
       83
     ]
   },
+  "FlClash/lib/pages/home.dart": {
+    "status": "已提取；运行验证见 verification.md",
+    "target": "packages/flutter/lib/src/shell/home.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "import 'package:fl_clash/common/common.dart';\nimport 'package:fl_clash/enum/enum.dart';\nimport 'package:fl_clash/manager/app_manager.dart';\nimport 'package:fl_clash/models/common.dart';\nimport 'package:fl_clash/providers/providers.dart';\nimport 'package:fl_clash/ui/icons/icons.dart';\nimport 'package:fl_clash/widgets/widgets.dart';\nimport 'package:flutter/foundation.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\nimport 'package:prism_ui/prism_ui.dart';\n",
+        "to": "import 'package:flutter/foundation.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flclash_ui_kit/flclash_ui_kit.dart';\n\n"
+      },
+      {
+        "from": "    final hasViewSize = ref.watch(\n      viewSizeProvider.select((size) => !size.isEmpty),\n    );",
+        "to": "    final shell = HomeShellScope.of(context);\n    final hasViewSize = !shell.viewSizeOf(context).isEmpty && shell.currentNavigationItemsOf(context).isNotEmpty;"
+      },
+      {
+        "from": "              final navigationItems = ref\n                  .watch(currentNavigationItemsStateProvider)\n                  .value;\n              final isMobile = ref.watch(isMobileViewProvider);",
+        "to": "              final shell = HomeShellScope.of(context);\n              final navigationItems = shell.currentNavigationItemsOf(context);\n              final isMobile = shell.viewModeOf(context) == ViewMode.mobile;"
+      },
+      {
+        "from": "  void _handleToPage(PageLabel pageLabel, WidgetRef ref) {\n    ref.read(currentPageLabelProvider.notifier).toPage(pageLabel);\n  }",
+        "to": "  void _handleToPage(Object pageLabel, BuildContext context) {\n    HomeShellScope.read(context).openPage(pageLabel);\n  }"
+      },
+      {
+        "from": "ref.watch(navigationStateProvider)",
+        "to": "HomeShellScope.of(context).navigationStateOf(context)"
+      },
+      {
+        "from": "ref.watch(\n      appSettingProvider.select((state) => state.floatingNavigationBar),\n    )",
+        "to": "HomeShellScope.of(context).floatingNavigationBar"
+      },
+      {
+        "from": "item.label.label",
+        "to": "item.titleOf(context)"
+      },
+      {
+        "from": "    return Consumer(\n      builder: (_, ref, child) {\n        final isActive = ref.watch(\n          shownPageLabelProvider.select((label) => label == item.label),\n        );\n        // A kept-alive page off screen still ticks its animations, and\n        // each tick asks for a frame.\n        return PageActivityScope(\n          isActive: isActive,\n          child: TickerMode(\n            enabled: isActive,\n            child: ExcludeFocus(\n              excluding: !isActive,\n              child: KeyboardInsetHold(child: child!),\n            ),\n          ),\n        );\n      },\n      child: keptView,\n    );",
+        "to": "    final isActive = HomeShellScope.of(context).shownPageLabel(context) == item.label;\n    return PageActivityScope(\n      isActive: isActive,\n      child: TickerMode(\n        enabled: isActive,\n        child: ExcludeFocus(\n          excluding: !isActive,\n          child: KeyboardInsetHold(child: keptView),\n        ),\n      ),\n    );"
+      },
+      {
+        "from": "ConsumerState createState()",
+        "to": "State<_HomePageView> createState()"
+      },
+      {
+        "from": "    ref.listenManual(currentPageLabelProvider, (prev, next) {\n      if (prev != next) {\n        _toPage(next);\n      }\n    });",
+        "to": "    _shell = HomeShellScope.read(context);\n    _lastLabel = _shell.pageLabel;\n    _shell.addListener(_handleShellChanged);"
+      },
+      {
+        "from": "  List<int>? _order;",
+        "to": "  late HomeShellController _shell;\n  late Object _lastLabel;\n  void _handleShellChanged() {\n    if (_lastLabel == _shell.pageLabel) return;\n    _lastLabel = _shell.pageLabel;\n    WidgetsBinding.instance.addPostFrameCallback((_) {\n      if (mounted && _pageController.hasClients) _toPage(_shell.pageLabel);\n    });\n  }\n  @override\n  void didChangeDependencies() {\n    super.didChangeDependencies();\n    final next = HomeShellScope.of(context);\n    if (!identical(next, _shell)) {\n      _shell.removeListener(_handleShellChanged);\n      _shell = next;\n      _shell.addListener(_handleShellChanged);\n      _handleShellChanged();\n    }\n  }\n  List<int>? _order;"
+      },
+      {
+        "from": "List<PageLabel>",
+        "to": "List<Object>"
+      },
+      {
+        "from": "PageLabel pageLabel",
+        "to": "Object pageLabel"
+      },
+      {
+        "from": "ref.read(currentPageLabelProvider)",
+        "to": "HomeShellScope.read(context).pageLabel"
+      },
+      {
+        "from": "ref.read(appSettingProvider).tabAnimation",
+        "to": "HomeShellScope.read(context).tabAnimation"
+      },
+      {
+        "from": "ref.read(isMobileViewProvider)",
+        "to": "(HomeShellScope.read(context).viewModeOf(context) == ViewMode.mobile)"
+      },
+      {
+        "from": "    final itemCount = ref.watch(\n      currentNavigationItemsStateProvider.select((state) => state.value.length),\n    );",
+        "to": "    final itemCount = widget.navigationItems.length;"
+      },
+      {
+        "from": "ref.watch(\n      appSettingProvider.select(\n        (state) => state.tabAnimation == TabAnimation.fade,\n      ),\n    )",
+        "to": "(HomeShellScope.of(context).tabAnimation == TabAnimation.fade)"
+      },
+      {
+        "from": "ValueKey<PageLabel>",
+        "to": "ValueKey<Object>"
+      },
+      {
+        "from": "GlobalObjectKey(item.label)",
+        "to": "HomeShellScope.read(context).pageKeyOf(item.label)"
+      },
+      {
+        "from": "GlobalObjectKey(pageLabel).currentContext",
+        "to": "HomeShellScope.read(context).pageKeyOf(pageLabel).currentContext"
+      },
+      {
+        "from": "${item.label.name}_navigator",
+        "to": "${item.label}_navigator"
+      },
+      {
+        "from": "    _pageController.dispose();",
+        "to": "    _shell.removeListener(_handleShellChanged);\n    _pageController.dispose();"
+      },
+      {
+        "from": "ref.read(shownPageLabelProvider)",
+        "to": "HomeShellScope.read(context).shownPageLabel(context)"
+      },
+      {
+        "from": "system.isTV && pageLabel != PageLabel.dashboard",
+        "to": "HomeShellScope.read(context).isTV && pageLabel != HomeShellScope.read(context).fallbackPageLabel"
+      },
+      {
+        "from": "ref\n              .read(currentPageLabelProvider.notifier)\n              .toPage(PageLabel.dashboard);",
+        "to": "HomeShellScope.read(context).openPage(HomeShellScope.read(context).fallbackPageLabel);"
+      },
+      {
+        "from": "ref.read(systemActionProvider.notifier).handleClose()",
+        "to": "HomeShellScope.read(context).requestExit()"
+      },
+      {
+        "from": "ConsumerStatefulWidget",
+        "to": "StatefulWidget"
+      },
+      {
+        "from": "ConsumerState<",
+        "to": "State<"
+      },
+      {
+        "from": "extends ConsumerWidget",
+        "to": "extends StatelessWidget"
+      },
+      {
+        "from": "Widget build(BuildContext context, WidgetRef ref)",
+        "to": "Widget build(BuildContext context)"
+      },
+      {
+        "from": "BuildContext context, ref)",
+        "to": "BuildContext context)"
+      },
+      {
+        "from": "Consumer(",
+        "to": "Builder("
+      },
+      {
+        "from": "builder: (_, ref, _)",
+        "to": "builder: (context)"
+      },
+      {
+        "from": "ref",
+        "to": "context"
+      }
+    ],
+    "source_lines": [
+      1,
+      485
+    ]
+  },
+  "FlClash/lib/manager/app_manager.dart": {
+    "status": "部分提取：Sidebar presentation only; app lifecycle/network/service managers remain in upstream",
+    "target": "packages/flutter/lib/src/shell/sidebar.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "ConsumerWidget",
+        "to": "StatelessWidget"
+      },
+      {
+        "from": "Widget build(BuildContext context, WidgetRef ref)",
+        "to": "Widget build(BuildContext context)"
+      },
+      {
+        "from": "ref.watch(\n      appSettingProvider.select((state) => state.sidebarExpanded),\n    )",
+        "to": "HomeShellScope.of(context).sidebarExpanded"
+      },
+      {
+        "from": "ref.watch(versionProvider)",
+        "to": "HomeShellScope.of(context).osVersion"
+      },
+      {
+        "from": "item.label.label",
+        "to": "item.titleOf(context)"
+      },
+      {
+        "from": "ref\n                  .read(appSettingProvider.notifier)\n                  .update(\n                    (state) =>\n                        state.copyWith(sidebarExpanded: !state.sidebarExpanded),\n                  );",
+        "to": "final shell = HomeShellScope.read(context);\n              shell.setSidebarExpanded(!shell.sidebarExpanded);"
+      },
+      {
+        "from": "system.isMacOS",
+        "to": "HomeShellScope.of(context).isMacOS"
+      },
+      {
+        "from": "  void _updateSideBarWidth(WidgetRef ref, double contentWidth) {\n    WidgetsBinding.instance.addPostFrameCallback((_) {\n      ref.read(sideWidthProvider.notifier).value =\n          ref.read(viewSizeProvider.select((state) => state.width)) -\n          contentWidth;\n    });\n  }",
+        "to": "  void _updateSideBarWidth(BuildContext context, double contentWidth) {\n    final shell = HomeShellScope.read(context);\n    final width = shell.viewSizeOf(context).width - contentWidth;\n    WidgetsBinding.instance.addPostFrameCallback((_) {\n      if (context.mounted) shell.setSideWidth(width);\n    });\n  }"
+      },
+      {
+        "from": "WidgetRef ref, PageLabel pageLabel",
+        "to": "BuildContext context, Object pageLabel"
+      },
+      {
+        "from": "ref.read(currentPageLabelProvider.notifier).toPage(pageLabel)",
+        "to": "HomeShellScope.read(context).openPage(pageLabel)"
+      },
+      {
+        "from": "ref.watch(navigationStateProvider)",
+        "to": "HomeShellScope.of(context).navigationStateOf(context)"
+      },
+      {
+        "from": "ref.watch(windowBlurProvider)",
+        "to": "HomeShellScope.of(context).backdropOpacity"
+      },
+      {
+        "from": "_handleToPage(ref,",
+        "to": "_handleToPage(context,"
+      },
+      {
+        "from": "_updateSideBarWidth(ref,",
+        "to": "_updateSideBarWidth(context,"
+      }
+    ],
+    "source_lines": [
+      146,
+      281
+    ]
+  },
+  "FlClash/lib/views/theme.dart": {
+    "status": "已提取；运行验证见 verification.md",
+    "target": "packages/flutter/lib/src/theme/view.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "import 'dart:async';\nimport 'dart:math';\n\nimport 'package:fl_clash/common/common.dart';\nimport 'package:fl_clash/enum/enum.dart';\nimport 'package:fl_clash/models/models.dart';\nimport 'package:fl_clash/providers/config.dart';\nimport 'package:fl_clash/providers/state.dart';\nimport 'package:fl_clash/ui/icons/icons.dart';\nimport 'package:fl_clash/views/font_family.dart';\nimport 'package:fl_clash/views/theme_preview.dart';\nimport 'package:fl_clash/widgets/widgets.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\n",
+        "to": "import 'dart:async';\nimport 'dart:math';\nimport 'package:flutter/widgets.dart';\nimport 'package:flclash_ui_kit/flclash_ui_kit.dart';\n\n"
+      },
+      {
+        "from": "    final themeColors = ref.watch(\n      themeSettingProvider.select(\n        (state) => ThemeColorsSelectorState(\n          primaryColor: state.primaryColor,\n          primaryColors: state.primaryColors,\n          colorStyle: state.colorStyle,\n          isDefault:\n              state.primaryColor == defaultPrimaryColor &&\n              intListEquality.equals(\n                state.primaryColors,\n                defaultPrimaryColors,\n              ) &&\n              state.colorStyle == ColorStyle.vivid,\n        ),\n      ),\n    );",
+        "to": "    final props = ThemeScope.of(context).themeProps;\n    final themeColors = (\n      primaryColor: props.primaryColor, primaryColors: props.primaryColors, colorStyle: props.colorStyle,\n      isDefault: props.primaryColor == defaultPrimaryColor && intListEquality.equals(props.primaryColors, defaultPrimaryColors) && props.colorStyle == ColorStyle.vivid,\n    );"
+      },
+      {
+        "from": "final _floatingBarProvider = appSettingProvider.select(\n  (state) => state.floatingNavigationBar,\n);\n\nfinal _liquidGlassProvider = themeSettingProvider.select(\n  (state) => state.liquidGlass != LiquidGlassMode.none,\n);\n\n",
+        "to": ""
+      },
+      {
+        "from": "selector: themeSettingProvider.select(\n                (state) => state.sidebarBlur,\n              ),\n              onChanged: (ref, value) => ref\n                  .read(themeSettingProvider.notifier)\n                  .update((state) => state.copyWith(sidebarBlur: value)),",
+        "to": "value: ThemeScope.of(context).themeProps.sidebarBlur,\n              onChanged: (value) => ThemeScope.read(context).updateThemeProps((state) => state.copyWith(sidebarBlur: value)),"
+      },
+      {
+        "from": "ref.watch(\n      themeSettingProvider.select((state) => state.themeMode),\n    )",
+        "to": "ThemeScope.of(context).themeProps.themeMode"
+      },
+      {
+        "from": "ref.watch(_floatingBarProvider)",
+        "to": "ThemeScope.of(context).floatingNavigationBar"
+      },
+      {
+        "from": "ref.watch(_liquidGlassProvider)",
+        "to": "(ThemeScope.of(context).themeProps.liquidGlass != LiquidGlassMode.none)"
+      },
+      {
+        "from": "ref.watch(genColorSchemeProvider(Brightness.light))",
+        "to": "ThemeScope.of(context).colorSchemeFor(Brightness.light)"
+      },
+      {
+        "from": "ref.watch(genColorSchemeProvider(Brightness.dark))",
+        "to": "ThemeScope.of(context).colorSchemeFor(Brightness.dark)"
+      },
+      {
+        "from": "ref\n        .watch(dynamicColorProvider)",
+        "to": "ThemeScope.of(context).dynamicColor"
+      },
+      {
+        "from": "ref.watch(\n      themeSettingProvider.select((state) => state.pureBlack),\n    )",
+        "to": "ThemeScope.of(context).themeProps.pureBlack"
+      },
+      {
+        "from": "ref.watch(\n          genColorSchemeProvider(Brightness.dark, pureBlack: pureBlack),\n        )",
+        "to": "ThemeScope.of(context).colorSchemeFor(Brightness.dark, pureBlack: pureBlack)"
+      },
+      {
+        "from": "ref.watch(\n      appSettingProvider.select((state) => state.tabAnimation),\n    )",
+        "to": "ThemeScope.of(context).tabAnimation"
+      },
+      {
+        "from": "ref.watch(\n      themeSettingProvider.select((state) => state.liquidGlass),\n    )",
+        "to": "ThemeScope.of(context).themeProps.liquidGlass"
+      },
+      {
+        "from": "ref.watch(\n      themeSettingProvider.select((state) => state.fontFamily),\n    )",
+        "to": "ThemeScope.of(context).themeProps.fontFamily"
+      },
+      {
+        "from": "ref.watch(\n      themeSettingProvider.select((state) => state.textScale),\n    )",
+        "to": "ThemeScope.of(context).themeProps.textScale"
+      },
+      {
+        "from": "ref.watch(\n                  genColorSchemeProvider(brightness, color: color),\n                )",
+        "to": "ThemeScope.of(context).colorSchemeFor(brightness, color: color)"
+      },
+      {
+        "from": "ref\n            .read(themeSettingProvider.notifier)",
+        "to": "ThemeScope.read(context)"
+      },
+      {
+        "from": "ref.read(themeSettingProvider.notifier)",
+        "to": "ThemeScope.read(context)"
+      },
+      {
+        "from": "ref.read(themeSettingProvider)",
+        "to": "ThemeScope.read(context).themeProps"
+      },
+      {
+        "from": "ref.read(dynamicColorProvider)",
+        "to": "ThemeScope.read(context).dynamicColor"
+      },
+      {
+        "from": "ref\n            .read(appSettingProvider.notifier)",
+        "to": "ThemeScope.read(context)"
+      },
+      {
+        "from": "ref\n        .read(themeSettingProvider.notifier)",
+        "to": "ThemeScope.read(context)"
+      },
+      {
+        "from": "ThemeScope.read(context)\n            .update(",
+        "to": "ThemeScope.read(context).updateThemeProps("
+      },
+      {
+        "from": "ThemeScope.read(context).update(",
+        "to": "ThemeScope.read(context).updateThemeProps("
+      },
+      {
+        "from": "ThemeScope.read(context)\n        .update(",
+        "to": "ThemeScope.read(context).updateThemeProps("
+      },
+      {
+        "from": "ThemeScope.read(context).updateThemeProps((state) => state.copyWith(floatingNavigationBar: value))",
+        "to": "ThemeScope.read(context).setFloatingNavigationBar(value)"
+      },
+      {
+        "from": "ThemeScope.read(context).updateThemeProps((state) => state.copyWith(tabAnimation: value))",
+        "to": "ThemeScope.read(context).setTabAnimation(value)"
+      },
+      {
+        "from": "system.isMacOS || system.isWindows",
+        "to": "ThemeScope.of(context).supportsSidebarBlur"
+      },
+      {
+        "from": "ThemeScope.read(context).dynamicColor.accentColor",
+        "to": "ThemeScope.read(context).seedColorFor(Theme.of(context).brightness)"
+      },
+      {
+        "from": "const ThemeLivePreview()",
+        "to": "ThemeLivePreview(\n            floatingBar: ThemeScope.of(context).floatingNavigationBar,\n            liquidGlass: ThemeScope.of(context).themeProps.liquidGlass != LiquidGlassMode.none,\n            tabAnimation: ThemeScope.of(context).tabAnimation,\n          )"
+      },
+      {
+        "from": "style.label",
+        "to": "style.labelOf(context)"
+      },
+      {
+        "from": "ConsumerStatefulWidget",
+        "to": "StatefulWidget"
+      },
+      {
+        "from": "ConsumerState<",
+        "to": "State<"
+      },
+      {
+        "from": "extends ConsumerWidget",
+        "to": "extends StatelessWidget"
+      },
+      {
+        "from": "Widget build(BuildContext context, WidgetRef ref)",
+        "to": "Widget build(BuildContext context)"
+      },
+      {
+        "from": "BuildContext context, WidgetRef ref,",
+        "to": "BuildContext context,"
+      },
+      {
+        "from": "BuildContext context, WidgetRef ref)",
+        "to": "BuildContext context)"
+      },
+      {
+        "from": "WidgetRef ref",
+        "to": "BuildContext context"
+      },
+      {
+        "from": "context.appLocalizations",
+        "to": "KitLocalizations.of(context)"
+      },
+      {
+        "from": "dialogs.showMessage(",
+        "to": "showKitMessage(context, "
+      },
+      {
+        "from": "ref",
+        "to": "context"
+      },
+      {
+        "from": "BuildContext context,\n    BuildContext context,",
+        "to": "BuildContext context,"
+      },
+      {
+        "from": "context, context",
+        "to": "context"
+      },
+      {
+        "from": "context, \n",
+        "to": "context,\n"
+      }
+    ],
+    "source_lines": [
+      1,
+      1188
+    ]
+  },
+  "FlClash/lib/views/font_family.dart": {
+    "status": "已提取；运行验证见 verification.md",
+    "target": "packages/flutter/lib/src/theme/font_family.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "import 'dart:async';\nimport 'dart:collection';\n\nimport 'package:fl_clash/common/common.dart';\nimport 'package:fl_clash/features/form/form.dart';\nimport 'package:fl_clash/providers/config.dart';\nimport 'package:fl_clash/widgets/widgets.dart';\nimport 'package:flutter/scheduler.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\nimport 'package:flutter/widgets.dart';\n",
+        "to": "import 'dart:async';\nimport 'dart:collection';\nimport 'package:flutter/scheduler.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flclash_ui_kit/flclash_ui_kit.dart';\n\n"
+      },
+      {
+        "from": "await loadSystemFontFamilies()",
+        "to": "await ThemeScope.read(context).loadSystemFontFamilies()"
+      },
+      {
+        "from": "selectedOf: (ref) => switch (ref.watch(\n        themeSettingProvider.select((state) => state.fontFamily),\n      ))",
+        "to": "selected: switch (ThemeScope.of(context).themeProps.fontFamily)"
+      },
+      {
+        "from": "ref\n            .read(themeSettingProvider.notifier)\n            .update((state) => state.copyWith(fontFamily: family));",
+        "to": "ThemeScope.read(context).updateThemeProps((state) => state.copyWith(fontFamily: family));"
+      },
+      {
+        "from": "ConsumerStatefulWidget",
+        "to": "StatefulWidget"
+      },
+      {
+        "from": "ConsumerState<",
+        "to": "State<"
+      },
+      {
+        "from": "context.appLocalizations",
+        "to": "KitLocalizations.of(context)"
+      }
+    ],
+    "source_lines": [
+      1,
+      204
+    ]
+  },
+  "FlClash/lib/views/hotkey.dart": {
+    "status": "已提取；运行验证见 verification.md",
+    "target": "packages/flutter/lib/src/hotkey/view.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "import 'package:fl_clash/common/common.dart';\nimport 'package:fl_clash/enum/enum.dart';\nimport 'package:fl_clash/l10n/l10n.dart';\nimport 'package:fl_clash/models/models.dart';\nimport 'package:fl_clash/providers/providers.dart';\nimport 'package:fl_clash/ui/icons/icons.dart';\nimport 'package:fl_clash/widgets/widgets.dart';\nimport 'package:flutter/services.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\n",
+        "to": "import 'package:flutter/services.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flclash_ui_kit/flclash_ui_kit.dart';\n\n"
+      },
+      {
+        "from": "Glyph _glyphOf(HotAction action) {\n  return switch (action) {\n    HotAction.view => AppGlyphs.eye,\n    HotAction.start => AppGlyphs.playPause(0),\n    HotAction.exit => AppGlyphs.close,\n    HotAction.mode => AppGlyphs.split,\n    HotAction.ruleMode => AppGlyphs.rules,\n    HotAction.globalMode => AppGlyphs.language,\n    HotAction.directMode => AppGlyphs.target,\n    HotAction.proxy => AppGlyphs.shuffle,\n    HotAction.tun => AppGlyphs.vpn,\n    HotAction.copyEnv => AppGlyphs.code,\n    HotAction.delayTest => AppGlyphs.bolt,\n    HotAction.updateProfiles => AppGlyphs.sync,\n  };\n}\n\n",
+        "to": ""
+      },
+      {
+        "from": "List<(String, List<HotAction>)>",
+        "to": "List<(String, List<Object>)>"
+      },
+      {
+        "from": "  final notifier = ref.read(hotKeyActionsProvider.notifier);\n  notifier.value = _withBinding(notifier.value, binding);",
+        "to": "  final notifier = HotKeyScope.read(context);\n  notifier.setActions(_withBinding(notifier.actions, binding));"
+      },
+      {
+        "from": "final labels = ShortcutLabels.host();",
+        "to": "final labels = HotKeyScope.of(context).labels;"
+      },
+      {
+        "from": "_sections(appLocalizations)",
+        "to": "(HotKeyScope.of(context).sectionsBuilder?.call(context) ?? _sections(appLocalizations))"
+      },
+      {
+        "from": "final HotAction action;",
+        "to": "final Object action;"
+      },
+      {
+        "from": "ref.watch(getHotKeyActionProvider(action))",
+        "to": "HotKeyScope.of(context).actions.firstWhere((item) => item.action == action, orElse: () => HotKeyAction(action: action))"
+      },
+      {
+        "from": "ref.watch(\n      hotKeyFailuresProvider.select((state) => state[action]),\n    )",
+        "to": "HotKeyScope.of(context).failures[action]"
+      },
+      {
+        "from": "_glyphOf(action)",
+        "to": "HotKeyScope.of(context).glyphOfAction(action)"
+      },
+      {
+        "from": "action.label",
+        "to": "HotKeyScope.of(context).labelOfAction(context, action)"
+      },
+      {
+        "from": "conflict.HotKeyScope.of(context).labelOfAction(context, action)",
+        "to": "HotKeyScope.of(context).labelOfAction(context, conflict.action)"
+      },
+      {
+        "from": "widget.hotKeyAction.HotKeyScope.of(context).labelOfAction(context, action)",
+        "to": "HotKeyScope.of(context).labelOfAction(context, widget.hotKeyAction.action)"
+      },
+      {
+        "from": "HotKeyRecording _recording",
+        "to": "HotKeyController _recording"
+      },
+      {
+        "from": "ref.read(hotKeyRecordingProvider.notifier)",
+        "to": "HotKeyScope.read(context)"
+      },
+      {
+        "from": "_recording.value = true",
+        "to": "_recording.setRecording(true)"
+      },
+      {
+        "from": "recording.value = false",
+        "to": "recording.setRecording(false)"
+      },
+      {
+        "from": "ref.watch(hotKeyActionsProvider)",
+        "to": "HotKeyScope.of(context).actions"
+      },
+      {
+        "from": "ConsumerStatefulWidget",
+        "to": "StatefulWidget"
+      },
+      {
+        "from": "ConsumerState<",
+        "to": "State<"
+      },
+      {
+        "from": "extends ConsumerWidget",
+        "to": "extends StatelessWidget"
+      },
+      {
+        "from": "Widget build(BuildContext context, WidgetRef ref)",
+        "to": "Widget build(BuildContext context)"
+      },
+      {
+        "from": "WidgetRef ref",
+        "to": "BuildContext context"
+      },
+      {
+        "from": "context.appLocalizations",
+        "to": "KitLocalizations.of(context)"
+      },
+      {
+        "from": "AppLocalizations",
+        "to": "KitLocalizations"
+      },
+      {
+        "from": "dialogs.showCommonDialog(",
+        "to": "showFloatingDialog(context: context, "
+      },
+      {
+        "from": "ref",
+        "to": "context"
+      },
+      {
+        "from": "context, \n",
+        "to": "context,\n"
+      }
+    ],
+    "source_lines": [
+      1,
+      522
+    ]
+  },
+  "FlClash/lib/views/about.dart": {
+    "status": "已提取；运行验证见 verification.md",
+    "target": "packages/flutter/lib/src/shell/about.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "import 'dart:async';\n\nimport 'package:fl_clash/common/common.dart';\nimport 'package:fl_clash/enum/enum.dart';\nimport 'package:fl_clash/providers/providers.dart';\nimport 'package:fl_clash/state.dart';\nimport 'package:fl_clash/ui/icons/icons.dart';\nimport 'package:fl_clash/ui/ui.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\n",
+        "to": "import 'dart:async';\nimport 'package:flutter/widgets.dart';\nimport 'package:flclash_ui_kit/flclash_ui_kit.dart';\n\n"
+      },
+      {
+        "from": "@immutable\nclass Contributor {\n  final String avatar;\n  final String name;\n\n  const Contributor({required this.avatar, required this.name});\n}\n\n",
+        "to": ""
+      },
+      {
+        "from": "  const AboutView({super.key});\n\n  static const _contributors = [\n    Contributor(avatar: 'assets/images/avatar/june2.jpg', name: 'June2'),\n    Contributor(avatar: 'assets/images/avatar/arue.jpg', name: 'Arue'),\n  ];\n\n  Future<void> _checkUpdate(BuildContext context, WidgetRef ref) async {\n    if (ref.read(loadingProvider(LoadingTag.checkUpdate))) return;\n    final commonAction = ref.read(commonActionProvider.notifier);\n    final result = await globalState.loadingRun(\n      () async => (release: await request.checkForUpdate()),\n      title: context.appLocalizations.checkUpdate,\n      tag: LoadingTag.checkUpdate,\n    );\n    if (result == null) return;\n    unawaited(\n      commonAction.checkUpdateResultHandle(data: result.release, isUser: true),\n    );\n  }\n\n",
+        "to": "  const AboutView({super.key, required this.appName, required this.version,\n    required this.description, required this.logo, this.licenseLabel = 'GPL-3.0',\n    this.links = const [], this.contributors = const [], this.isCheckingUpdate = false,\n    this.onCheckUpdate, this.onEnterDeveloperMode, this.onOpenUrl});\n  final String appName, version, description, licenseLabel;\n  final Widget logo;\n  final List<AboutLink> links;\n  final List<Contributor> contributors;\n  final bool isCheckingUpdate;\n  final VoidCallback? onCheckUpdate, onEnterDeveloperMode;\n  final ValueChanged<String>? onOpenUrl;\n\n"
+      },
+      {
+        "from": "dialogs.openUrl(url);",
+        "to": "onOpenUrl?.call(url);"
+      },
+      {
+        "from": "onTap: () {\n        onOpenUrl?.call(url);\n      },",
+        "to": "onTap: onOpenUrl == null ? null : () => onOpenUrl!(url),"
+      },
+      {
+        "from": "ref.watch(loadingProvider(LoadingTag.checkUpdate))",
+        "to": "isCheckingUpdate"
+      },
+      {
+        "from": "          _AboutHero(\n            isCheckingUpdate: isLoading,\n            onCheckUpdate: () {\n              _checkUpdate(context, ref);\n            },\n            onEnterDeveloperMode: () {\n              ref\n                  .read(appSettingProvider.notifier)\n                  .update((state) => state.copyWith(developerMode: true));\n              dialogs.showBanner(\n                appLocalizations.developerModeEnableTip,\n                level: BannerLevel.success,\n              );\n            },\n          ),\n",
+        "to": "          _AboutHero(\n            appName: appName, version: version, description: description, logo: logo, licenseLabel: licenseLabel,\n            isCheckingUpdate: isLoading, onCheckUpdate: onCheckUpdate,\n            onEnterDeveloperMode: () => onEnterDeveloperMode?.call(),\n          ),\n"
+      },
+      {
+        "from": "              _buildLinkItem(\n                glyph: AppGlyphs.code,\n                title: appLocalizations.project,\n                url: 'https://github.com/$repository',\n                label: 'github.com/$repository',\n              ),\n              _buildLinkItem(\n                glyph: AppGlyphs.cpu,\n                title: appLocalizations.core,\n                url: 'https://github.com/chen08209/Clash.Meta/tree/FlClash',\n                label: 'github.com/chen08209/Clash.Meta',\n              ),\n              _buildLinkItem(\n                glyph: AppGlyphs.send,\n                title: 'Telegram',\n                url: 'https://t.me/FlClash',\n                label: 't.me/FlClash',\n              ),",
+        "to": "              for (final link in links)\n                _buildLinkItem(glyph: link.glyph, title: link.title, url: link.url, label: link.label),"
+      },
+      {
+        "from": "_contributors",
+        "to": "contributors"
+      },
+      {
+        "from": "                    foregroundDecoration: BoxDecoration(\n                      shape: BoxShape.circle,\n                      image: DecorationImage(\n                        image: AssetImage(contributor.avatar),\n                        fit: BoxFit.cover,\n                      ),\n                    ),\n",
+        "to": "                    child: contributor.avatar ?? (contributor.avatarImage == null\n                      ? Center(child: Text(contributor.name.characters.firstOrNull ?? '?'))\n                      : ClipOval(child: Image(image: contributor.avatarImage!, fit: BoxFit.cover))),\n"
+      },
+      {
+        "from": "subtitle: Text(appLocalizations.appIconDesign)",
+        "to": "subtitle: contributor.role == null ? null : Text(contributor.role!)"
+      },
+      {
+        "from": "final VoidCallback onCheckUpdate;",
+        "to": "final VoidCallback? onCheckUpdate;\n  final String appName, version, description, licenseLabel;\n  final Widget logo;"
+      },
+      {
+        "from": "    required this.isCheckingUpdate,",
+        "to": "    required this.appName, required this.version, required this.description, required this.licenseLabel, required this.logo,\n    required this.isCheckingUpdate,"
+      },
+      {
+        "from": "child: Image.asset(\n                  'assets/images/icon.png',\n                  width: _logoSize - _logoInset * 2,\n                  height: _logoSize - _logoInset * 2,\n                ),",
+        "to": "child: SizedBox.square(dimension: _logoSize - _logoInset * 2, child: logo),"
+      },
+      {
+        "from": "'v${globalState.packageInfo.version}'",
+        "to": "'v$version'"
+      },
+      {
+        "from": "label: 'GPL-3.0'",
+        "to": "label: licenseLabel"
+      },
+      {
+        "from": "appLocalizations.desc",
+        "to": "description"
+      },
+      {
+        "from": "                    child: contributor.avatar ?? (contributor.avatarImage == null\n                      ? Center(child: Text(contributor.name.characters.firstOrNull ?? '?'))\n                      : ClipOval(child: Image(image: contributor.avatarImage!, fit: BoxFit.cover))),\n                    decoration: BoxDecoration(\n                      shape: BoxShape.circle,\n                      color: context.colorScheme.primaryContainer,\n                    ),",
+        "to": "                    decoration: BoxDecoration(\n                      shape: BoxShape.circle,\n                      color: context.colorScheme.primaryContainer,\n                    ),\n                    child: contributor.avatar ?? (contributor.avatarImage == null\n                      ? Center(child: Text(contributor.name.characters.firstOrNull ?? '?'))\n                      : ClipOval(child: Image(image: contributor.avatarImage!, fit: BoxFit.cover))),"
+      },
+      {
+        "from": "extends ConsumerWidget",
+        "to": "extends StatelessWidget"
+      },
+      {
+        "from": "Widget build(BuildContext context, WidgetRef ref)",
+        "to": "Widget build(BuildContext context)"
+      },
+      {
+        "from": "context.appLocalizations",
+        "to": "KitLocalizations.of(context)"
+      }
+    ],
+    "source_lines": [
+      1,
+      327
+    ]
+  },
+  "FlClash/lib/views/tools.dart": {
+    "status": "已提取；运行验证见 verification.md",
+    "target": "packages/flutter/lib/src/shell/tools.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "import 'package:fl_clash/common/common.dart';\nimport 'package:fl_clash/enum/enum.dart';\nimport 'package:fl_clash/l10n/l10n.dart';\nimport 'package:fl_clash/models/models.dart';\nimport 'package:fl_clash/providers/providers.dart';\nimport 'package:fl_clash/ui/icons/icons.dart';\nimport 'package:fl_clash/views/about.dart';\nimport 'package:fl_clash/views/access.dart';\nimport 'package:fl_clash/views/backup_and_restore.dart';\nimport 'package:fl_clash/views/config/general.dart';\nimport 'package:fl_clash/views/hotkey.dart';\nimport 'package:fl_clash/widgets/widgets.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\n\nimport 'config/advanced.dart';\nimport 'developer.dart';\nimport 'disclaimer.dart';\nimport 'theme.dart';\n",
+        "to": "import 'package:flutter/widgets.dart';\nimport 'package:flclash_ui_kit/flclash_ui_kit.dart';\n\n"
+      },
+      {
+        "from": "class _ThemeItem extends StatelessWidget {\n  const _ThemeItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.paintbrush),\n      title: Text(context.appLocalizations.theme),\n      widget: const ThemeView(),\n    );\n  }\n}\n\nclass _BackupItem extends StatelessWidget {\n  const _BackupItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.cloudSync),\n      title: Text(context.appLocalizations.backupAndRestore),\n      widget: const BackupAndRestore(),\n    );\n  }\n}\n\nclass _HotkeyItem extends StatelessWidget {\n  const _HotkeyItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.keyboard),\n      title: Text(context.appLocalizations.hotkeyManagement),\n      widget: const HotKeyView(),\n    );\n  }\n}\n\nclass _AccessItem extends StatelessWidget {\n  const _AccessItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.appsList),\n      title: Text(context.appLocalizations.accessControl),\n      widget: const AccessView(),\n    );\n  }\n}\n\nclass _GeneralItem extends StatelessWidget {\n  const _GeneralItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.settings),\n      title: Text(context.appLocalizations.general),\n      widget: const GeneralView(),\n    );\n  }\n}\n\nclass _AdvancedConfigItem extends StatelessWidget {\n  const _AdvancedConfigItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.wrench),\n      title: Text(context.appLocalizations.advancedConfig),\n      widget: const AdvancedConfigView(),\n    );\n  }\n}\n\nclass _DisclaimerItem extends StatelessWidget {\n  const _DisclaimerItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.gavel),\n      title: Text(context.appLocalizations.disclaimer),\n      widget: const DisclaimerView(),\n    );\n  }\n}\n\nclass _InfoItem extends StatelessWidget {\n  const _InfoItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.info),\n      title: Text(context.appLocalizations.about),\n      widget: const AboutView(),\n    );\n  }\n}\n\nclass _DeveloperItem extends StatelessWidget {\n  const _DeveloperItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.cpu),\n      title: Text(context.appLocalizations.developerMode),\n      widget: const DeveloperView(),\n    );\n  }\n}\n",
+        "to": ""
+      },
+      {
+        "from": "const ToolsView({super.key});",
+        "to": "const ToolsView({super.key, this.settingsItems = const [], this.otherItems = const []});\n  final List<Widget> settingsItems, otherItems;"
+      },
+      {
+        "from": "navigationItem.label.label",
+        "to": "navigationItem.titleOf(context)"
+      },
+      {
+        "from": "        const _DisclaimerItem(),\n        if (enableDeveloperMode) const _DeveloperItem(),\n        const _InfoItem(),",
+        "to": "        ...widget.otherItems,"
+      },
+      {
+        "from": "        const _LocaleItem(),\n        const _ThemeItem(),\n        if (system.isDesktop) const _HotkeyItem(),\n        if (system.isAndroid) const _AccessItem(),\n        const _BackupItem(),\n        const _AdvancedConfigItem(),\n        const _GeneralItem(),",
+        "to": "        const _LocaleItem(),\n        if (ThemeScope.maybeOf(context) != null)\n          ListItem.open(leading: const GlyphIcon(AppGlyphs.paintbrush), title: Text(KitLocalizations.of(context).theme), widget: const ThemeView()),\n        if (HotKeyScope.maybeOf(context) != null)\n          ListItem.open(leading: const GlyphIcon(AppGlyphs.keyboard), title: Text(KitLocalizations.of(context).hotkeyManagement), widget: const HotKeyView()),\n        ...widget.settingsItems,"
+      },
+      {
+        "from": "ref.watch(\n      appSettingProvider.select((state) => state.developerMode),\n    )",
+        "to": "HomeShellScope.of(context).developerMode"
+      },
+      {
+        "from": "ref.watch(moreToolsSelectorStateProvider)",
+        "to": "(navigationItems: HomeShellScope.of(context).moreNavigationItemsOf(context))"
+      },
+      {
+        "from": "ref.watch(\n      appSettingProvider.select((state) => state.locale),\n    )",
+        "to": "HomeShellScope.of(context).locale"
+      },
+      {
+        "from": "getLocaleForString(locale)",
+        "to": "locale"
+      },
+      {
+        "from": "locale.label",
+        "to": "locale.labelOf(context)"
+      },
+      {
+        "from": "AppLocalizations.delegate.supportedLocales",
+        "to": "HomeShellScope.of(context).supportedLocales"
+      },
+      {
+        "from": "ref\n            .read(appSettingProvider.notifier)\n            .update((state) => state.copyWith(locale: locale?.toString()));",
+        "to": "HomeShellScope.read(context).setLocale(locale);"
+      },
+      {
+        "from": "ConsumerStatefulWidget",
+        "to": "StatefulWidget"
+      },
+      {
+        "from": "ConsumerState<",
+        "to": "State<"
+      },
+      {
+        "from": "extends ConsumerWidget",
+        "to": "extends StatelessWidget"
+      },
+      {
+        "from": "Widget build(BuildContext context, WidgetRef ref)",
+        "to": "Widget build(BuildContext context)"
+      },
+      {
+        "from": "context.appLocalizations",
+        "to": "KitLocalizations.of(context)"
+      },
+      {
+        "from": "Consumer(",
+        "to": "Builder("
+      },
+      {
+        "from": "builder: (_, ref, _)",
+        "to": "builder: (context)"
+      },
+      {
+        "from": "      value: currentLocale,\n    );\n  }\n}\n\n",
+        "to": "      value: currentLocale,\n    );\n  }\n}\n"
+      }
+    ],
+    "source_lines": [
+      1,
+      247
+    ]
+  },
+  "FlClash/lib/models/profile.dart": {
+    "status": "部分提取：Subscription usage and expiry projections; persistence remains upstream",
+    "target": "packages/flutter/lib/src/profiles/subscription_extensions.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "expire * 1000) : null;\n}\n\n",
+        "to": "expire * 1000) : null;\n}\n"
+      }
+    ],
+    "source_lines": [
+      56,
+      63
+    ]
+  },
+  "FlClash/lib/views/profiles/profiles.dart": {
+    "status": "已提取；运行验证见 verification.md",
+    "target": "packages/flutter/lib/src/profiles/view.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "import 'dart:async';\n\nimport 'package:fl_clash/common/common.dart';\nimport 'package:fl_clash/enum/enum.dart';\nimport 'package:fl_clash/models/models.dart';\nimport 'package:fl_clash/providers/providers.dart';\nimport 'package:fl_clash/state.dart';\nimport 'package:fl_clash/ui/icons/icons.dart';\nimport 'package:fl_clash/views/profiles/custom/custom.dart';\nimport 'package:fl_clash/views/profiles/extend/extend.dart';\nimport 'package:fl_clash/widgets/widgets.dart';\nimport 'package:flutter/services.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\n\nimport 'add.dart';\nimport 'edit.dart';\nimport 'preview.dart';\n",
+        "to": "import 'dart:async';\nimport 'package:flutter/services.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flclash_ui_kit/flclash_ui_kit.dart';\n\n"
+      },
+      {
+        "from": "double get _profileItemHeight {\n  final measure = globalState.measure;",
+        "to": "double _profileItemHeight(BuildContext context) {\n  final measure = MeasureScope.of(context);"
+      },
+      {
+        "from": "final height = _profileItemHeight;",
+        "to": "final height = _profileItemHeight(context);"
+      },
+      {
+        "from": "mainAxisExtent: _profileItemHeight,",
+        "to": "mainAxisExtent: _profileItemHeight(context),"
+      },
+      {
+        "from": "minTileHeight: _profileItemHeight,",
+        "to": "minTileHeight: _profileItemHeight(context),"
+      },
+      {
+        "from": "    final profilesAction = ref.read(profilesActionProvider.notifier);\n    final List<UpdatingMessage> messages = [];\n    final updateProfiles = profiles.map<Future>((profile) async {\n      if (profile.type != ProfileType.url) return;\n      try {\n        await profilesAction.updateProfile(profile, showLoading: true);\n      } catch (e) {\n        messages.add(\n          UpdatingMessage(\n            label: profile.realLabel,\n            message: userFacingErrorMessage(e, appLocalizations),\n          ),\n        );\n      }\n    });\n    await Future.wait(updateProfiles);\n    dialogs.showFailures(messages);\n    _isUpdating = false;",
+        "to": "    try {\n      final messages = await ProfilesScope.read(context).updateAllProfiles();\n      if (mounted) showKitFailures(context, messages);\n    } catch (error) {\n      if (mounted) await showKitMessage(context, message: TextSpan(text: error.toString()), title: appLocalizations.tip);\n    } finally {\n      _isUpdating = false;\n    }"
+      },
+      {
+        "from": "final isLoading = ref.watch(loadingProvider(LoadingTag.profiles));",
+        "to": "final isLoading = ProfilesScope.of(context).isLoading;"
+      },
+      {
+        "from": "ref.watch(profilesStateProvider)",
+        "to": "ProfilesScope.of(context)"
+      },
+      {
+        "from": "ref.watch(viewModeProvider)",
+        "to": "ProfilesScope.of(context).viewModeOf(context)"
+      },
+      {
+        "from": "ref.read(currentProfileIdProvider.notifier).value = profileId;",
+        "to": "if (profileId != null) ProfilesScope.read(context).selectProfile(profileId);"
+      },
+      {
+        "from": "ref.read(profilesActionProvider.notifier)",
+        "to": "ProfilesScope.read(context)"
+      },
+      {
+        "from": "profilesAction.providerUsers(profile)",
+        "to": "profilesAction.checkProviderUsers(profile)"
+      },
+      {
+        "from": "final users = await profilesAction.checkProviderUsers(profile);",
+        "to": "final users = await profilesAction.checkProviderUsers(profile);\n    if (!context.mounted) return;"
+      },
+      {
+        "from": "    unawaited(\n      BaseNavigator.push<String>(context, PreviewProfileView(profile: profile)),\n    );\n  }\n\n  Future updateProfile(WidgetRef ref) async {\n    if (profile.type != ProfileType.url) return;\n    await globalState.loadingRun(() async {\n      await ref\n          .read(profilesActionProvider.notifier)\n          .updateProfile(profile, showLoading: true);\n    }, tag: LoadingTag.profiles);\n  }\n\n  void _handleShowEditExtendPage(BuildContext context) {\n    showExtend(\n      context,\n      builder: (context) => EditProfileView(profile: profile),\n    );\n  }\n",
+        "to": "    await ProfilesScope.read(context).onPreviewProfile?.call(context, profile);\n  }\n\n  Future<void> updateProfile(BuildContext context) async {\n    if (profile.type != ProfileType.url) return;\n    try {\n      final failure = await ProfilesScope.read(context).updateSingleProfile(profile);\n      if (context.mounted && failure != null) showKitFailures(context, [failure]);\n    } catch (error) {\n      if (context.mounted) await showKitMessage(context, message: TextSpan(text: error.toString()));\n    }\n  }\n\n  void _handleShowEditExtendPage(BuildContext context) {\n    ProfilesScope.read(context).onEditProfile?.call(context, profile);\n  }\n"
+      },
+      {
+        "from": "dialogs.showBanner(\n        context.appLocalizations.copySuccess,\n        level: BannerLevel.success,\n      );",
+        "to": "BannerHost.maybeOf(context)?.show(KitLocalizations.of(context).copySuccess, level: BannerLevel.success);"
+      },
+      {
+        "from": "    final res = await globalState.safeRun<bool>(() async {\n      final mFile = await profile.file;\n      final value = await picker.saveFile(\n        profile.exportFileName,\n        mFile.readAsBytesSync(),\n      );\n      if (value == null) return false;\n      return true;\n    }, title: appLocalizations.tip);\n    if (res == true && context.mounted) {\n      dialogs.showBanner(\n        appLocalizations.exportSuccess,\n        level: BannerLevel.success,\n      );\n    }\n  }\n\n  void _handlePushGenProfilePage(BuildContext context, int id) {\n    BaseNavigator.push(context, ExtendView(profileId: id));\n  }\n\n  void _handlePushCustomProfilePage(BuildContext context, int id) {\n    BaseNavigator.push(context, CustomProfileView(profileId: id));\n  }\n",
+        "to": "    final result = await ProfilesScope.read(context).onExportProfile?.call(profile);\n    if (result == true && context.mounted) {\n      BannerHost.maybeOf(context)?.show(appLocalizations.exportSuccess, level: BannerLevel.success);\n    }\n  }\n\n  void _handlePushGenProfilePage(BuildContext context, int id) {\n    ProfilesScope.read(context).onExtendProfile?.call(context, profile);\n  }\n  void _handlePushCustomProfilePage(BuildContext context, int id) {\n    ProfilesScope.read(context).onEditCustomProfile?.call(context, profile);\n  }\n"
+      },
+      {
+        "from": "renameProfile(context, ref, profile)",
+        "to": "renameKitProfile(context, profile)"
+      },
+      {
+        "from": "dialogs.showQrCode(",
+        "to": "showKitQrCode(context, "
+      },
+      {
+        "from": "ref.watch(isUpdatingProvider(profile.updatingKey))",
+        "to": "ProfilesScope.of(context).isUpdating(profile.updatingKey)"
+      },
+      {
+        "from": "ref.watch(profileGroupsCountProvider(profileId)).value",
+        "to": "ProfilesScope.of(context).groupsCountOf(profileId)"
+      },
+      {
+        "from": "ref.read(profilesProvider)",
+        "to": "ProfilesScope.read(context).profiles"
+      },
+      {
+        "from": "ref.read(profilesProvider.notifier).reorder",
+        "to": "ProfilesScope.read(context).reorder"
+      },
+      {
+        "from": "onPressed: () => _handleEdit(context),",
+        "to": "onPressed: (profile.type == ProfileType.custom ? ProfilesScope.of(context).onEditCustomProfile : ProfilesScope.of(context).onEditProfile) == null ? null : () => _handleEdit(context),"
+      },
+      {
+        "from": "onPressed: () {\n            _handlePushGenProfilePage(context, profile.id);\n          },",
+        "to": "onPressed: ProfilesScope.of(context).onExtendProfile == null ? null : () {\n            _handlePushGenProfilePage(context, profile.id);\n          },"
+      },
+      {
+        "from": "onPressed: () {\n            updateProfile(ref);\n          },",
+        "to": "onPressed: ProfilesScope.of(context).onUpdateProfile == null ? null : () {\n            updateProfile(context);\n          },"
+      },
+      {
+        "from": "onPressed: () {\n            _handlePreview(context);\n          }",
+        "to": "onPressed: ProfilesScope.of(context).onPreviewProfile == null ? null : () => _handlePreview(context)"
+      },
+      {
+        "from": "onPressed: () {\n                _handlePreview(context);\n              }",
+        "to": "onPressed: ProfilesScope.of(context).onPreviewProfile == null ? null : () => _handlePreview(context)"
+      },
+      {
+        "from": "onPressed: () {\n                _handleExportFile(context);\n              },",
+        "to": "onPressed: ProfilesScope.of(context).onExportProfile == null ? null : () {\n                _handleExportFile(context);\n              },"
+      },
+      {
+        "from": "onPressed: () {\n                _updateProfiles(profiles);\n              },",
+        "to": "onPressed: ProfilesScope.of(context).onUpdateProfile == null && ProfilesScope.of(context).onUpdateProfiles == null ? null : () {\n                _updateProfiles(profiles);\n              },"
+      },
+      {
+        "from": "ConsumerStatefulWidget",
+        "to": "StatefulWidget"
+      },
+      {
+        "from": "ConsumerState<",
+        "to": "State<"
+      },
+      {
+        "from": "extends ConsumerWidget",
+        "to": "extends StatelessWidget"
+      },
+      {
+        "from": "Widget build(BuildContext context, WidgetRef ref)",
+        "to": "Widget build(BuildContext context)"
+      },
+      {
+        "from": "BuildContext context, WidgetRef ref)",
+        "to": "BuildContext context)"
+      },
+      {
+        "from": "context.appLocalizations",
+        "to": "KitLocalizations.of(context)"
+      },
+      {
+        "from": "Consumer(",
+        "to": "Builder("
+      },
+      {
+        "from": "builder: (_, ref, _)",
+        "to": "builder: (context)"
+      },
+      {
+        "from": "dialogs.showMessage(",
+        "to": "showKitMessage(context, "
+      },
+      {
+        "from": "ref",
+        "to": "context"
+      },
+      {
+        "from": "context, context",
+        "to": "context"
+      },
+      {
+        "from": "context, \n",
+        "to": "context,\n"
+      }
+    ],
+    "source_lines": [
+      1,
+      674
+    ]
+  },
+  "FlClash/lib/views/profiles/add.dart": {
+    "status": "已提取；运行验证见 verification.md",
+    "target": "packages/flutter/lib/src/profiles/add.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "import 'dart:async';\n\nimport 'package:fl_clash/common/common.dart';\nimport 'package:fl_clash/features/form/form.dart';\nimport 'package:fl_clash/pages/scan.dart';\nimport 'package:fl_clash/plugins/app.dart';\nimport 'package:fl_clash/providers/providers.dart';\nimport 'package:fl_clash/ui/icons/icons.dart';\nimport 'package:fl_clash/views/profiles/custom/custom.dart';\nimport 'package:fl_clash/widgets/widgets.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\n",
+        "to": "import 'dart:async';\nimport 'package:flutter/widgets.dart';\nimport 'package:flclash_ui_kit/flclash_ui_kit.dart';\n\n"
+      },
+      {
+        "from": "ref.read(profilesActionProvider.notifier)",
+        "to": "ProfilesScope.read(context)"
+      },
+      {
+        "from": "addProfileFormFile()",
+        "to": "addProfileFromFile()"
+      },
+      {
+        "from": "    final profilesAction = ProfilesScope.read(context);\n    if (system.isDesktop) {\n      unawaited(profilesAction.addProfileFormQrCode());\n      return;\n    }\n    final url = await BaseNavigator.push(context, const ScanPage());\n    if (url == null) {\n      return;\n    }\n    if (context.mounted) {\n      await whenRouteUncovered(context);\n    }\n    WidgetsBinding.instance.addPostFrameCallback((_) {\n      unawaited(profilesAction.addProfileFromLink(url));\n    });\n  }\n",
+        "to": "    final profilesAction = ProfilesScope.read(context);\n    final url = await profilesAction.scanQrCode();\n    if (url == null || !context.mounted) return;\n    await whenRouteUncovered(context);\n    if (context.mounted) await profilesAction.addProfileFromLink(url);\n  }\n"
+      },
+      {
+        "from": "ref.read(profilesProvider)",
+        "to": "ProfilesScope.read(context).profiles"
+      },
+      {
+        "from": "    if (!(await app?.requestLocalNetworkPermission() ?? true)) {\n      final appLocalizations = currentAppLocalizations;\n      final res = await dialogs.showMessage(\n        message: TextSpan(text: appLocalizations.sendFromPhonePermissionDenied),\n        confirmText: appLocalizations.settings,\n      );\n      if (res == true) {\n        await app?.openAppSettings();\n      }\n      return;\n    }\n",
+        "to": ""
+      },
+      {
+        "from": "currentAppLocalizations",
+        "to": "KitLocalizations.of(context)"
+      },
+      {
+        "from": "if (link == null) {",
+        "to": "if (link == null || !context.mounted) {"
+      },
+      {
+        "from": "dialogs.showCommonDialog<String>(",
+        "to": "showFloatingDialog<String>(context: context, "
+      },
+      {
+        "from": "    final profileId = ref\n        .read(profilesActionProvider.notifier)\n        .addCustomProfile(context.appLocalizations.unnamed);\n    unawaited(\n      BaseNavigator.push(\n        context,\n        CustomProfileView(profileId: profileId, isNew: true),\n      ),\n    );\n  }\n",
+        "to": "    unawaited(ProfilesScope.read(context).addCustomProfile(KitLocalizations.of(context).unnamed));\n  }\n"
+      },
+      {
+        "from": "system.isTV",
+        "to": "ProfilesScope.of(context).isTV && ProfilesScope.of(context).startPhoneLinkReceiver != null"
+      },
+      {
+        "from": "LinkReceiver? _receiver;",
+        "to": "PhoneLinkSession? _receiver;"
+      },
+      {
+        "from": "    final appLocalizations = KitLocalizations.of(context);\n    final receiver = await LinkReceiver.start((\n      title: appLocalizations.sendFromPhonePageTitle,\n      hint: appLocalizations.sendFromPhonePageHint,\n      send: appLocalizations.send,\n      sent: appLocalizations.sendFromPhonePageSent,\n      invalid: appLocalizations.invalidLinkTip,\n    )).catchError((Object _) => null);\n",
+        "to": "    PhoneLinkSession? receiver;\n    try {\n      receiver = await ProfilesScope.read(context).startPhoneLinkReceiver?.call();\n    } catch (_) {\n      receiver = null;\n    }\n"
+      },
+      {
+        "from": "bool _failed = false;",
+        "to": "bool _failed = false;\n  Object? _error;"
+      },
+      {
+        "from": "    PhoneLinkSession? receiver;\n    try {\n      receiver = await ProfilesScope.read(context).startPhoneLinkReceiver?.call();\n    } catch (_) {\n      receiver = null;\n    }\n    if (!mounted) {\n      unawaited(receiver?.close());\n      return;\n    }\n    setState(() {\n      _receiver = receiver;\n      _failed = receiver == null;\n    });\n    final link = await receiver?.link;\n    if (link != null && mounted) {\n      Navigator.of(context).pop(link);\n    }\n  }\n",
+        "to": "    try {\n      final receiver = await ProfilesScope.read(context).startPhoneLinkReceiver?.call();\n      if (!mounted) {\n        await receiver?.close();\n        return;\n      }\n      setState(() {\n        _receiver = receiver;\n        _failed = receiver == null;\n      });\n      final link = await receiver?.link;\n      if (link != null && mounted) Navigator.of(context).pop(link);\n    } catch (error) {\n      if (mounted) setState(() { _failed = true; _error = error; });\n    }\n  }\n"
+      },
+      {
+        "from": "appLocalizations.sendFromPhoneNoNetwork,",
+        "to": "_error?.toString() ?? appLocalizations.sendFromPhoneNoNetwork,"
+      },
+      {
+        "from": "onPressed: () => _toScan(context, ref),",
+        "to": "onPressed: ProfilesScope.of(context).onScanQrCode == null ? null : () => _toScan(context),"
+      },
+      {
+        "from": "onPressed: () => _handleAddProfileFormFile(ref),",
+        "to": "onPressed: ProfilesScope.of(context).onAddFromFile == null ? null : () => _handleAddProfileFormFile(context),"
+      },
+      {
+        "from": "extends ConsumerWidget",
+        "to": "extends StatelessWidget"
+      },
+      {
+        "from": "Widget build(BuildContext context, WidgetRef ref)",
+        "to": "Widget build(BuildContext context)"
+      },
+      {
+        "from": "BuildContext context, WidgetRef ref)",
+        "to": "BuildContext context)"
+      },
+      {
+        "from": "WidgetRef ref",
+        "to": "BuildContext context"
+      },
+      {
+        "from": "context.appLocalizations",
+        "to": "KitLocalizations.of(context)"
+      },
+      {
+        "from": "dialogs.showMessage(",
+        "to": "showKitMessage(context, "
+      },
+      {
+        "from": "ref",
+        "to": "context"
+      },
+      {
+        "from": "context, context",
+        "to": "context"
+      },
+      {
+        "from": "context, \n",
+        "to": "context,\n"
+      }
+    ],
+    "source_lines": [
+      1,
+      252
+    ]
+  },
+  "FlClash/test/views/hotkey_view_test.dart": {
+    "status": "已提取；运行验证见 verification.md",
+    "target": "packages/flutter/test/views/hotkey_view_test.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "import 'package:fl_clash/common/common.dart';\nimport 'package:fl_clash/enum/enum.dart';\nimport 'package:fl_clash/models/models.dart';\nimport 'package:fl_clash/providers/app.dart';\nimport 'package:fl_clash/providers/config.dart';\nimport 'package:fl_clash/state.dart';\nimport 'package:fl_clash/views/hotkey.dart';\nimport 'package:flutter/services.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\nimport 'package:flutter_test/flutter_test.dart';\nimport 'package:prism_ui/common_button.dart';\n\nimport '../helpers/test_app.dart';\nimport '../helpers/host_scaffold.dart';\n",
+        "to": "import 'package:flutter_test/flutter_test.dart';\nimport 'package:flutter/services.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flclash_ui_kit/flclash_ui_kit.dart';\n\n"
+      },
+      {
+        "from": "ProviderContainer _containerFor(\n  WidgetTester tester, {\n  List<HotKeyAction> hotKeyActions = const [],\n}) {\n  const size = Size(1400, 1400);\n  tester.view.physicalSize = size;\n  tester.view.devicePixelRatio = 1;\n  addTearDown(tester.view.resetPhysicalSize);\n  addTearDown(tester.view.resetDevicePixelRatio);\n\n  final container = ProviderContainer();\n  addTearDown(container.dispose);\n  globalState.container = container;\n  container.read(viewSizeProvider.notifier).update((_) => size);\n  // hotKeyActionsProvider is autoDispose: without a live listener the seeded\n  // value is discarded before the assertions read it back.\n  final subscription = container.listen(\n    hotKeyActionsProvider,\n    (_, _) {},\n    fireImmediately: true,\n  );\n  addTearDown(subscription.close);\n  container.read(hotKeyActionsProvider.notifier).value = hotKeyActions;\n  return container;\n}\n\nFuture<void> _pumpView(WidgetTester tester, ProviderContainer container) async {\n  await tester.pumpWidget(\n    UncontrolledProviderScope(\n      container: container,\n      child: const TestApp(child: HotKeyView()),\n    ),\n  );\n  await tester.pumpAndSettle();\n}\n\nFuture<void> _pumpRecorder(\n  WidgetTester tester,\n  ProviderContainer container,\n  HotKeyAction action,\n) async {\n  // Pushed as a route so the recorder's Navigator.pop has something to pop,\n  // matching how the view opens it as a dialog.\n  await tester.pumpWidget(\n    UncontrolledProviderScope(\n      container: container,\n      child: TestApp(\n        child: Builder(\n          builder: (context) => TextButton(\n            onPressed: () => Navigator.of(context).push(\n              HostPageRoute(\n                builder: (_) => HostScaffold(\n                  body: HotKeyRecorder(hotKeyAction: action, labels: _labels),\n                ),\n              ),\n            ),\n            child: const Text('open'),\n          ),\n        ),\n      ),\n    ),\n  );\n  await tester.pumpAndSettle();\n  await tester.tap(find.text('open'));\n  await tester.pumpAndSettle();\n}\n\n",
+        "to": "HotKeyController _containerFor(WidgetTester tester, {List<HotKeyAction> hotKeyActions = const []}) {\n  tester.view.physicalSize = const Size(1400, 1400);\n  tester.view.devicePixelRatio = 1;\n  addTearDown(tester.view.resetPhysicalSize);\n  addTearDown(tester.view.resetDevicePixelRatio);\n  final controller = HotKeyController(actions: hotKeyActions, labels: _labels);\n  addTearDown(controller.dispose);\n  return controller;\n}\nWidget _host(HotKeyController controller, Widget home) => KitApp(\n  locale: const Locale('en'),\n  builder: (_, child) => HotKeyScope(controller: controller, child: child!),\n  home: home,\n);\nFuture<void> _pumpView(WidgetTester tester, HotKeyController container) async {\n  await tester.pumpWidget(_host(container, const HotKeyView()));\n  await tester.pumpAndSettle();\n}\nFuture<void> _pumpRecorder(WidgetTester tester, HotKeyController container, HotKeyAction action) async {\n  await tester.pumpWidget(_host(container, Builder(builder: (context) => TextButton(\n    onPressed: () => showFloatingDialog<void>(context: context,\n      child: HotKeyRecorder(hotKeyAction: action, labels: _labels)),\n    child: const Text('open'),\n  ))));\n  await tester.pumpAndSettle();\n  await tester.tap(find.text('open'));\n  await tester.pumpAndSettle();\n}\n\n"
+      },
+      {
+        "from": "container.read(hotKeyActionsProvider)",
+        "to": "container.actions"
+      },
+      {
+        "from": "container.read(hotKeyRecordingProvider)",
+        "to": "container.isRecording"
+      },
+      {
+        "from": "container.read(hotKeyFailuresProvider.notifier).value = {\n        HotAction.view: 'already registered',\n      };",
+        "to": "container.setFailures({HotAction.view: 'already registered'});"
+      },
+      {
+        "from": "currentAppLocalizations.",
+        "to": "const KitLocalizations(Locale('en'))."
+      },
+      {
+        "from": "action.label",
+        "to": "_label(tester, action)"
+      },
+      {
+        "from": "HotAction.start.label",
+        "to": "_label(tester, HotAction.start)"
+      },
+      {
+        "from": "void main() {",
+        "to": "String _label(WidgetTester tester, HotAction action) => action.labelOf(tester.element(find.byType(HotKeyScope)));\n\nvoid main() {"
+      }
+    ],
+    "source_lines": [
+      1,
+      398
+    ]
+  },
+  "FlClash/test/views/theme_test.dart": {
+    "status": "已提取；运行验证见 verification.md",
+    "target": "packages/flutter/test/views/theme_test.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "import 'dart:async';\nimport 'dart:io';\n\nimport 'package:fl_clash/common/constant.dart';\nimport 'package:fl_clash/common/system_fonts.dart';\nimport 'package:fl_clash/enum/enum.dart';\nimport 'package:fl_clash/models/models.dart';\nimport 'package:fl_clash/providers/app.dart';\nimport 'package:fl_clash/providers/config.dart';\nimport 'package:fl_clash/providers/database.dart';\nimport 'package:fl_clash/state.dart';\nimport 'package:fl_clash/views/font_family.dart';\nimport 'package:fl_clash/views/theme.dart';\nimport 'package:fl_clash/views/theme_preview.dart';\nimport 'package:fl_clash/widgets/widgets.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\nimport 'package:flutter_test/flutter_test.dart';\n\nimport '../helpers/test_app.dart';\nimport '../helpers/test_profiles.dart';\n",
+        "to": "import 'dart:async';\nimport 'dart:io';\nimport 'package:flutter_test/flutter_test.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flclash_ui_kit/flclash_ui_kit.dart';\n\n"
+      },
+      {
+        "from": "  late ProviderContainer container;\n\n  setUp(() {\n    container = ProviderContainer(\n      overrides: [profilesProvider.overrideWith(TestProfiles.new)],\n    );\n    globalState.container = container;\n    container.read(viewSizeProvider.notifier).value = const Size(1400, 2400);\n  });\n\n  tearDown(() => container.dispose());\n\n  Future<void> pumpThemeView(WidgetTester tester) async {\n    tester.view.physicalSize = const Size(1400, 2400);\n    tester.view.devicePixelRatio = 1;\n    addTearDown(tester.view.resetPhysicalSize);\n    addTearDown(tester.view.resetDevicePixelRatio);\n\n    await tester.pumpWidget(\n      UncontrolledProviderScope(\n        container: container,\n        child: const TestApp(child: ThemeView()),\n      ),\n    );\n    await tester.pumpAndSettle();\n  }\n\n  ThemeProps readTheme() => container.read(themeSettingProvider);\n\n",
+        "to": "  late ThemeController container;\n  setUp(() => container = ThemeController(supportsSidebarBlur: Platform.isMacOS || Platform.isWindows));\n  tearDown(() => container.dispose());\n  Widget host() => KitApp(locale: const Locale('en'),\n    builder: (_, child) => ThemeScope(controller: container, child: child!),\n    home: const ThemeView());\n  Future<void> pumpThemeView(WidgetTester tester) async {\n    tester.view.physicalSize = const Size(1400, 2400);\n    tester.view.devicePixelRatio = 1;\n    addTearDown(tester.view.resetPhysicalSize);\n    addTearDown(tester.view.resetDevicePixelRatio);\n    await tester.pumpWidget(host());\n    await tester.pumpAndSettle();\n  }\n  ThemeProps readTheme() => container.themeProps;\n\n"
+      },
+      {
+        "from": "container\n          .read(themeSettingProvider.notifier)\n          .update(",
+        "to": "container.updateThemeProps("
+      },
+      {
+        "from": "      container.read(viewSizeProvider.notifier).value = size;\n",
+        "to": ""
+      },
+      {
+        "from": "        UncontrolledProviderScope(\n          container: container,\n          child: const TestApp(child: ThemeView()),\n        ),",
+        "to": "        host(),"
+      },
+      {
+        "from": "AppSettingProps readSetting() => container.read(appSettingProvider);",
+        "to": "ThemeController readSetting() => container;"
+      },
+      {
+        "from": "state.copyWith.textScale(enable: true, scale: 1.2)",
+        "to": "state.copyWith(textScale: state.textScale.copyWith(enable: true, scale: 1.2))"
+      }
+    ],
+    "source_lines": [
+      1,
+      626
+    ]
+  },
   "FlClash/assets/fonts/JetBrainsMono-Regular.ttf": {
     "status": "已原样提取；与 JetBrains Mono v2.304 官方字节一致，OFL-1.1",
     "target": "packages/flutter/assets/fonts/JetBrainsMono-Regular.ttf",

@@ -3,122 +3,15 @@ import 'package:flclash_ui_kit/flclash_ui_kit.dart';
 
 import 'demos.dart';
 import 'section.dart';
+import 'app_pages.dart';
 
 void main() => runApp(const ShowcaseApp());
 
-class ShowcaseApp extends StatefulWidget {
+class ShowcaseApp extends StatelessWidget {
   const ShowcaseApp({super.key});
   @override
-  State<ShowcaseApp> createState() => _ShowcaseAppState();
-}
-
-class _ShowcaseAppState extends State<ShowcaseApp> {
-  ThemeMode _mode = ThemeMode.light;
-  ColorStyle _style = ColorStyle.vivid;
-  LiquidGlassQuality? _glass;
-  bool _pureBlack = false;
-  bool _reduceMotion = false;
-  final _seed = ValueNotifier(const Color(0xFF007AFF));
-
-  @override
-  void dispose() {
-    _seed.dispose();
-    super.dispose();
-  }
-
-  Future<void> _settings(BuildContext context) => showFormSheet<void>(
-    context: context,
-    builder: (context) => StatefulBuilder(
-      builder: (context, update) {
-        void change(VoidCallback action) {
-          setState(action);
-          update(() {});
-        }
-
-        return Scaffold(
-          title: '外观与辅助功能',
-          body: Builder(
-            builder: (context) => ListView(
-              shrinkWrap: true,
-              padding: EdgeInsets.fromLTRB(
-                20,
-                context.contentTopPadding + 16,
-                20,
-                32,
-              ),
-              children: [
-                generateSection(
-                  items: [
-                    ListItem<ThemeMode>.options(
-                      title: const Text('明暗主题'),
-                      options: ThemeMode.values,
-                      value: _mode,
-                      textBuilder: (v) => v.name,
-                      onChanged: (v) => change(() => _mode = v),
-                    ),
-                    ListItem<ColorStyle>.options(
-                      title: const Text('色彩风格'),
-                      options: ColorStyle.values,
-                      value: _style,
-                      textBuilder: (v) => v.name,
-                      onChanged: (v) => change(() => _style = v),
-                    ),
-                    ListItem<int>.options(
-                      title: const Text('Liquid Glass'),
-                      options: const [0, 1, 2],
-                      value: _glass == null ? 0 : _glass!.index + 1,
-                      textBuilder: (v) => ['关闭', 'standard', 'ultra'][v],
-                      onChanged: (v) => change(
-                        () => _glass = v == 0
-                            ? null
-                            : LiquidGlassQuality.values[v - 1],
-                      ),
-                    ),
-                    ListItem.toggle(
-                      title: const Text('纯黑背景'),
-                      value: _pureBlack,
-                      onChanged: (v) => change(() => _pureBlack = v),
-                    ),
-                    ListItem.toggle(
-                      title: const Text('减少动态效果'),
-                      value: _reduceMotion,
-                      onChanged: (v) => change(() => _reduceMotion = v),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                Palette(controller: _seed),
-                ValueListenableBuilder(
-                  valueListenable: _seed,
-                  builder: (_, value, _) => HexColorField(
-                    color: value,
-                    onChanged: (color) => _seed.value = color,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    ),
-  );
-
-  @override
-  Widget build(BuildContext context) => ValueListenableBuilder(
-    valueListenable: _seed,
-    builder: (_, seed, _) => KitApp(
-      seedColor: seed,
-      colorStyle: _style,
-      pureBlack: _pureBlack,
-      themeMode: _mode,
-      liquidGlass: _glass,
-      locale: const Locale('zh'),
-      builder: (context, child) => MediaQuery(
-        data: MediaQuery.of(context).copyWith(disableAnimations: _reduceMotion),
-        child: child!,
-      ),
-      home: GalleryHome(onSettings: _settings),
-    ),
+  Widget build(BuildContext context) => ApplicationShowcase(
+    catalogBuilder: (settings) => GalleryHome(onSettings: settings),
   );
 }
 

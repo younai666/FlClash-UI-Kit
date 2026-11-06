@@ -3,6 +3,7 @@
 // (adapted from FlClash lib/models/profile.dart, lib/enum/enum.dart,
 // lib/views/profiles/edit.dart, and lib/providers/actions/profiles.dart,
 // commit be84736605527034689c95bf27828ff27d912c5e). GPL-3.0.
+// Modified 2026-11-06: explicit unavailable-update errors and async disposal.
 
 import 'dart:async';
 
@@ -144,20 +145,20 @@ class Profile {
 
   @override
   int get hashCode => Object.hash(
-        id,
-        label,
-        currentGroupName,
-        url,
-        ageSecretKey,
-        lastUpdateDate,
-        autoUpdateDuration,
-        subscriptionInfo,
-        autoUpdate,
-        Object.hashAll(selectedMap.entries),
-        Object.hashAll(unfoldSet),
-        order,
-        type,
-      );
+    id,
+    label,
+    currentGroupName,
+    url,
+    ageSecretKey,
+    lastUpdateDate,
+    autoUpdateDuration,
+    subscriptionInfo,
+    autoUpdate,
+    Object.hashAll(selectedMap.entries),
+    Object.hashAll(unfoldSet),
+    order,
+    type,
+  );
 }
 
 extension ProfileExt on Profile {
@@ -285,13 +286,13 @@ class ProfilesController extends ChangeNotifier {
   final Future<UpdatingMessage?> Function(Profile profile)? onUpdateProfile;
   final Future<List<UpdatingMessage>> Function()? onUpdateProfiles;
   final FutureOr<void> Function(BuildContext context, Profile profile)?
-      onPreviewProfile;
+  onPreviewProfile;
   final FutureOr<void> Function(BuildContext context, Profile profile)?
-      onExtendProfile;
+  onExtendProfile;
   final FutureOr<void> Function(BuildContext context, Profile profile)?
-      onEditCustomProfile;
+  onEditCustomProfile;
   final FutureOr<void> Function(BuildContext context, Profile profile)?
-      onEditProfile;
+  onEditProfile;
   final Future<bool> Function(Profile profile)? onExportProfile;
   final FutureOr<void> Function()? onAddFromFile;
   final FutureOr<String?> Function()? onScanQrCode;
@@ -299,10 +300,18 @@ class ProfilesController extends ChangeNotifier {
     String url, {
     String? label,
     String ageSecretKey,
-  })? onAddFromLink;
+  })?
+  onAddFromLink;
   final FutureOr<void> Function(List<String> urls)? onAddFromLinks;
   final FutureOr<void> Function(String name)? onAddCustomProfile;
   final Future<PhoneLinkSession?> Function()? startPhoneLinkReceiver;
+  bool _disposed = false;
+
+  @override
+  void dispose() {
+    _disposed = true;
+    super.dispose();
+  }
 
   List<Profile> get profiles => _profiles;
   int? get currentProfileId => _currentProfileId;
@@ -405,13 +414,14 @@ class ProfilesController extends ChangeNotifier {
       if (onUpdateProfile != null) {
         return await onUpdateProfile!(profile);
       }
-      await putProfile(profile.copyWith(lastUpdateDate: DateTime.now()));
-      return null;
+      throw UnsupportedError(
+        'Provide onUpdateProfile to fetch and update a subscription.',
+      );
     } finally {
       _updatingKeys = Set<String>.unmodifiable(
         _updatingKeys.where((k) => k != key),
       );
-      notifyListeners();
+      if (!_disposed) notifyListeners();
     }
   }
 
@@ -432,13 +442,12 @@ class ProfilesController extends ChangeNotifier {
       await onAddFromLink!(url, label: label, ageSecretKey: ageSecretKey);
       return;
     }
-    final profile = Profile.normal(label: label, url: url).copyWith(
-      ageSecretKey: ageSecretKey.isEmpty ? null : ageSecretKey,
-      lastUpdateDate: DateTime.now(),
-    );
-    await putProfile(profile);
+    final profile = Profile.normal(
+      label: label,
+      url: url,
+    ).copyWith(ageSecretKey: ageSecretKey.isEmpty ? null : ageSecretKey);
     _currentProfileId ??= profile.id;
-    notifyListeners();
+    await putProfile(profile);
   }
 
   Future<void> addProfilesFromLinks(List<String> urls) async {
@@ -456,12 +465,10 @@ class ProfilesController extends ChangeNotifier {
       await onAddCustomProfile!(name);
       return;
     }
-    final profile = Profile.custom(label: name).copyWith(
-      lastUpdateDate: DateTime.now(),
-    );
-    await putProfile(profile);
+    final profile = Profile.custom(label: name)
+        .copyWith(lastUpdateDate: DateTime.now());
     _currentProfileId ??= profile.id;
-    notifyListeners();
+    await putProfile(profile);
   }
 }
 
@@ -489,7 +496,9 @@ class ProfilesScope extends InheritedNotifier<ProfilesController> {
   }
 
   static ProfilesController? maybeOf(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<ProfilesScope>()?.notifier;
+    return context
+        .dependOnInheritedWidgetOfExactType<ProfilesScope>()
+        ?.notifier;
   }
 }
 

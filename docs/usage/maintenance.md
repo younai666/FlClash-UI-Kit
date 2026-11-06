@@ -8,7 +8,9 @@
 4. 更新源码锁、提取矩阵、组件目录和真实 Showcase。参考-only、部分提取、完整提取与运行验收分别记录；未支持的页面不能靠文件计数变成“完成”。
 5. 分别运行 flutter、editor、platform 包与 Showcase 的静态分析和受影响测试。原生 editor 测试必须加载真实 Rust 后端；在其 vendor/rust_api/rust 运行 `cargo test --locked`。改变 prism_ui 时，在组件包目录运行 `flutter test ../../source/upstream/prism_ui/test`，用交付包实际依赖解析运行保留的上游套件。改变 Web 动效时运行下方 Node 生命周期测试及真实浏览器验证。
 6. 为实际目标构建 Showcase。Web 的条件导入不验证原生编辑器；Windows 编译不证明 macOS/Linux/iOS 兼容；APK 编译不等于真机运行。记录 SDK、工具链、设备与交互证据。
-7. 重新生成四个实际消费者的 Dart 许可和 Cargo.lock 全图许可，核对新增二进制资产的来源授权，再生成运行时 notice 资产。记录验证结果，检查 README 与 Skill 引用、仓库外完整包独立消费方式和安装提示词。
+7. 重新生成五个实际消费者（含 standalone 示例）的 Dart 许可；Cargo.lock 有变化时重新核对完整 Rust 许可图，再生成运行时 notice 资产。记录验证结果，检查 README 与 Skill 引用、仓库外完整包独立消费方式和安装提示词。
+
+独立验收：`python tools/verify_consumer.py --flutter /path/to/flutter`；Windows 追加 `--windows --native-runtime`。同一个 Showcase 的各平台构建应顺序执行；从集成测试切回 Release 时运行正常 `flutter build ... --release`，让工具重生成排除 dev 插件的注册文件，不沿用测试模式的 `--no-pub` 注册结果。
 
 ```bash
 python tools/audit.py --check

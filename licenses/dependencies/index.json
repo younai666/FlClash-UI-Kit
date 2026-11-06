@@ -6,7 +6,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/args/versions/2.7.0",
     "notices": [
@@ -20,7 +21,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/async/versions/2.13.1",
     "notices": [
@@ -34,7 +36,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/boolean_selector/versions/2.1.2",
     "notices": [
@@ -60,7 +63,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/characters/versions/1.4.1",
     "notices": [
@@ -74,7 +78,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/clock/versions/1.1.3",
     "notices": [
@@ -98,7 +103,8 @@
     "version": "2.1.0",
     "used_by": [
       "packages/flutter",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/code_assets/versions/2.1.0",
     "notices": [
@@ -124,7 +130,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/collection/versions/1.19.1",
     "notices": [
@@ -138,7 +145,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/crypto/versions/3.0.8",
     "notices": [
@@ -164,7 +172,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/fake_async/versions/1.3.3",
     "notices": [
@@ -178,11 +187,24 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/ffi/versions/2.2.0",
     "notices": [
       "licenses/dependencies/ffi/2.2.0/LICENSE"
+    ]
+  },
+  {
+    "name": "ffi_leak_tracker",
+    "version": "0.1.2",
+    "used_by": [
+      "showcase",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/ffi_leak_tracker/versions/0.1.2",
+    "notices": [
+      "licenses/dependencies/ffi_leak_tracker/0.1.2/LICENSE"
     ]
   },
   {
@@ -192,7 +214,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/file/versions/7.0.1",
     "notices": [
@@ -206,7 +229,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/fixnum/versions/1.1.1",
     "notices": [
@@ -220,7 +244,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "Flutter SDK",
     "notices": [
@@ -234,11 +259,24 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/flutter_cache_manager/versions/3.5.0",
     "notices": [
       "licenses/dependencies/flutter_cache_manager/3.5.0/LICENSE"
+    ]
+  },
+  {
+    "name": "flutter_driver",
+    "version": "SDK",
+    "used_by": [
+      "showcase",
+      "examples/standalone"
+    ],
+    "source": "Flutter SDK",
+    "notices": [
+      "licenses/dependencies/flutter_driver/SDK/LICENSE"
     ]
   },
   {
@@ -248,7 +286,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/flutter_lints/versions/6.0.0",
     "notices": [
@@ -262,7 +301,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "Flutter SDK",
     "notices": [
@@ -300,7 +340,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/flutter_svg/versions/2.3.2",
     "notices": [
@@ -314,7 +355,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "Flutter SDK",
     "notices": [
@@ -328,11 +370,24 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/freezed_annotation/versions/3.1.0",
     "notices": [
       "licenses/dependencies/freezed_annotation/3.1.0/LICENSE"
+    ]
+  },
+  {
+    "name": "fuchsia_remote_debug_protocol",
+    "version": "SDK",
+    "used_by": [
+      "showcase",
+      "examples/standalone"
+    ],
+    "source": "Flutter SDK",
+    "notices": [
+      "licenses/dependencies/fuchsia_remote_debug_protocol/SDK/LICENSE"
     ]
   },
   {
@@ -352,7 +407,8 @@
     "used_by": [
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/hooks/versions/2.2.0",
     "notices": [
@@ -366,7 +422,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/http/versions/1.6.0",
     "notices": [
@@ -380,11 +437,24 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/http_parser/versions/4.1.2",
     "notices": [
       "licenses/dependencies/http_parser/4.1.2/LICENSE"
+    ]
+  },
+  {
+    "name": "integration_test",
+    "version": "SDK",
+    "used_by": [
+      "showcase",
+      "examples/standalone"
+    ],
+    "source": "Flutter SDK",
+    "notices": [
+      "licenses/dependencies/integration_test/SDK/LICENSE"
     ]
   },
   {
@@ -394,7 +464,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/intl/versions/0.20.3",
     "notices": [
@@ -408,7 +479,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/jni/versions/1.1.2",
     "notices": [
@@ -422,7 +494,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/jni_flutter/versions/1.0.4+1",
     "notices": [
@@ -436,7 +509,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/jni_util/versions/1.0.0",
     "notices": [
@@ -450,7 +524,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/json_annotation/versions/4.12.0",
     "notices": [
@@ -464,7 +539,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/leak_tracker/versions/11.0.2",
     "notices": [
@@ -478,7 +554,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/leak_tracker_flutter_testing/versions/3.0.10",
     "notices": [
@@ -492,7 +569,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/leak_tracker_testing/versions/3.0.2",
     "notices": [
@@ -506,7 +584,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/lints/versions/6.1.0",
     "notices": [
@@ -520,7 +599,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/logging/versions/1.3.0",
     "notices": [
@@ -534,7 +614,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/matcher/versions/0.12.20",
     "notices": [
@@ -548,7 +629,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/material_color_utilities/versions/0.13.0",
     "notices": [
@@ -572,7 +654,8 @@
     "used_by": [
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/meta/versions/1.19.0",
     "notices": [
@@ -618,7 +701,8 @@
     "version": "9.6.2",
     "used_by": [
       "packages/flutter",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/objective_c/versions/9.6.2",
     "notices": [
@@ -632,7 +716,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/package_config/versions/3.0.0",
     "notices": [
@@ -646,7 +731,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/path/versions/1.9.1",
     "notices": [
@@ -660,7 +746,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/path_parsing/versions/1.1.0",
     "notices": [
@@ -674,7 +761,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/path_provider/versions/2.1.6",
     "notices": [
@@ -688,7 +776,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/path_provider_android/versions/2.3.1",
     "notices": [
@@ -702,7 +791,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/path_provider_foundation/versions/2.6.0",
     "notices": [
@@ -716,7 +806,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/path_provider_linux/versions/2.2.2",
     "notices": [
@@ -730,7 +821,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/path_provider_platform_interface/versions/2.1.3",
     "notices": [
@@ -744,7 +836,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/path_provider_windows/versions/2.3.0",
     "notices": [
@@ -768,7 +861,8 @@
     "used_by": [
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/petitparser/versions/7.1.0",
     "notices": [
@@ -782,7 +876,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/platform/versions/3.2.0",
     "notices": [
@@ -796,11 +891,24 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/plugin_platform_interface/versions/2.1.8",
     "notices": [
       "licenses/dependencies/plugin_platform_interface/2.1.8/LICENSE"
+    ]
+  },
+  {
+    "name": "process",
+    "version": "5.0.6",
+    "used_by": [
+      "showcase",
+      "examples/standalone"
+    ],
+    "source": "https://pub.dev/packages/process/versions/5.0.6",
+    "notices": [
+      "licenses/dependencies/process/5.0.6/LICENSE"
     ]
   },
   {
@@ -810,7 +918,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/pub_semver/versions/2.2.1",
     "notices": [
@@ -846,7 +955,8 @@
     "used_by": [
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/record_use/versions/1.1.1",
     "notices": [
@@ -860,7 +970,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/rxdart/versions/0.28.0",
     "notices": [
@@ -934,7 +1045,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "Flutter SDK",
     "notices": [
@@ -948,7 +1060,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/source_span/versions/1.10.2",
     "notices": [
@@ -962,7 +1075,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/sqflite/versions/2.4.5",
     "notices": [
@@ -976,7 +1090,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/sqflite_android/versions/2.4.5",
     "notices": [
@@ -990,7 +1105,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/sqflite_common/versions/2.5.15",
     "notices": [
@@ -1004,7 +1120,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/sqflite_darwin/versions/2.4.5",
     "notices": [
@@ -1018,7 +1135,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/sqflite_platform_interface/versions/2.4.3",
     "notices": [
@@ -1032,7 +1150,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/stack_trace/versions/1.12.2",
     "notices": [
@@ -1046,7 +1165,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/stream_channel/versions/2.1.4",
     "notices": [
@@ -1060,11 +1180,24 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/string_scanner/versions/1.4.1",
     "notices": [
       "licenses/dependencies/string_scanner/1.4.1/LICENSE"
+    ]
+  },
+  {
+    "name": "sync_http",
+    "version": "0.3.1",
+    "used_by": [
+      "showcase",
+      "examples/standalone"
+    ],
+    "source": "https://pub.dev/packages/sync_http/versions/0.3.1",
+    "notices": [
+      "licenses/dependencies/sync_http/0.3.1/LICENSE"
     ]
   },
   {
@@ -1074,7 +1207,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/synchronized/versions/3.6.1",
     "notices": [
@@ -1088,7 +1222,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/term_glyph/versions/1.2.2",
     "notices": [
@@ -1102,7 +1237,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/test_api/versions/0.7.12",
     "notices": [
@@ -1140,7 +1276,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/typed_data/versions/1.4.0",
     "notices": [
@@ -1154,7 +1291,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/uuid/versions/4.6.0",
     "notices": [
@@ -1168,7 +1306,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/vector_graphics/versions/1.2.6",
     "notices": [
@@ -1182,7 +1321,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/vector_graphics_codec/versions/1.1.13",
     "notices": [
@@ -1196,7 +1336,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/vector_graphics_compiler/versions/1.3.4",
     "notices": [
@@ -1220,7 +1361,8 @@
     "used_by": [
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/vector_math/versions/2.4.4",
     "notices": [
@@ -1234,7 +1376,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/vm_service/versions/15.4.0",
     "notices": [
@@ -1248,11 +1391,36 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/web/versions/1.1.2",
     "notices": [
       "licenses/dependencies/web/1.1.2/LICENSE"
+    ]
+  },
+  {
+    "name": "webdriver",
+    "version": "3.2.0",
+    "used_by": [
+      "showcase",
+      "examples/standalone"
+    ],
+    "source": "https://pub.dev/packages/webdriver/versions/3.2.0",
+    "notices": [
+      "licenses/dependencies/webdriver/3.2.0/LICENSE"
+    ]
+  },
+  {
+    "name": "win32",
+    "version": "6.4.0",
+    "used_by": [
+      "showcase",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/win32/versions/6.4.0",
+    "notices": [
+      "licenses/dependencies/win32/6.4.0/LICENSE"
     ]
   },
   {
@@ -1274,7 +1442,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/xdg_directories/versions/1.1.0",
     "notices": [
@@ -1288,7 +1457,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/xml/versions/7.0.1",
     "notices": [
@@ -1302,7 +1472,8 @@
       "showcase",
       "packages/flutter",
       "packages/editor",
-      "packages/platform"
+      "packages/platform",
+      "examples/standalone"
     ],
     "source": "https://pub.dev/packages/yaml/versions/3.1.4",
     "notices": [

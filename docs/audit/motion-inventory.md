@@ -373,7 +373,7 @@
 
 ### FlClash/lib/common/system_fonts.dart
 
-用途：utility：type。复用：`source/upstream/FlClash`。状态：已归类，参考实现。依赖边见 source-index.json。
+用途：DirectWrite/CoreText/fontconfig/Android 字体枚举；isolate 与原生资源释放。复用：`packages/platform/lib/src/system_fonts.dart`。状态：已提取原生系统字体枚举与测试；Web 不提供枚举，见 verification.md。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|
@@ -664,7 +664,7 @@
 
 ### FlClash/lib/manager/app_manager.dart
 
-用途：lifecycle：AppStateManager, AppEnvManager, AppSidebarContainer。复用：`source/upstream/FlClash`。状态：已归类，参考实现。依赖边见 source-index.json。
+用途：侧栏宽度与材质已摘录；网络、后台服务与应用生命周期保留宿主边界。复用：`packages/flutter/lib/src/shell/sidebar.dart`。状态：部分提取：Sidebar presentation only; app lifecycle/network/service managers remain in upstream。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|
@@ -942,7 +942,7 @@
 
 ### FlClash/lib/pages/home.dart
 
-用途：page：HomePage, HomeBackScopeContainer。复用：`保留完整源文件；见下方解耦策略`。状态：业务或原生依赖，尚未独立提取。依赖边见 source-index.json。
+用途：响应式主壳层；远距离切页重排、淡入/滑动、快照、页面活跃与焦点隔离、返回行为。复用：`packages/flutter/lib/src/shell/home.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|
@@ -1331,7 +1331,7 @@
 
 ### FlClash/lib/views/about.dart
 
-用途：page：Contributor, AboutView。复用：`保留完整源文件；见下方解耦策略`。状态：业务或原生依赖，尚未独立提取。依赖边见 source-index.json。
+用途：元数据、贡献者、链接和五次点击入口；品牌资源由宿主合法提供。复用：`packages/flutter/lib/src/shell/about.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|
@@ -1685,7 +1685,7 @@
 
 ### FlClash/lib/views/dashboard/widgets/connections_table.dart
 
-用途：page：DashboardFeed, ConnectionsPolling, ThrottledCount, ConnectionsTableCard。复用：`packages/flutter/lib/src/dashboard/connections_table.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
+用途：连接/请求/DNS 三类 feed、快照/节流/轮询、列宽与页面活跃状态。复用：`packages/flutter/lib/src/dashboard/connections_table.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|
@@ -1842,7 +1842,7 @@
 
 ### FlClash/lib/views/dashboard/widgets/profiles.dart
 
-用途：page：ProfilesCard。复用：`packages/flutter/lib/src/dashboard/profiles.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
+用途：配置网格、焦点/选中定位、拖动重排、上下文菜单；文件与同步由宿主提供。复用：`packages/flutter/lib/src/dashboard/profiles.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|
@@ -1856,7 +1856,7 @@
 
 ### FlClash/lib/views/dashboard/widgets/proxy_groups.dart
 
-用途：page：ProxyGroupsCard, ProxyGroupsSummaryCard。复用：`packages/flutter/lib/src/dashboard/proxy_groups.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
+用途：策略组 grid、summary、选中节点与跳转交互；选择数据来自宿主。复用：`packages/flutter/lib/src/dashboard/proxy_groups.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|
@@ -1966,7 +1966,7 @@
 
 ### FlClash/lib/views/font_family.dart
 
-用途：page：FontFamilyView。复用：`保留完整源文件；见下方解耦策略`。状态：业务或原生依赖，尚未独立提取。依赖边见 source-index.json。
+用途：字体选择、每帧延迟预览、滚动与转场暂停；原生枚举由 platform 提供。复用：`packages/flutter/lib/src/theme/font_family.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|
@@ -1981,7 +1981,7 @@
 
 ### FlClash/lib/views/hotkey.dart
 
-用途：page：HotKeyView, HotKeyRecorder。复用：`保留完整源文件；见下方解耦策略`。状态：业务或原生依赖，尚未独立提取。依赖边见 source-index.json。
+用途：热键录制、USB HID、修饰键验证、冲突移动与失败详情；宿主负责系统注册。复用：`packages/flutter/lib/src/hotkey/view.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|
@@ -2010,7 +2010,7 @@
 
 ### FlClash/lib/views/profiles/add.dart
 
-用途：page：AddProfileMenu。复用：`保留完整源文件；见下方解耦策略`。状态：业务或原生依赖，尚未独立提取。依赖边见 source-index.json。
+用途：page：AddProfileMenu。复用：`packages/flutter/lib/src/profiles/add.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|
@@ -2161,7 +2161,7 @@
 
 ### FlClash/lib/views/profiles/profiles.dart
 
-用途：page：ProfilesView, ProfileItem, ReorderableProfilesSheet。复用：`保留完整源文件；见下方解耦策略`。状态：业务或原生依赖，尚未独立提取。依赖边见 source-index.json。
+用途：配置网格、焦点/选中定位、拖动重排、上下文菜单；文件与同步由宿主提供。复用：`packages/flutter/lib/src/profiles/view.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|
@@ -2328,7 +2328,7 @@
 
 ### FlClash/lib/views/theme.dart
 
-用途：page：ThemeView。复用：`保留完整源文件；见下方解耦策略`。状态：业务或原生依赖，尚未独立提取。依赖边见 source-index.json。
+用途：种子调色板、色彩风格、玻璃、文字缩放、导航/转场配置与实时缩略预览。复用：`packages/flutter/lib/src/theme/view.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|
@@ -2383,7 +2383,7 @@
 
 ### FlClash/lib/views/tools.dart
 
-用途：page：ToolsView。复用：`保留完整源文件；见下方解耦策略`。状态：业务或原生依赖，尚未独立提取。依赖边见 source-index.json。
+用途：更多导航、语言与设置/工具入口；通过宿主 Scope 连接实际视图。复用：`packages/flutter/lib/src/shell/tools.dart`。状态：已提取；运行验证见 verification.md。依赖边见 source-index.json。
 
 |类别|源码位置|证据|
 |---|---|---|

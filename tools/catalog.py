@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     output = ROOT / 'docs/components/catalog.md'
     callsites = []
-    for folder in ['showcase/lib', 'packages/flutter/test', 'packages/editor/test', 'packages/platform/test', 'source/upstream/prism_ui/test']:
+    for folder in ['showcase/lib', 'examples/standalone/lib', 'examples/standalone/test', 'packages/flutter/test', 'packages/editor/test', 'packages/platform/test', 'source/upstream/prism_ui/test']:
         callsites += [(p, p.read_text(encoding='utf-8')) for p in (ROOT / folder).rglob('*.dart')]
     sections = ['# 组件目录与真实调用', '', '统一入口：`package:flclash_ui_kit/flclash_ui_kit.dart`；图标入口 `icons.dart`；多边形入口 `shapes.dart`。多边形 Cubic 与 Flutter Cubic 同名，使用前缀。部分内部类型不从统一入口导出，先检查对应 export 和调用者。', '', '|分类|可交互调用文件|主要 API|', '|---|---|---|',
                 '|控件/表单/调色/QR|[controls.dart](../../showcase/lib/controls.dart)|按钮、卡片、Switch、Checkbox、Slider、ListItem 六种、FormRow、SelectionSheet、Palette、HexColorField、QrCodeView|',
