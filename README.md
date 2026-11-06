@@ -47,35 +47,34 @@
 
 ## AI Agent 提示词与接入方案
 
-针对不同协作场景，提供两种即开即用的独立方案：
+针对不同协作场景，提供两种即开即用的高信息密度提示词：
 
 ### 方案 1：单次 UI/UX 唯一约束提示词（无需安装）
 
 > [!NOTE]
-> **适用场景**：临时任务、单轮对话、或不希望修改任何 Agent 配置与环境。直接将下方提示词复制发送给 AI Agent 即可：
+> **适用场景**：单轮对话、临时任务、或不希望修改任何 Agent 配置。直接复制发送：
 
 ```text
-请在本任务中将 FlClash-UI-Kit（https://github.com/younai666/FlClash-UI-Kit）作为唯一 UI/UX 与动效设计实现标准。无需安装 Skill，不修改任何环境配置或持久记忆，约束仅对当前任务生效：
+本任务以 FlClash-UI-Kit（https://github.com/younai666/FlClash-UI-Kit）为唯一 UI/UX 与动效标准。不装 Skill、不改配置、仅限当前任务：
 
-1. 唯一标准：先检视仓库（优先复用本地现有 checkout，否则克隆或读取远程），前端视觉、布局、自适应壳层、色彩及弹簧物理动效严格以 `packages/flutter`（含 `vendor/prism_ui`）中的真实源码为唯一实现标准。
-2. 真实复用：严禁自行引入无关 UI 库或臆造不存在的组件接口。优先复用仓库中已解耦的真实组件（如 KitApp, HomePage, Dashboard 卡片, ThemeView, showSnapSheet, superellipse 形状等）。
-3. 技术栈规则：Flutter 项目直接引用 `packages/flutter` 依赖调用；非 Flutter 栈（React, Vue, SwiftUI, Compose 等）须先检视真实 Dart/Shader 源码与 token 契约进行对齐移植，并明确说明保真度与渲染器限制。
-4. 安全与许可：衍生代码遵循 GNU GPL-3.0 协议，JetBrains Mono 字体遵循 OFL-1.1，服务图标遵循 CC0 1.0（不授予商标权）；严禁引入未明确授权的隔离资产（Emoji 字库、作者头像、应用商标）。
+1. 唯一基准：读取仓库真实源码（`packages/flutter` 与 `vendor/prism_ui`），以此为视觉、布局与弹簧动效唯一依据。
+2. 真实复用：严禁臆造接口或引入无关 UI 库，优先复用已解耦组件（KitApp, HomePage, Dashboard, ThemeView, showSnapSheet 等）。
+3. 技术栈规则：Flutter 直接依赖调用；其他技术栈对照源码与 token 移植，并说明保真边界。
+4. 授权合规：遵守 GNU GPL-3.0 协议，JetBrains Mono(OFL-1.1)，服务图标(CC0 1.0)，严禁引入隔离资产。
 ```
 
 ### 方案 2：项目级持久 Skill 安装提示词（长效复用）
 
 > [!TIP]
-> **适用场景**：需要长期开发维护的项目。发送给 AI Agent 自动进行项目级原生挂载：
+> **适用场景**：长期项目开发。发送给 AI Agent 进行原生项目级挂载：
 
 ```text
-请将 FlClash-UI-Kit（https://github.com/younai666/FlClash-UI-Kit）安装为当前项目可用的持久 UI/UX Skill：
+请将 FlClash-UI-Kit（https://github.com/younai666/FlClash-UI-Kit）安装为当前项目的持久 UI/UX Skill：
 
-1. Agent 识别与定位：先识别你当前是哪种 Agent（如 Google Antigravity, Codex CLI, Claude Code, Cursor 等），检查当前项目约定及其原生支持的 Skill 发现机制（如项目级 skills 目录、配置文件或指令索引）；切勿修改用户全局配置。
-2. 完整获取：优先复用本地已存在的仓库副本；若需克隆，必须保留完整源码与子模块（`git clone --recurse-submodules https://github.com/younai666/FlClash-UI-Kit.git`），上游公共子模块统一使用 HTTPS。
-3. 项目级接入：按原生机制进行项目级挂载（使用目录软链接、项目级 Skill 路径或在项目 Agent 指引中登记资源根路径）；严禁孤立复制单个 `SKILL.md`，必须确保根目录下的 `packages/`（含 vendor、字体、Shader）、`showcase/`、`docs/`、`NOTICE.md` 与 `LICENSE` 均可完整相对寻址。
-4. 真实能力验证：使用内部发现机制检查 `flclash-ui-kit` 是否被识别；通过 Skill 索引检索真实源码（如定位 `Palette` 与 `showSnapSheet` 实现与调用示例）。若当前环境无法识别，明确说明原因并提供最简手动接入步骤，严禁虚报成功。
-5. 优先使用约定：安装成功后，后续凡涉及该风格的 UI/UX、自适应布局或物理动效任务，均优先检索该 Skill 复用真实源码。遵守 GNU GPL-3.0 协议及第三方授权（OFL-1.1、CC0 1.0，隔离未确认资产）。
+1. 识别与挂载：识别当前 Agent，按其原生机制进行项目级挂载（软链接或目录配置），严禁修改全局配置；必须保留完整仓库结构，禁止单拷 `SKILL.md`。
+2. 源码获取：优先复用本地副本，否则递归克隆完整仓库及子模块（`git clone --recurse-submodules https://github.com/younai666/FlClash-UI-Kit.git`，子模块走 HTTPS）。
+3. 真实检验：通过内部机制验证 Skill 识别，并测试检索组件源码（如定位 Palette 与 showSnapSheet）；无法识别须如实说明并提供手动指引，禁报假成功。
+4. 约定与合规：后续相关 UI/UX 开发优先使用该 Skill 复用真实源码；遵循 GNU GPL-3.0 协议，隔离未授权资产。
 ```
 
 ---
