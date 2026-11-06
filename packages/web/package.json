@@ -1,0 +1,9 @@
+{
+  "name": "@flclash-ui-kit/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-only",
+  "exports": {".": {"types": "./index.d.ts", "import": "./index.js"}, "./tokens.css": "./tokens.css"},
+  "scripts": {"test": "node --test test/*.test.js"}
+}

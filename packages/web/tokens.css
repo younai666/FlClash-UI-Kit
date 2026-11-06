@@ -1,0 +1,137 @@
+/* Derived from FlClash site/assets/style.css, be84736605527034689c95bf27828ff27d912c5e; GPL-3.0. Only original tokens retained. */
+:root {
+  --bg: #f3efea;
+  --surface: #fbf9f6;
+  --raise: #e9e3dc;
+  --chip: #fbf9f6;
+  --ink: #262122;
+  --ink-2: #5c5354;
+  --ink-3: #72686a;
+  --line: rgb(38 33 34 / 0.1);
+  --line-strong: rgb(38 33 34 / 0.2);
+  --accent: #6b5059;
+  --accent-soft: #e5d9da;
+  --on-accent: #fbf7f4;
+
+  --rose: #c3a1a8;
+  --clay: #cdab95;
+  --oat: #d9ccb8;
+  --sage: #a2b09b;
+  --slate: #98a9b8;
+  --lilac: #aca4c1;
+
+  --g1: #7d79b0;
+  --g2: #58738f;
+  --g3: #92b1ca;
+
+  --field-1: #e7e0d8;
+  --field-2: var(--oat);
+  --field-3: var(--rose);
+  --field-4: var(--sage);
+  --field-5: var(--slate);
+  --field-6: var(--lilac);
+
+  --feat: #74876c;
+  --fix: #677d91;
+  --perf: #b08568;
+  --breaking: #ad5d57;
+  --revert: #8c8284;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", "PingFang SC",
+    "HarmonyOS Sans SC", "MiSans", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei",
+    "Noto Sans CJK SC", "Noto Sans SC", system-ui, Roboto, sans-serif;
+  --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display",
+    "Segoe UI", "PingFang SC", "HarmonyOS Sans SC", "MiSans", "Hiragino Sans GB", "Microsoft YaHei UI",
+    "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", system-ui, Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", "Roboto Mono", Menlo, Consolas,
+    monospace;
+
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --rail: 280px;
+  --nav-h: 60px;
+  --gutter: clamp(16px, 4vw, 40px);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --spring: cubic-bezier(0.22, 1, 0.36, 1);
+  --spring-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  color-scheme: light;
+}
+
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --spring: linear(0, 0.0072, 0.0283 2.4%, 0.1123 5.1%, 0.5374 16.4%, 0.7337 22.6%, 0.8682 28.6%,
+      0.9203 31.6%, 0.9601 34.8%, 0.9914 38.6%, 1.0131 42.8%, 1.0247 47.7%, 1.0276 53.5%, 1.0206 61.3%,
+      1.0054 75.6%, 0.9994 90%, 1);
+    --spring-pop: linear(0, 0.0284 1.4%, 0.1185 3%, 0.4925 8.5%, 0.8077 14.1%, 1.0074 19.3%, 1.1146 24.4%,
+      1.1471 28.3%, 1.1445 31.8%, 1.0986 38.6%, 1.0294 47.4%, 0.9906 55.6%, 0.9826 61.5%, 0.9918 71.8%,
+      1.0019 85%, 1);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #181617;
+    --surface: #211e1f;
+    --raise: #2b2728;
+    --chip: #3d3839;
+    --ink: #ebe5e2;
+    --ink-2: #bdb3b2;
+    --ink-3: #978d8d;
+    --line: rgb(235 229 226 / 0.09);
+    --line-strong: rgb(235 229 226 / 0.18);
+    --accent: #dcc3c8;
+    --accent-soft: #3a3033;
+    --on-accent: #33262a;
+    --rose: #7b5f66;
+    --clay: #806657;
+    --oat: #6a6254;
+    --sage: #5b6958;
+    --slate: #546575;
+    --lilac: #655e7b;
+    --g1: #9a96cb;
+    --g2: #6f90b4;
+    --g3: #a2c4de;
+    --field-1: #2a2627;
+    --feat: #a9bb9f;
+    --fix: #9fb3c5;
+    --perf: #d9b093;
+    --breaking: #e08d85;
+    --revert: #978d8d;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #181617;
+  --surface: #211e1f;
+  --raise: #2b2728;
+  --chip: #3d3839;
+  --ink: #ebe5e2;
+  --ink-2: #bdb3b2;
+  --ink-3: #978d8d;
+  --line: rgb(235 229 226 / 0.09);
+  --line-strong: rgb(235 229 226 / 0.18);
+  --accent: #dcc3c8;
+  --accent-soft: #3a3033;
+  --on-accent: #33262a;
+  --rose: #7b5f66;
+  --clay: #806657;
+  --oat: #6a6254;
+  --sage: #5b6958;
+  --slate: #546575;
+  --lilac: #655e7b;
+  --g1: #9a96cb;
+  --g2: #6f90b4;
+  --g3: #a2c4de;
+  --field-1: #2a2627;
+  --feat: #a9bb9f;
+  --fix: #9fb3c5;
+  --perf: #d9b093;
+  --breaking: #e08d85;
+  --revert: #978d8d;
+  color-scheme: dark;
+}
+

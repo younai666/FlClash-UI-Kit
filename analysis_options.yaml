@@ -1,0 +1,4 @@
+analyzer:
+  exclude:
+    - source/upstream/**
+    - .local/**

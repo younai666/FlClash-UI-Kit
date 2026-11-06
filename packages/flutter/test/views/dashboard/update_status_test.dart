@@ -1,0 +1,116 @@
+// Derived from chen08209/FlClash, test/views/dashboard/update_status_test.dart
+// Commit: be84736605527034689c95bf27828ff27d912c5e; GPL-3.0, except retained third-party headers.
+// Modified 2026-11-05 for FlClash-UI-Kit: imports, localization/host contracts; original drawing and motion retained.
+
+import 'package:flclash_ui_kit/flclash_ui_kit.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import '../../helpers/host_scaffold.dart';
+import '../../helpers/test_app.dart';
+
+void main() {
+  late ValueNotifier<UpdateDownload?> download;
+
+  setUp(() {
+    download = ValueNotifier<UpdateDownload?>(null);
+  });
+
+  tearDown(() => download.dispose());
+
+  Future<void> pumpCard(WidgetTester tester) async {
+    await tester.pumpWidget(
+      TestApp(
+        child: HostScaffold(
+          body: Align(
+            alignment: Alignment.topLeft,
+            child: SizedBox(
+              width: 380,
+              child: DashboardDensityScope(
+                density: DashboardDensity.mobile,
+                scale: 1,
+                child: UpdateStatusSlot(
+                  gap: 12,
+                  downloadListenable: download,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+  }
+
+  testWidgets('shows nothing without an update', (tester) async {
+    await pumpCard(tester);
+
+    expect(find.text('Downloading update'), findsNothing);
+    expect(find.text('Update ready'), findsNothing);
+  });
+
+  testWidgets('follows a download to its end', (tester) async {
+    download.value = const UpdateDownloading(
+      'v0.9.3',
+      received: 1 << 20,
+      total: 4 << 20,
+    );
+    await pumpCard(tester);
+
+    expect(find.text('Downloading update'), findsOneWidget);
+    expect(find.text('v0.9.3'), findsOneWidget);
+    final bar = tester.widget<LinearProgressIndicator>(
+      find.byType(LinearProgressIndicator),
+    );
+    expect(bar.value, 0.25);
+
+    download.value = const UpdateReady('v0.9.3', '/update/FlClash.apk');
+    await tester.pump();
+
+    expect(find.text('Update ready'), findsOneWidget);
+    expect(find.byType(LinearProgressIndicator), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('grows in and keeps its last state while it leaves', (
+    tester,
+  ) async {
+    await pumpCard(tester);
+    final slot = find.byType(UpdateStatusSlot);
+    expect(tester.getSize(slot).height, 0);
+
+    download.value = const UpdateReady('v0.9.3', '/update/FlClash.apk');
+    await tester.pump();
+    await tester.pump(commonDuration ~/ 2);
+    final midway = tester.getSize(slot).height;
+    await tester.pumpAndSettle();
+    final full = tester.getSize(slot).height;
+    expect(midway, inExclusiveRange(0, full));
+
+    download.value = null;
+    await tester.pump();
+    await tester.pump(commonDuration ~/ 2);
+    expect(find.text('Update ready'), findsOneWidget);
+    expect(tester.getSize(slot).height, inExclusiveRange(0, full));
+
+    await tester.pumpAndSettle();
+    expect(find.text('Update ready'), findsNothing);
+    expect(tester.getSize(slot).height, 0);
+  });
+
+  testWidgets('a download that returns as the card leaves stays', (
+    tester,
+  ) async {
+    await pumpCard(tester);
+    download.value = const UpdateReady('v0.9.3', '/update/FlClash.apk');
+    await tester.pumpAndSettle();
+
+    download.value = null;
+    await tester.pump();
+    await tester.pump(commonDuration ~/ 2);
+    download.value = const UpdateDownloading('v0.9.4', received: 1, total: 4);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Downloading update'), findsOneWidget);
+  });
+}

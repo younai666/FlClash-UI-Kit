@@ -1,0 +1,7 @@
+FlClash UI Kit derives from chen08209/FlClash commit be84736605527034689c95bf27828ff27d912c5e and chen08209/prism_ui commit 63450c0ac0e8e1b2c0f3ed4ad7926dc94e083185, GPL-3.0. Original copyrights remain with their authors. Adapted files carry source paths and modification notices; the upstream repositories are https://github.com/chen08209/FlClash and https://github.com/chen08209/prism_ui.
+
+The complete prism_ui runtime is in vendor/prism_ui, retaining its GPL, NOTICE and embedded MIT/Apache/BSD notices. Application services, persistence and providers have been replaced with explicit host inputs and callbacks in adapted UI files. The single prism_ui rendering change explicitly supplies Clip.antiAlias to the Web SceneBuilder call on Flutter 3.47.9.
+
+Complete retained notices for shapes, sliver list, navigator resizing, HCT, ink sparkle, Dart QR, JetBrains Mono and service icons are in assets/licenses/third-party.txt. KitApp registers these with Flutter's LicenseRegistry; custom PrismApp hosts call registerKitLicenses(). JetBrains Mono 2.304 is unmodified under OFL-1.1; its original font license is also in assets/fonts. The original service-image notice identifies Simple Icons 13.0.0/CC0 and the FlClash-drawn Claude/neutral streaming glyphs. No trademark rights are granted.
+
+Unresolved emoji font, avatars, app/tray logos and proxy databases are not part of this runtime package. Keep this NOTICE, LICENSE, vendor notices and bundled license assets when redistributing it. Package dependencies retain their own licenses.

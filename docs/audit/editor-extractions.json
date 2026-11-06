@@ -1,0 +1,332 @@
+{
+  "FlClash/plugins/code_forge/lib/code_forge.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/clipboard.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/clipboard.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/code_area.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/code_area.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/controller.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/controller.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/find_controller.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/find_controller.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/keyboard_shortcuts.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/keyboard_shortcuts.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/rope.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/rope.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/scroll.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/scroll.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/styling.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/styling.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/syntax_highlighter.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/syntax_highlighter.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/text_offsets.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/text_offsets.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/undo_redo.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/undo_redo.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/view_line_layout.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/view_line_layout.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/word_chars.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/word_chars.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/code_area/editor_state.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/code_area/editor_state.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/code_area/editor_state_keyboard.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/code_area/editor_state_keyboard.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/code_area/editor_state_overlays.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/code_area/editor_state_overlays.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/code_area/renderer.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/code_area/renderer.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/code_area/renderer_caret.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/code_area/renderer_caret.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/code_area/renderer_folding.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/code_area/renderer_folding.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/code_area/renderer_gutter.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/code_area/renderer_gutter.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/code_area/renderer_highlights.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/code_area/renderer_highlights.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/code_area/renderer_layout.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/code_area/renderer_layout.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/code_area/renderer_pointer.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/code_area/renderer_pointer.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/controller/completion.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/controller/completion.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/controller/document.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/controller/document.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/controller/editing.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/controller/editing.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/controller/edit_pipeline.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/controller/edit_pipeline.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/controller/folding.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/controller/folding.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/controller/ime.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/controller/ime.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/controller/navigation.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/controller/navigation.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/lib/code_forge/controller/snippet.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/lib/code_forge/controller/snippet.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/pubspec.yaml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/pubspec.yaml",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/code_forge/LICENSE": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/LICENSE",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file",
+    "additional_targets": [
+      "packages/editor/vendor/rust_api/MIT-code-forge.txt"
+    ]
+  },
+  "FlClash/plugins/code_forge/analysis_options.yaml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/code_forge/analysis_options.yaml",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/lint_options.yaml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/lint_options.yaml",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/rust_api/lib/editor.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/lib/editor.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/rust_api/rust/src/api/editor.rs": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/rust/src/api/editor.rs",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/rust_api/rust/src/api/init.rs": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/rust/src/api/init.rs",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/plugins/rust_api/rust/src/editor/buffer.rs": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/rust/src/editor/buffer.rs",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream editor implementation"
+  },
+  "FlClash/plugins/rust_api/rust/src/editor/folds.rs": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/rust/src/editor/folds.rs",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream editor implementation"
+  },
+  "FlClash/plugins/rust_api/rust/src/editor/guides.rs": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/rust/src/editor/guides.rs",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream editor implementation"
+  },
+  "FlClash/plugins/rust_api/rust/src/editor/mod.rs": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/rust/src/editor/mod.rs",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "MIT notice path adjusted"
+  },
+  "FlClash/plugins/rust_api/rust/src/editor/words.rs": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/rust/src/editor/words.rs",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream editor implementation"
+  },
+  "FlClash/plugins/rust_api/pubspec.yaml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/pubspec.yaml",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Application services and unrelated dev dependencies removed"
+  },
+  "FlClash/plugins/rust_api/rust/Cargo.toml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/rust/Cargo.toml",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Remove QuickJS, charset, IPC, global hotkeys and platform service dependencies"
+  },
+  "FlClash/plugins/rust_api/rust/rust-toolchain.toml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/rust/rust-toolchain.toml",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Keep exact upstream compiler and targets required by Native Assets; minimal profile"
+  },
+  "FlClash/plugins/rust_api/rust/src/lib.rs": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/rust/src/lib.rs",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Editor-only crate exports"
+  },
+  "FlClash/plugins/rust_api/rust/src/api/mod.rs": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/rust/src/api/mod.rs",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Only document and utility initialization APIs"
+  },
+  "FlClash/plugins/rust_api/hook/build.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/hook/build.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Original Native Assets integration without unrelated bindgen environment"
+  },
+  "FlClash/plugins/rust_api/flutter_rust_bridge.yaml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/flutter_rust_bridge.yaml",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file"
+  },
+  "FlClash/LICENSE": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/vendor/rust_api/LICENSE",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Unmodified upstream file",
+    "additional_targets": [
+      "packages/editor/LICENSE"
+    ]
+  },
+  "FlClash/lib/features/editor/completion_popup.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/lib/src/completion_popup.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "UI import only"
+  },
+  "FlClash/lib/pages/editor.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/editor/lib/src/native_code_editor.dart",
+    "status": "已提取；原生构建/运行状态见 verification.md",
+    "modification": "Partial: complete editor surface/find panel; app file workflow remains upstream"
+  }
+}

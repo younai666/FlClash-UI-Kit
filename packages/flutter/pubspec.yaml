@@ -1,0 +1,32 @@
+name: flclash_ui_kit
+description: Native FlClash UI primitives, motion and decoupled application widgets on pinned prism_ui.
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: '>=3.13.2 <4.0.0'
+  flutter: '>=3.47.2'
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  prism_ui:
+    path: vendor/prism_ui
+  collection: ^1.19.1
+  flutter_svg: ^2.3.0
+  flutter_cache_manager: ^3.4.5
+  intl: any
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  assets:
+    - assets/images/services/
+    - assets/licenses/third-party.txt
+  fonts:
+    - family: JetBrainsMono
+      fonts:
+        - asset: assets/fonts/JetBrainsMono-Regular.ttf
+          weight: 400

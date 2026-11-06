@@ -1,0 +1,1312 @@
+[
+  {
+    "name": "args",
+    "version": "2.7.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/args/versions/2.7.0",
+    "notices": [
+      "licenses/dependencies/args/2.7.0/LICENSE"
+    ]
+  },
+  {
+    "name": "async",
+    "version": "2.13.1",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/async/versions/2.13.1",
+    "notices": [
+      "licenses/dependencies/async/2.13.1/LICENSE"
+    ]
+  },
+  {
+    "name": "boolean_selector",
+    "version": "2.1.2",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/boolean_selector/versions/2.1.2",
+    "notices": [
+      "licenses/dependencies/boolean_selector/2.1.2/LICENSE"
+    ]
+  },
+  {
+    "name": "build_cli_annotations",
+    "version": "2.1.1",
+    "used_by": [
+      "showcase",
+      "packages/editor"
+    ],
+    "source": "https://pub.dev/packages/build_cli_annotations/versions/2.1.1",
+    "notices": [
+      "licenses/dependencies/build_cli_annotations/2.1.1/LICENSE"
+    ]
+  },
+  {
+    "name": "characters",
+    "version": "1.4.1",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/characters/versions/1.4.1",
+    "notices": [
+      "licenses/dependencies/characters/1.4.1/LICENSE"
+    ]
+  },
+  {
+    "name": "clock",
+    "version": "1.1.3",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/clock/versions/1.1.3",
+    "notices": [
+      "licenses/dependencies/clock/1.1.3/LICENSE"
+    ]
+  },
+  {
+    "name": "code_assets",
+    "version": "1.2.1",
+    "used_by": [
+      "showcase",
+      "packages/editor"
+    ],
+    "source": "https://pub.dev/packages/code_assets/versions/1.2.1",
+    "notices": [
+      "licenses/dependencies/code_assets/1.2.1/LICENSE"
+    ]
+  },
+  {
+    "name": "code_assets",
+    "version": "2.1.0",
+    "used_by": [
+      "packages/flutter",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/code_assets/versions/2.1.0",
+    "notices": [
+      "licenses/dependencies/code_assets/2.1.0/LICENSE"
+    ]
+  },
+  {
+    "name": "code_forge",
+    "version": "10.14.0",
+    "used_by": [
+      "showcase",
+      "packages/editor"
+    ],
+    "source": "https://github.com/chen08209/FlClash/tree/be84736605527034689c95bf27828ff27d912c5e/plugins/code_forge",
+    "notices": [
+      "licenses/dependencies/code_forge/10.14.0/LICENSE"
+    ]
+  },
+  {
+    "name": "collection",
+    "version": "1.19.1",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/collection/versions/1.19.1",
+    "notices": [
+      "licenses/dependencies/collection/1.19.1/LICENSE"
+    ]
+  },
+  {
+    "name": "crypto",
+    "version": "3.0.8",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/crypto/versions/3.0.8",
+    "notices": [
+      "licenses/dependencies/crypto/3.0.8/LICENSE"
+    ]
+  },
+  {
+    "name": "dynamic_color",
+    "version": "2.1.0",
+    "used_by": [
+      "showcase",
+      "packages/platform"
+    ],
+    "source": "https://github.com/chen08209/FlClash/tree/be84736605527034689c95bf27828ff27d912c5e/plugins/dynamic_color",
+    "notices": [
+      "licenses/dependencies/dynamic_color/2.1.0/LICENSE"
+    ]
+  },
+  {
+    "name": "fake_async",
+    "version": "1.3.3",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/fake_async/versions/1.3.3",
+    "notices": [
+      "licenses/dependencies/fake_async/1.3.3/LICENSE"
+    ]
+  },
+  {
+    "name": "ffi",
+    "version": "2.2.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/ffi/versions/2.2.0",
+    "notices": [
+      "licenses/dependencies/ffi/2.2.0/LICENSE"
+    ]
+  },
+  {
+    "name": "file",
+    "version": "7.0.1",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/file/versions/7.0.1",
+    "notices": [
+      "licenses/dependencies/file/7.0.1/LICENSE"
+    ]
+  },
+  {
+    "name": "fixnum",
+    "version": "1.1.1",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/fixnum/versions/1.1.1",
+    "notices": [
+      "licenses/dependencies/fixnum/1.1.1/LICENSE"
+    ]
+  },
+  {
+    "name": "flutter",
+    "version": "SDK",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "Flutter SDK",
+    "notices": [
+      "licenses/dependencies/flutter/SDK/LICENSE"
+    ]
+  },
+  {
+    "name": "flutter_cache_manager",
+    "version": "3.5.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/flutter_cache_manager/versions/3.5.0",
+    "notices": [
+      "licenses/dependencies/flutter_cache_manager/3.5.0/LICENSE"
+    ]
+  },
+  {
+    "name": "flutter_lints",
+    "version": "6.0.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/flutter_lints/versions/6.0.0",
+    "notices": [
+      "licenses/dependencies/flutter_lints/6.0.0/LICENSE"
+    ]
+  },
+  {
+    "name": "flutter_localizations",
+    "version": "SDK",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "Flutter SDK",
+    "notices": [
+      "licenses/dependencies/flutter_localizations/SDK/LICENSE"
+    ]
+  },
+  {
+    "name": "flutter_rust_bridge",
+    "version": "2.13.0",
+    "used_by": [
+      "showcase",
+      "packages/editor"
+    ],
+    "source": "https://pub.dev/packages/flutter_rust_bridge/versions/2.13.0",
+    "notices": [
+      "licenses/dependencies/flutter_rust_bridge/2.13.0/LICENSE"
+    ]
+  },
+  {
+    "name": "flutter_rust_bridge_hooks",
+    "version": "2.13.0",
+    "used_by": [
+      "showcase",
+      "packages/editor"
+    ],
+    "source": "https://pub.dev/packages/flutter_rust_bridge_hooks/versions/2.13.0",
+    "notices": [
+      "licenses/dependencies/flutter_rust_bridge_hooks/2.13.0/LICENSE"
+    ]
+  },
+  {
+    "name": "flutter_svg",
+    "version": "2.3.2",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/flutter_svg/versions/2.3.2",
+    "notices": [
+      "licenses/dependencies/flutter_svg/2.3.2/LICENSE"
+    ]
+  },
+  {
+    "name": "flutter_test",
+    "version": "SDK",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "Flutter SDK",
+    "notices": [
+      "licenses/dependencies/flutter_test/SDK/LICENSE"
+    ]
+  },
+  {
+    "name": "freezed_annotation",
+    "version": "3.1.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/freezed_annotation/versions/3.1.0",
+    "notices": [
+      "licenses/dependencies/freezed_annotation/3.1.0/LICENSE"
+    ]
+  },
+  {
+    "name": "hooks",
+    "version": "2.0.2",
+    "used_by": [
+      "showcase"
+    ],
+    "source": "https://pub.dev/packages/hooks/versions/2.0.2",
+    "notices": [
+      "licenses/dependencies/hooks/2.0.2/LICENSE"
+    ]
+  },
+  {
+    "name": "hooks",
+    "version": "2.2.0",
+    "used_by": [
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/hooks/versions/2.2.0",
+    "notices": [
+      "licenses/dependencies/hooks/2.2.0/LICENSE"
+    ]
+  },
+  {
+    "name": "http",
+    "version": "1.6.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/http/versions/1.6.0",
+    "notices": [
+      "licenses/dependencies/http/1.6.0/LICENSE"
+    ]
+  },
+  {
+    "name": "http_parser",
+    "version": "4.1.2",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/http_parser/versions/4.1.2",
+    "notices": [
+      "licenses/dependencies/http_parser/4.1.2/LICENSE"
+    ]
+  },
+  {
+    "name": "intl",
+    "version": "0.20.3",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/intl/versions/0.20.3",
+    "notices": [
+      "licenses/dependencies/intl/0.20.3/LICENSE"
+    ]
+  },
+  {
+    "name": "jni",
+    "version": "1.1.2",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/jni/versions/1.1.2",
+    "notices": [
+      "licenses/dependencies/jni/1.1.2/LICENSE"
+    ]
+  },
+  {
+    "name": "jni_flutter",
+    "version": "1.0.4+1",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/jni_flutter/versions/1.0.4+1",
+    "notices": [
+      "licenses/dependencies/jni_flutter/1.0.4+1/LICENSE"
+    ]
+  },
+  {
+    "name": "jni_util",
+    "version": "1.0.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/jni_util/versions/1.0.0",
+    "notices": [
+      "licenses/dependencies/jni_util/1.0.0/LICENSE"
+    ]
+  },
+  {
+    "name": "json_annotation",
+    "version": "4.12.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/json_annotation/versions/4.12.0",
+    "notices": [
+      "licenses/dependencies/json_annotation/4.12.0/LICENSE"
+    ]
+  },
+  {
+    "name": "leak_tracker",
+    "version": "11.0.2",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/leak_tracker/versions/11.0.2",
+    "notices": [
+      "licenses/dependencies/leak_tracker/11.0.2/LICENSE"
+    ]
+  },
+  {
+    "name": "leak_tracker_flutter_testing",
+    "version": "3.0.10",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/leak_tracker_flutter_testing/versions/3.0.10",
+    "notices": [
+      "licenses/dependencies/leak_tracker_flutter_testing/3.0.10/LICENSE"
+    ]
+  },
+  {
+    "name": "leak_tracker_testing",
+    "version": "3.0.2",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/leak_tracker_testing/versions/3.0.2",
+    "notices": [
+      "licenses/dependencies/leak_tracker_testing/3.0.2/LICENSE"
+    ]
+  },
+  {
+    "name": "lints",
+    "version": "6.1.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/lints/versions/6.1.0",
+    "notices": [
+      "licenses/dependencies/lints/6.1.0/LICENSE"
+    ]
+  },
+  {
+    "name": "logging",
+    "version": "1.3.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/logging/versions/1.3.0",
+    "notices": [
+      "licenses/dependencies/logging/1.3.0/LICENSE"
+    ]
+  },
+  {
+    "name": "matcher",
+    "version": "0.12.20",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/matcher/versions/0.12.20",
+    "notices": [
+      "licenses/dependencies/matcher/0.12.20/LICENSE"
+    ]
+  },
+  {
+    "name": "material_color_utilities",
+    "version": "0.13.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/material_color_utilities/versions/0.13.0",
+    "notices": [
+      "licenses/dependencies/material_color_utilities/0.13.0/LICENSE"
+    ]
+  },
+  {
+    "name": "meta",
+    "version": "1.18.3",
+    "used_by": [
+      "showcase"
+    ],
+    "source": "https://pub.dev/packages/meta/versions/1.18.3",
+    "notices": [
+      "licenses/dependencies/meta/1.18.3/LICENSE"
+    ]
+  },
+  {
+    "name": "meta",
+    "version": "1.19.0",
+    "used_by": [
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/meta/versions/1.19.0",
+    "notices": [
+      "licenses/dependencies/meta/1.19.0/LICENSE"
+    ]
+  },
+  {
+    "name": "native_toolchain_rust",
+    "version": "1.0.4+0",
+    "used_by": [
+      "showcase"
+    ],
+    "source": "https://pub.dev/packages/native_toolchain_rust/versions/1.0.4+0",
+    "notices": [
+      "licenses/dependencies/native_toolchain_rust/1.0.4+0/LICENSE"
+    ]
+  },
+  {
+    "name": "native_toolchain_rust",
+    "version": "1.0.6",
+    "used_by": [
+      "packages/editor"
+    ],
+    "source": "https://pub.dev/packages/native_toolchain_rust/versions/1.0.6",
+    "notices": [
+      "licenses/dependencies/native_toolchain_rust/1.0.6/LICENSE"
+    ]
+  },
+  {
+    "name": "objective_c",
+    "version": "9.5.0",
+    "used_by": [
+      "showcase",
+      "packages/editor"
+    ],
+    "source": "https://pub.dev/packages/objective_c/versions/9.5.0",
+    "notices": [
+      "licenses/dependencies/objective_c/9.5.0/LICENSE"
+    ]
+  },
+  {
+    "name": "objective_c",
+    "version": "9.6.2",
+    "used_by": [
+      "packages/flutter",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/objective_c/versions/9.6.2",
+    "notices": [
+      "licenses/dependencies/objective_c/9.6.2/LICENSE"
+    ]
+  },
+  {
+    "name": "package_config",
+    "version": "3.0.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/package_config/versions/3.0.0",
+    "notices": [
+      "licenses/dependencies/package_config/3.0.0/LICENSE"
+    ]
+  },
+  {
+    "name": "path",
+    "version": "1.9.1",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/path/versions/1.9.1",
+    "notices": [
+      "licenses/dependencies/path/1.9.1/LICENSE"
+    ]
+  },
+  {
+    "name": "path_parsing",
+    "version": "1.1.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/path_parsing/versions/1.1.0",
+    "notices": [
+      "licenses/dependencies/path_parsing/1.1.0/LICENSE"
+    ]
+  },
+  {
+    "name": "path_provider",
+    "version": "2.1.6",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/path_provider/versions/2.1.6",
+    "notices": [
+      "licenses/dependencies/path_provider/2.1.6/LICENSE"
+    ]
+  },
+  {
+    "name": "path_provider_android",
+    "version": "2.3.1",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/path_provider_android/versions/2.3.1",
+    "notices": [
+      "licenses/dependencies/path_provider_android/2.3.1/LICENSE"
+    ]
+  },
+  {
+    "name": "path_provider_foundation",
+    "version": "2.6.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/path_provider_foundation/versions/2.6.0",
+    "notices": [
+      "licenses/dependencies/path_provider_foundation/2.6.0/LICENSE"
+    ]
+  },
+  {
+    "name": "path_provider_linux",
+    "version": "2.2.2",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/path_provider_linux/versions/2.2.2",
+    "notices": [
+      "licenses/dependencies/path_provider_linux/2.2.2/LICENSE"
+    ]
+  },
+  {
+    "name": "path_provider_platform_interface",
+    "version": "2.1.3",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/path_provider_platform_interface/versions/2.1.3",
+    "notices": [
+      "licenses/dependencies/path_provider_platform_interface/2.1.3/LICENSE"
+    ]
+  },
+  {
+    "name": "path_provider_windows",
+    "version": "2.3.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/path_provider_windows/versions/2.3.0",
+    "notices": [
+      "licenses/dependencies/path_provider_windows/2.3.0/LICENSE"
+    ]
+  },
+  {
+    "name": "petitparser",
+    "version": "7.0.2",
+    "used_by": [
+      "showcase"
+    ],
+    "source": "https://pub.dev/packages/petitparser/versions/7.0.2",
+    "notices": [
+      "licenses/dependencies/petitparser/7.0.2/LICENSE"
+    ]
+  },
+  {
+    "name": "petitparser",
+    "version": "7.1.0",
+    "used_by": [
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/petitparser/versions/7.1.0",
+    "notices": [
+      "licenses/dependencies/petitparser/7.1.0/LICENSE"
+    ]
+  },
+  {
+    "name": "platform",
+    "version": "3.2.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/platform/versions/3.2.0",
+    "notices": [
+      "licenses/dependencies/platform/3.2.0/LICENSE"
+    ]
+  },
+  {
+    "name": "plugin_platform_interface",
+    "version": "2.1.8",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/plugin_platform_interface/versions/2.1.8",
+    "notices": [
+      "licenses/dependencies/plugin_platform_interface/2.1.8/LICENSE"
+    ]
+  },
+  {
+    "name": "pub_semver",
+    "version": "2.2.1",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/pub_semver/versions/2.2.1",
+    "notices": [
+      "licenses/dependencies/pub_semver/2.2.1/LICENSE"
+    ]
+  },
+  {
+    "name": "re_highlight",
+    "version": "0.0.3",
+    "used_by": [
+      "showcase",
+      "packages/editor"
+    ],
+    "source": "https://pub.dev/packages/re_highlight/versions/0.0.3",
+    "notices": [
+      "licenses/dependencies/re_highlight/0.0.3/LICENSE"
+    ]
+  },
+  {
+    "name": "record_use",
+    "version": "0.6.0",
+    "used_by": [
+      "showcase"
+    ],
+    "source": "https://pub.dev/packages/record_use/versions/0.6.0",
+    "notices": [
+      "licenses/dependencies/record_use/0.6.0/LICENSE"
+    ]
+  },
+  {
+    "name": "record_use",
+    "version": "1.1.1",
+    "used_by": [
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/record_use/versions/1.1.1",
+    "notices": [
+      "licenses/dependencies/record_use/1.1.1/LICENSE"
+    ]
+  },
+  {
+    "name": "rxdart",
+    "version": "0.28.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/rxdart/versions/0.28.0",
+    "notices": [
+      "licenses/dependencies/rxdart/0.28.0/LICENSE"
+    ]
+  },
+  {
+    "name": "screen_retriever",
+    "version": "0.2.2",
+    "used_by": [
+      "showcase",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/screen_retriever/versions/0.2.2",
+    "notices": [
+      "licenses/dependencies/screen_retriever/0.2.2/LICENSE"
+    ]
+  },
+  {
+    "name": "screen_retriever_linux",
+    "version": "0.2.2",
+    "used_by": [
+      "showcase",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/screen_retriever_linux/versions/0.2.2",
+    "notices": [
+      "licenses/dependencies/screen_retriever_linux/0.2.2/LICENSE"
+    ]
+  },
+  {
+    "name": "screen_retriever_macos",
+    "version": "0.2.2",
+    "used_by": [
+      "showcase",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/screen_retriever_macos/versions/0.2.2",
+    "notices": [
+      "licenses/dependencies/screen_retriever_macos/0.2.2/LICENSE"
+    ]
+  },
+  {
+    "name": "screen_retriever_platform_interface",
+    "version": "0.2.2",
+    "used_by": [
+      "showcase",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/screen_retriever_platform_interface/versions/0.2.2",
+    "notices": [
+      "licenses/dependencies/screen_retriever_platform_interface/0.2.2/LICENSE"
+    ]
+  },
+  {
+    "name": "screen_retriever_windows",
+    "version": "0.2.2",
+    "used_by": [
+      "showcase",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/screen_retriever_windows/versions/0.2.2",
+    "notices": [
+      "licenses/dependencies/screen_retriever_windows/0.2.2/LICENSE"
+    ]
+  },
+  {
+    "name": "sky_engine",
+    "version": "SDK",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "Flutter SDK",
+    "notices": [
+      "licenses/dependencies/sky_engine/SDK/license"
+    ]
+  },
+  {
+    "name": "source_span",
+    "version": "1.10.2",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/source_span/versions/1.10.2",
+    "notices": [
+      "licenses/dependencies/source_span/1.10.2/LICENSE"
+    ]
+  },
+  {
+    "name": "sqflite",
+    "version": "2.4.5",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/sqflite/versions/2.4.5",
+    "notices": [
+      "licenses/dependencies/sqflite/2.4.5/LICENSE"
+    ]
+  },
+  {
+    "name": "sqflite_android",
+    "version": "2.4.5",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/sqflite_android/versions/2.4.5",
+    "notices": [
+      "licenses/dependencies/sqflite_android/2.4.5/LICENSE"
+    ]
+  },
+  {
+    "name": "sqflite_common",
+    "version": "2.5.15",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/sqflite_common/versions/2.5.15",
+    "notices": [
+      "licenses/dependencies/sqflite_common/2.5.15/LICENSE"
+    ]
+  },
+  {
+    "name": "sqflite_darwin",
+    "version": "2.4.5",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/sqflite_darwin/versions/2.4.5",
+    "notices": [
+      "licenses/dependencies/sqflite_darwin/2.4.5/LICENSE"
+    ]
+  },
+  {
+    "name": "sqflite_platform_interface",
+    "version": "2.4.3",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/sqflite_platform_interface/versions/2.4.3",
+    "notices": [
+      "licenses/dependencies/sqflite_platform_interface/2.4.3/LICENSE"
+    ]
+  },
+  {
+    "name": "stack_trace",
+    "version": "1.12.2",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/stack_trace/versions/1.12.2",
+    "notices": [
+      "licenses/dependencies/stack_trace/1.12.2/LICENSE"
+    ]
+  },
+  {
+    "name": "stream_channel",
+    "version": "2.1.4",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/stream_channel/versions/2.1.4",
+    "notices": [
+      "licenses/dependencies/stream_channel/2.1.4/LICENSE"
+    ]
+  },
+  {
+    "name": "string_scanner",
+    "version": "1.4.1",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/string_scanner/versions/1.4.1",
+    "notices": [
+      "licenses/dependencies/string_scanner/1.4.1/LICENSE"
+    ]
+  },
+  {
+    "name": "synchronized",
+    "version": "3.6.1",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/synchronized/versions/3.6.1",
+    "notices": [
+      "licenses/dependencies/synchronized/3.6.1/LICENSE"
+    ]
+  },
+  {
+    "name": "term_glyph",
+    "version": "1.2.2",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/term_glyph/versions/1.2.2",
+    "notices": [
+      "licenses/dependencies/term_glyph/1.2.2/LICENSE"
+    ]
+  },
+  {
+    "name": "test_api",
+    "version": "0.7.12",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/test_api/versions/0.7.12",
+    "notices": [
+      "licenses/dependencies/test_api/0.7.12/LICENSE"
+    ]
+  },
+  {
+    "name": "toml",
+    "version": "0.18.0",
+    "used_by": [
+      "showcase",
+      "packages/editor"
+    ],
+    "source": "https://pub.dev/packages/toml/versions/0.18.0",
+    "notices": [
+      "licenses/dependencies/toml/0.18.0/LICENSE"
+    ]
+  },
+  {
+    "name": "tray",
+    "version": "0.0.1",
+    "used_by": [
+      "showcase",
+      "packages/platform"
+    ],
+    "source": "https://github.com/chen08209/FlClash/tree/be84736605527034689c95bf27828ff27d912c5e/plugins/tray",
+    "notices": [
+      "licenses/dependencies/tray/0.0.1/LICENSE"
+    ]
+  },
+  {
+    "name": "typed_data",
+    "version": "1.4.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/typed_data/versions/1.4.0",
+    "notices": [
+      "licenses/dependencies/typed_data/1.4.0/LICENSE"
+    ]
+  },
+  {
+    "name": "uuid",
+    "version": "4.6.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/uuid/versions/4.6.0",
+    "notices": [
+      "licenses/dependencies/uuid/4.6.0/LICENSE"
+    ]
+  },
+  {
+    "name": "vector_graphics",
+    "version": "1.2.6",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/vector_graphics/versions/1.2.6",
+    "notices": [
+      "licenses/dependencies/vector_graphics/1.2.6/LICENSE"
+    ]
+  },
+  {
+    "name": "vector_graphics_codec",
+    "version": "1.1.13",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/vector_graphics_codec/versions/1.1.13",
+    "notices": [
+      "licenses/dependencies/vector_graphics_codec/1.1.13/LICENSE"
+    ]
+  },
+  {
+    "name": "vector_graphics_compiler",
+    "version": "1.3.4",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/vector_graphics_compiler/versions/1.3.4",
+    "notices": [
+      "licenses/dependencies/vector_graphics_compiler/1.3.4/LICENSE"
+    ]
+  },
+  {
+    "name": "vector_math",
+    "version": "2.4.0",
+    "used_by": [
+      "showcase"
+    ],
+    "source": "https://pub.dev/packages/vector_math/versions/2.4.0",
+    "notices": [
+      "licenses/dependencies/vector_math/2.4.0/LICENSE"
+    ]
+  },
+  {
+    "name": "vector_math",
+    "version": "2.4.4",
+    "used_by": [
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/vector_math/versions/2.4.4",
+    "notices": [
+      "licenses/dependencies/vector_math/2.4.4/LICENSE"
+    ]
+  },
+  {
+    "name": "vm_service",
+    "version": "15.4.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/vm_service/versions/15.4.0",
+    "notices": [
+      "licenses/dependencies/vm_service/15.4.0/LICENSE"
+    ]
+  },
+  {
+    "name": "web",
+    "version": "1.1.2",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/web/versions/1.1.2",
+    "notices": [
+      "licenses/dependencies/web/1.1.2/LICENSE"
+    ]
+  },
+  {
+    "name": "window",
+    "version": "0.0.1",
+    "used_by": [
+      "showcase",
+      "packages/platform"
+    ],
+    "source": "https://github.com/chen08209/FlClash/tree/be84736605527034689c95bf27828ff27d912c5e/plugins/window",
+    "notices": [
+      "licenses/dependencies/window/0.0.1/LICENSE"
+    ]
+  },
+  {
+    "name": "xdg_directories",
+    "version": "1.1.0",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/xdg_directories/versions/1.1.0",
+    "notices": [
+      "licenses/dependencies/xdg_directories/1.1.0/LICENSE"
+    ]
+  },
+  {
+    "name": "xml",
+    "version": "7.0.1",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/xml/versions/7.0.1",
+    "notices": [
+      "licenses/dependencies/xml/7.0.1/LICENSE"
+    ]
+  },
+  {
+    "name": "yaml",
+    "version": "3.1.4",
+    "used_by": [
+      "showcase",
+      "packages/flutter",
+      "packages/editor",
+      "packages/platform"
+    ],
+    "source": "https://pub.dev/packages/yaml/versions/3.1.4",
+    "notices": [
+      "licenses/dependencies/yaml/3.1.4/LICENSE"
+    ]
+  }
+]

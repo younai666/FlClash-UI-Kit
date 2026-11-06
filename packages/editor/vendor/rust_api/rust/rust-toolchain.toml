@@ -1,0 +1,5 @@
+# Modified 2026-11-05: exact upstream compiler and target declarations; minimal profile.
+[toolchain]
+channel = "1.99.0"
+profile = "minimal"
+targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "aarch64-linux-android", "armv7-linux-androideabi", "x86_64-linux-android", "aarch64-pc-windows-msvc", "x86_64-pc-windows-msvc", "aarch64-unknown-linux-gnu", "x86_64-unknown-linux-gnu"]

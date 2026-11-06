@@ -1,0 +1,14 @@
+# Modified 2026-11-05: retain only the document backend; GPL-3.0 with retained MIT modules.
+[package]
+name = "rust_api"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+[lib]
+name = "rust_api"
+crate-type = ["cdylib", "staticlib"]
+[dependencies]
+flutter_rust_bridge = "=2.13.0"
+ropey = { version = "1.6.1", default-features = false, features = ["simd"] }
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(frb_expand)'] }

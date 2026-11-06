@@ -1,0 +1,6 @@
+[submodule "source/upstream/FlClash"]
+	path = source/upstream/FlClash
+	url = https://github.com/chen08209/FlClash.git
+[submodule "source/upstream/prism_ui"]
+	path = source/upstream/prism_ui
+	url = https://github.com/chen08209/prism_ui.git

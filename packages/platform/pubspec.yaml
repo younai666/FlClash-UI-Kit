@@ -1,0 +1,22 @@
+name: flclash_ui_platform
+description: Optional unchanged FlClash window, tray and dynamic color plugins.
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: '>=3.13.2 <4.0.0'
+  flutter: '>=3.47.2'
+dependencies:
+  flclash_ui_kit:
+    path: ../flutter
+  flutter:
+    sdk: flutter
+  window:
+    path: vendor/window
+  tray:
+    path: vendor/tray
+  dynamic_color:
+    path: vendor/dynamic_color
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0

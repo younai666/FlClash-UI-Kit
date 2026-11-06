@@ -1,0 +1,29 @@
+{
+  "review_date": "2026-11-05",
+  "fonts": [
+    {
+      "upstream_asset": "source/upstream/FlClash/assets/fonts/JetBrainsMono-Regular.ttf",
+      "sha256": "a0bf60ef0f83c5ed4d7a75d45838548b1f6873372dfac88f71804491898d138f",
+      "internal_version": "2.304",
+      "comparison_source": "https://github.com/JetBrains/JetBrainsMono/blob/cd5227bd1f61dff3bbd6c814ceaf7ffd95e947d9/fonts/ttf/JetBrainsMono-Regular.ttf",
+      "comparison": "byte-identical",
+      "license": "OFL-1.1",
+      "license_source": "https://github.com/JetBrains/JetBrainsMono/blob/cd5227bd1f61dff3bbd6c814ceaf7ffd95e947d9/OFL.txt",
+      "runtime_target": "packages/flutter/assets/fonts/JetBrainsMono-Regular.ttf",
+      "decision": "redistribute unmodified with complete OFL and copyright"
+    },
+    {
+      "upstream_asset": "source/upstream/FlClash/assets/fonts/Twemoji.Mozilla.ttf",
+      "sha256": "61db6397b8b32b72c585d538ef698a84cf78cf2558a14046b3fa0ec4cc362540",
+      "internal_family": "Twemoji COLRv0",
+      "internal_version": "1.000",
+      "comparison_source": "https://github.com/Emoji-COLRv0/Emoji-COLRv0/blob/1b81dcf46545252bdc82f6c6309335fb1c73b8c9/fonts/TwemojiCOLRv0.ttf",
+      "comparison": "byte-identical",
+      "license_evidence": [
+        "https://github.com/Emoji-COLRv0/Emoji-COLRv0/blob/1b81dcf46545252bdc82f6c6309335fb1c73b8c9/README.md",
+        "https://github.com/Emoji-COLRv0/Emoji-COLRv0/blob/1b81dcf46545252bdc82f6c6309335fb1c73b8c9/src-twemoji/README.md"
+      ],
+      "decision": "quarantined: root table BY-SA differs from body and subdirectory BY attribution; not registered or redistributed in runtime packages"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "FlClash/site/assets/field.js": {
+    "target": "packages/web/field.js",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "status": "完整 Canvas 效果；新增显式 dispose；保留原参数与绘制",
+    "modifications": [
+      [
+        "    let frame = 0;",
+        "    let frame = 0;\n    let disposed = false;\n    let resizeObserver;\n    let intersectionObserver;"
+      ],
+      [
+        "const run = onScreen && !document.hidden && !still();",
+        "const run = !disposed && onScreen && !document.hidden && !still();"
+      ],
+      [
+        "      new ResizeObserver(",
+        "      resizeObserver = new ResizeObserver("
+      ],
+      [
+        "      new IntersectionObserver(",
+        "      intersectionObserver = new IntersectionObserver("
+      ],
+      [
+        "      }).observe(canvas);\n    }\n    if ('IntersectionObserver'",
+        "      });\n      resizeObserver.observe(canvas);\n    }\n    if ('IntersectionObserver'"
+      ],
+      [
+        "      }).observe(canvas);\n    }\n    document.addEventListener",
+        "      });\n      intersectionObserver.observe(canvas);\n    }\n    document.addEventListener"
+      ],
+      [
+        "    addEventListener(\n      'pointermove',\n      (event) => {\n        if (event.pointerType === 'mouse' && frame) pointer = { x: event.clientX, y: event.clientY };\n      },\n      { passive: true },\n    );",
+        "    const onPointerMove = (event) => {\n      if (event.pointerType === 'mouse' && frame) pointer = { x: event.clientX, y: event.clientY };\n    };\n    addEventListener('pointermove', onPointerMove, { passive: true });"
+      ],
+      [
+        "    addEventListener(\n      'scroll',\n      () => {",
+        "    const onScroll = () => {"
+      ],
+      [
+        "      },\n      { passive: true },\n    );\n    sync();",
+        "      };\n    addEventListener('scroll', onScroll, { passive: true });\n    sync();"
+      ],
+      [
+        "    return { refresh, surge };",
+        "    function dispose() {\n      disposed = true;\n      sync();\n      resizeObserver?.disconnect();\n      intersectionObserver?.disconnect();\n      document.removeEventListener('visibilitychange', sync);\n      removeEventListener('pointermove', onPointerMove);\n      removeEventListener('scroll', onScroll);\n      pointer = null;\n    }\n    return { refresh, surge, dispose };"
+      ]
+    ]
+  },
+  "FlClash/site/assets/style.css": {
+    "target": "packages/web/tokens.css",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "status": "部分提取：原始明暗颜色、字体名与 spring CSS token；营销页布局未提取",
+    "modifications": [
+      "select CSS token prefix"
+    ]
+  },
+  "FlClash/LICENSE": {
+    "target": "packages/web/LICENSE",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "status": "原样 GPL-3.0",
+    "modifications": [
+      "none"
+    ]
+  }
+}

@@ -1,0 +1,626 @@
+{
+  "FlClash/plugins/dynamic_color/LICENSE": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/LICENSE",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/analysis_options.yaml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/analysis_options.yaml",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/android/build.gradle.kts": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/android/build.gradle.kts",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/android/settings.gradle.kts": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/android/settings.gradle.kts",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/android/src/main/AndroidManifest.xml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/android/src/main/AndroidManifest.xml",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/android/src/main/kotlin/io/material/plugins/dynamic_color/DynamicColorPlugin.kt": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/android/src/main/kotlin/io/material/plugins/dynamic_color/DynamicColorPlugin.kt",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/lib/dynamic_color.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/lib/dynamic_color.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/linux/CMakeLists.txt": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/linux/CMakeLists.txt",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/linux/dynamic_color_plugin.cc": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/linux/dynamic_color_plugin.cc",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/linux/include/dynamic_color/dynamic_color_plugin.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/linux/include/dynamic_color/dynamic_color_plugin.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/macos/dynamic_color.podspec": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/macos/dynamic_color.podspec",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/macos/dynamic_color/Package.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/macos/dynamic_color/Package.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/macos/dynamic_color/Sources/dynamic_color/DynamicColorPlugin.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/macos/dynamic_color/Sources/dynamic_color/DynamicColorPlugin.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/macos/dynamic_color/Sources/dynamic_color/PrivacyInfo.xcprivacy": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/macos/dynamic_color/Sources/dynamic_color/PrivacyInfo.xcprivacy",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/pubspec.yaml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/pubspec.yaml",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/windows/CMakeLists.txt": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/windows/CMakeLists.txt",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/windows/dwm.c": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/windows/dwm.c",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/windows/dynamic_color_plugin.cpp": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/windows/dynamic_color_plugin.cpp",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/windows/dynamic_color_plugin.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/windows/dynamic_color_plugin.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/windows/dynamic_color_plugin_c_api.cpp": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/windows/dynamic_color_plugin_c_api.cpp",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/dynamic_color/windows/include/dynamic_color/dynamic_color_plugin_c_api.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/dynamic_color/windows/include/dynamic_color/dynamic_color_plugin_c_api.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/.gitignore": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/.gitignore",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/LICENSE": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/LICENSE",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/README.md": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/README.md",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/analysis_options.yaml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/analysis_options.yaml",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/lib/src/tray.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/lib/src/tray.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/lib/src/tray_capabilities.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/lib/src/tray_capabilities.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/lib/src/tray_codec.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/lib/src/tray_codec.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/lib/src/tray_event.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/lib/src/tray_event.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/lib/src/tray_menu.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/lib/src/tray_menu.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/lib/src/tray_spec.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/lib/src/tray_spec.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/lib/tray.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/lib/tray.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/linux/CMakeLists.txt": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/linux/CMakeLists.txt",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/linux/include/tray/tray_plugin.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/linux/include/tray/tray_plugin.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/linux/tray_plugin.cc": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/linux/tray_plugin.cc",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/macos/tray/Package.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/macos/tray/Package.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/macos/tray/Sources/tray/TrayMenu.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/macos/tray/Sources/tray/TrayMenu.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/macos/tray/Sources/tray/TrayMenuItemView.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/macos/tray/Sources/tray/TrayMenuItemView.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/macos/tray/Sources/tray/TrayPlugin.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/macos/tray/Sources/tray/TrayPlugin.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/macos/tray/Sources/tray/TrayStatusItem.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/macos/tray/Sources/tray/TrayStatusItem.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/macos/tray/Sources/tray/TrayTitleView.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/macos/tray/Sources/tray/TrayTitleView.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/pubspec.yaml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/pubspec.yaml",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/test/macos_title_view_source_test.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/test/macos_title_view_source_test.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/test/tray_codec_test.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/test/tray_codec_test.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/test/tray_icon_test.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/test/tray_icon_test.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/test/tray_test.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/test/tray_test.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/test/windows_menu_source_test.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/test/windows_menu_source_test.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/windows/CMakeLists.txt": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/windows/CMakeLists.txt",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/windows/include/tray/tray_plugin_c_api.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/windows/include/tray/tray_plugin_c_api.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/windows/tray_plugin.cpp": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/windows/tray_plugin.cpp",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/windows/tray_plugin.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/windows/tray_plugin.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/tray/windows/tray_plugin_c_api.cpp": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/tray/windows/tray_plugin_c_api.cpp",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/.gitignore": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/.gitignore",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/LICENSE": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/LICENSE",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/README.md": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/README.md",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/analysis_options.yaml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/analysis_options.yaml",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/lib/src/desktop_window.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/lib/src/desktop_window.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/lib/src/title_bar_style.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/lib/src/title_bar_style.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/lib/src/window_effect.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/lib/src/window_effect.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/lib/src/window_event.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/lib/src/window_event.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/lib/src/window_listener.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/lib/src/window_listener.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/lib/window.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/lib/window.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/linux/CMakeLists.txt": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/linux/CMakeLists.txt",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/linux/include/window/window_plugin.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/linux/include/window/window_plugin.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/linux/window_drag.cc": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/linux/window_drag.cc",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/linux/window_drag.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/linux/window_drag.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/linux/window_geometry.cc": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/linux/window_geometry.cc",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/linux/window_geometry.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/linux/window_geometry.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/linux/window_plugin.cc": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/linux/window_plugin.cc",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/linux/window_plugin_internal.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/linux/window_plugin_internal.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/linux/window_style.cc": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/linux/window_style.cc",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/linux/window_style.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/linux/window_style.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/macos/window/Package.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/macos/window/Package.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/macos/window/Sources/window/Arguments.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/macos/window/Sources/window/Arguments.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/macos/window/Sources/window/BackBufferCacheGuard.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/macos/window/Sources/window/BackBufferCacheGuard.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/macos/window/Sources/window/WindowController.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/macos/window/Sources/window/WindowController.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/macos/window/Sources/window/WindowEffectView.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/macos/window/Sources/window/WindowEffectView.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/macos/window/Sources/window/WindowPlugin.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/macos/window/Sources/window/WindowPlugin.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/macos/window/Sources/window/WindowStyle.swift": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/macos/window/Sources/window/WindowStyle.swift",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/pubspec.yaml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/pubspec.yaml",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/test/desktop_window_test.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/test/desktop_window_test.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/test/window_position_test.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/test/window_position_test.dart",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/windows/CMakeLists.txt": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/windows/CMakeLists.txt",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/windows/include/window/window_plugin_c_api.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/windows/include/window/window_plugin_c_api.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/windows/include/window/window_plugin_runner.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/windows/include/window/window_plugin_runner.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/windows/running_instance.cpp": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/windows/running_instance.cpp",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/windows/running_instance.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/windows/running_instance.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/windows/window_controller.cpp": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/windows/window_controller.cpp",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/windows/window_controller.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/windows/window_controller.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/windows/window_plugin.cpp": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/windows/window_plugin.cpp",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/windows/window_plugin.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/windows/window_plugin.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/windows/window_plugin_c_api.cpp": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/windows/window_plugin_c_api.cpp",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/windows/window_style.cpp": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/windows/window_style.cpp",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/plugins/window/windows/window_style.h": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/vendor/window/windows/window_style.h",
+    "status": "原样独立插件；各平台验证状态见 verification.md",
+    "modifications": []
+  },
+  "FlClash/lib/manager/window_manager.dart": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/lib/src/window_caption.dart",
+    "source_lines": [
+      303,
+      382
+    ],
+    "status": "部分提取：WindowCaptionController；应用持久化、退出策略仍在上游",
+    "modifications": [
+      "explicit Flutter/kit/window imports",
+      {
+        "from": "  bool _disposed = false;",
+        "to": "  bool _disposed = false;\n  bool _maxEvent = false;\n  bool _fullScreenEvent = false;\n  bool _pinChanged = false;"
+      },
+      {
+        "from": "isPinned: states[0],",
+        "to": "isPinned: _pinChanged ? value.isPinned : states[0],"
+      },
+      {
+        "from": "isMaximized: states[1],",
+        "to": "isMaximized: _maxEvent ? value.isMaximized : states[1],"
+      },
+      {
+        "from": "isFullScreen: states[2],",
+        "to": "isFullScreen: _fullScreenEvent ? value.isFullScreen : states[2],"
+      },
+      {
+        "from": "    super.onWindowMaximize();",
+        "to": "    super.onWindowMaximize();\n    _maxEvent = true;"
+      },
+      {
+        "from": "    super.onWindowUnmaximize();",
+        "to": "    super.onWindowUnmaximize();\n    _maxEvent = true;"
+      },
+      {
+        "from": "    super.onWindowEnterFullScreen();",
+        "to": "    super.onWindowEnterFullScreen();\n    _fullScreenEvent = true;"
+      },
+      {
+        "from": "    super.onWindowLeaveFullScreen();",
+        "to": "    super.onWindowLeaveFullScreen();\n    _fullScreenEvent = true;"
+      },
+      {
+        "from": "    _set(value.copyWith(isPinned: await desktopWindow.isAlwaysOnTop()));",
+        "to": "    final applied = await desktopWindow.isAlwaysOnTop();\n    _pinChanged = true;\n    _set(value.copyWith(isPinned: applied));"
+      }
+    ]
+  },
+  "FlClash/lint_options.yaml": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/lint_options.yaml",
+    "status": "原样保留分析配置或 GPL 许可证",
+    "modifications": []
+  },
+  "FlClash/LICENSE": {
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "target": "packages/platform/LICENSE",
+    "status": "原样保留分析配置或 GPL 许可证",
+    "modifications": []
+  }
+}

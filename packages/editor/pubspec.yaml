@@ -1,0 +1,25 @@
+name: flclash_ui_editor
+description: Optional native FlClash CodeForge editor and standalone Rust document backend.
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: '>=3.13.2 <4.0.0'
+  flutter: '>=3.47.2'
+dependencies:
+  flutter:
+    sdk: flutter
+  flclash_ui_kit:
+    path: ../flutter
+  code_forge:
+    path: vendor/code_forge
+  rust_api:
+    path: vendor/rust_api
+  re_highlight: ^0.0.3
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  assets:
+    - assets/licenses/rust-dependencies.txt
