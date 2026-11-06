@@ -69,7 +69,7 @@ Install this repository as a skill in your AI Agent (e.g. Google Antigravity, Co
 ### 1. Clone Repository (Including Submodules)
 
 ```bash
-git clone --recurse-submodules https://github.com/YOUR_REPO/FlClash-UI-Kit.git
+git clone --recurse-submodules https://github.com/younai666/FlClash-UI-Kit.git
 ```
 
 ### 2. Add Dependency to Your Flutter App

@@ -69,7 +69,7 @@
 ### 1. 克隆与获取仓库（含子模块）
 
 ```bash
-git clone --recurse-submodules https://github.com/YOUR_REPO/FlClash-UI-Kit.git
+git clone --recurse-submodules https://github.com/younai666/FlClash-UI-Kit.git
 ```
 
 ### 2. 在 Flutter 项目中添加依赖
