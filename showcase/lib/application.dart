@@ -18,6 +18,8 @@ class ApplicationDemo extends StatelessWidget {
           var draft = '初始标题';
           showNestedFormSheet<String>(context: context, currentValue: () => draft, formBuilder: (_) => _DraftForm(onChanged: (v) => draft = v));
         }, child: const Text('编辑未保存草稿')),
+        FilledButton(onPressed: () => BaseNavigator.push(context, const DisclaimerView()), child: const Text('免责声明')),
+        FilledButton(onPressed: () => requestDisclaimerConsent(context), child: const Text('免责声明签署')),
       ]),
     ),
     const DemoSection(title: '批量输入 / 字段验证 / 等宽标签',

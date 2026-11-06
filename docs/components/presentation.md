@@ -8,7 +8,7 @@
 |ThemeView / FontFamilyView|ThemeScope：ThemeProps、字体 reader、导航与转场变更回调；宿主将主题映射至 KitApp|app_pages.dart；theme_test.dart 覆盖滚动/路由时延迟字体预览与文本缩放|
 |HotKeyView / HotKeyRecorder|HotKeyScope：任意操作 ID、分组/文案、绑定、冲突/注册失败；系统注册另由宿主负责|独立应用的 Create note + [reuse_test.dart](../../examples/standalone/test/reuse_test.dart)|
 |ProfilesView / ProfileItem / ReorderableProfilesSheet / AddProfileMenu|ProfilesScope：配置数据、选中/分组数和导入/更新/编辑/预览等回调；无回调的业务操作禁用|app_pages.dart；shell_profiles_test.dart 覆盖迟到更新、重排与接收器关闭|
-|ToolsView / AboutView|工具入口、Locale/导航 Scope；关于页接收元数据、合法 logo/贡献者、链接和更新/开发者回调|app_pages.dart；无内置 FlClash 头像、品牌或外部服务|
+|ToolsView / AboutView / DisclaimerView|工具入口、Locale/导航 Scope；关于页接收元数据、合法 logo/贡献者、链接和更新/开发者回调；免责声明支持独立展示、签署签署确认流（含输入法组合安全比对与 TV 遥控器模式适配）与 requestDisclaimerConsent 快捷调用|app_pages.dart、application.dart；disclaimer_view_test.dart 覆盖条款编号徽标、退出/同意、复述对话框与校验|
 |DashboardView / DashboardDesktopSlots|独立手机卡片列表、桌面各布局槽位、编辑回调；桌面模式栏使用 OutboundModeBar，手机使用 OutboundModeCard|app_pages.dart；手机/桌面应用导航测试与原生验收|
 |ProxiesView / ProxiesListView / ProxiesTabView / ProxyCard|ProxiesScope：组/节点/选择链、测速 reader、失败与加载状态、排序/布局样式；不连接核心|app_pages.dart；控制器和 grid/tab/focus 测试|
 |RequestsView / DnsQueriesView / LogsView / ConnectionsTableCard|ValueListenable 数据流、连接 reader、筛选/详情/列宽存储回调；保留三类 feed 与页面活跃生命周期|app_pages.dart；可追加本地记录并实际查看|

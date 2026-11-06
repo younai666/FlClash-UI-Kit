@@ -5439,7 +5439,7 @@
       },
       {
         "from": "class _ThemeItem extends StatelessWidget {\n  const _ThemeItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.paintbrush),\n      title: Text(context.appLocalizations.theme),\n      widget: const ThemeView(),\n    );\n  }\n}\n\nclass _BackupItem extends StatelessWidget {\n  const _BackupItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.cloudSync),\n      title: Text(context.appLocalizations.backupAndRestore),\n      widget: const BackupAndRestore(),\n    );\n  }\n}\n\nclass _HotkeyItem extends StatelessWidget {\n  const _HotkeyItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.keyboard),\n      title: Text(context.appLocalizations.hotkeyManagement),\n      widget: const HotKeyView(),\n    );\n  }\n}\n\nclass _AccessItem extends StatelessWidget {\n  const _AccessItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.appsList),\n      title: Text(context.appLocalizations.accessControl),\n      widget: const AccessView(),\n    );\n  }\n}\n\nclass _GeneralItem extends StatelessWidget {\n  const _GeneralItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.settings),\n      title: Text(context.appLocalizations.general),\n      widget: const GeneralView(),\n    );\n  }\n}\n\nclass _AdvancedConfigItem extends StatelessWidget {\n  const _AdvancedConfigItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.wrench),\n      title: Text(context.appLocalizations.advancedConfig),\n      widget: const AdvancedConfigView(),\n    );\n  }\n}\n\nclass _DisclaimerItem extends StatelessWidget {\n  const _DisclaimerItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.gavel),\n      title: Text(context.appLocalizations.disclaimer),\n      widget: const DisclaimerView(),\n    );\n  }\n}\n\nclass _InfoItem extends StatelessWidget {\n  const _InfoItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.info),\n      title: Text(context.appLocalizations.about),\n      widget: const AboutView(),\n    );\n  }\n}\n\nclass _DeveloperItem extends StatelessWidget {\n  const _DeveloperItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.cpu),\n      title: Text(context.appLocalizations.developerMode),\n      widget: const DeveloperView(),\n    );\n  }\n}\n",
-        "to": ""
+        "to": "class _DisclaimerItem extends StatelessWidget {\n  const _DisclaimerItem();\n\n  @override\n  Widget build(BuildContext context) {\n    return ListItem.open(\n      leading: const GlyphIcon(AppGlyphs.gavel),\n      title: Text(KitLocalizations.of(context).disclaimer),\n      widget: const DisclaimerView(),\n    );\n  }\n}\n"
       },
       {
         "from": "const ToolsView({super.key});",
@@ -5451,7 +5451,7 @@
       },
       {
         "from": "        const _DisclaimerItem(),\n        if (enableDeveloperMode) const _DeveloperItem(),\n        const _InfoItem(),",
-        "to": "        ...widget.otherItems,"
+        "to": "        if (widget.otherItems.isEmpty) ...const [\n          _DisclaimerItem(),\n        ],\n        ...widget.otherItems,"
       },
       {
         "from": "        const _LocaleItem(),\n        const _ThemeItem(),\n        if (system.isDesktop) const _HotkeyItem(),\n        if (system.isAndroid) const _AccessItem(),\n        const _BackupItem(),\n        const _AdvancedConfigItem(),\n        const _GeneralItem(),",
@@ -5521,6 +5521,45 @@
     "source_lines": [
       1,
       247
+    ]
+  },
+  "FlClash/lib/views/disclaimer.dart": {
+    "status": "已提取；运行验证见 verification.md",
+    "target": "packages/flutter/lib/src/shell/disclaimer.dart",
+    "source_commit": "be84736605527034689c95bf27828ff27d912c5e",
+    "modifications": [
+      {
+        "from": "import 'package:fl_clash/common/common.dart';\nimport 'package:fl_clash/l10n/l10n.dart';\nimport 'package:fl_clash/providers/app.dart';\nimport 'package:fl_clash/ui/icons/icons.dart';\nimport 'package:fl_clash/widgets/widgets.dart';\nimport 'package:flutter/widgets.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\n",
+        "to": "import 'package:flutter/widgets.dart';\nimport 'package:flclash_ui_kit/flclash_ui_kit.dart';\n\n"
+      },
+      {
+        "from": "Future<bool> requestDisclaimerConsent() async {\n  return await BaseNavigator.push<bool>(\n        rootNavigatorKey.currentContext!,\n        const DisclaimerView(requireConsent: true),\n      ) ??\n      false;\n}",
+        "to": "Future<bool> requestDisclaimerConsent([BuildContext? context]) async {\n  final targetContext = context ?? rootNavigatorKey.currentContext;\n  if (targetContext == null) return false;\n  return await BaseNavigator.push<bool>(\n        targetContext,\n        const DisclaimerView(requireConsent: true),\n      ) ??\n      false;\n}"
+      },
+      {
+        "from": "List<({String title, String content})> _terms(AppLocalizations l) => [",
+        "to": "List<({String title, String content})> _terms(KitLocalizations l) => ["
+      },
+      {
+        "from": "    return Consumer(\n      builder: (context, ref, _) {\n        if (ref.watch(isMobileViewProvider)) {\n          return Scaffold(\n            title: appLocalizations.disclaimer,\n            body: _ConsentLayout(\n              maxWidth: _maxContentWidth,\n              gutter: _mobileGutter,\n              compact: true,\n              child: body,\n            ),\n          );\n        }\n        return Surface(\n          color: Theme.of(context).scaffoldBackgroundColor,\n          child: SafeArea(\n            child: _ConsentLayout(\n              maxWidth: _maxContentWidth,\n              gutter: _desktopGutter,\n              compact: false,\n              child: _buildBody(\n                padding: const EdgeInsets.fromLTRB(\n                  _desktopGutter,\n                  _desktopTopPadding,\n                  _desktopGutter,\n                  32,\n                ),\n                children: [\n                  Padding(\n                    padding: const EdgeInsets.only(bottom: 20),\n                    child: Text(\n                      appLocalizations.disclaimer,\n                      style: AppTextStyle.title2.of(context, emphasized: true),\n                    ),\n                  ),\n                  ...terms,\n                ],\n              ),\n            ),\n          ),\n        );\n      },\n    );",
+        "to": "    if (context.isMobileView) {\n      return Scaffold(\n        title: appLocalizations.disclaimer,\n        body: _ConsentLayout(\n          maxWidth: _maxContentWidth,\n          gutter: _mobileGutter,\n          compact: true,\n          child: body,\n        ),\n      );\n    }\n    return Surface(\n      color: SurfaceLevel.page.colorOf(context.colorScheme),\n      child: SafeArea(\n        child: _ConsentLayout(\n          maxWidth: _maxContentWidth,\n          gutter: _desktopGutter,\n          compact: false,\n          child: _buildBody(\n            padding: const EdgeInsets.fromLTRB(\n              _desktopGutter,\n              _desktopTopPadding,\n              _desktopGutter,\n              32,\n            ),\n            children: [\n              Padding(\n                padding: const EdgeInsets.only(bottom: 20),\n                child: Text(\n                  appLocalizations.disclaimer,\n                  style: AppTextStyle.title2.of(context, emphasized: true),\n                ),\n              ),\n              ...terms,\n            ],\n          ),\n        ),\n      ),\n    );"
+      },
+      {
+        "from": "dialogs.showCommonDialog<bool>(",
+        "to": "showFloatingDialog<bool>("
+      },
+      {
+        "from": "context.appLocalizations",
+        "to": "KitLocalizations.of(context)"
+      },
+      {
+        "from": "AppLocalizations",
+        "to": "KitLocalizations"
+      }
+    ],
+    "source_lines": [
+      1,
+      517
     ]
   },
   "FlClash/lib/models/profile.dart": {

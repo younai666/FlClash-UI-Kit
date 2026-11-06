@@ -82,6 +82,7 @@ def register_views_extra(register, base):
     register_theme(register, base)
     register_hotkey(register, base)
     register_about_tools(register, base)
+    register_disclaimer(register, base)
     register_profiles(register, base)
     register_view_tests(register, base)
 
@@ -373,13 +374,28 @@ def register_about_tools(register, base):
 
     a = Adaptation(base, 'lib/views/tools.dart', WIDGETS)
     start = a.code.index('class _ThemeItem')
-    a.replace(a.code[start:], '')
+    a.replace(a.code[start:], """class _DisclaimerItem extends StatelessWidget {
+  const _DisclaimerItem();
+
+  @override
+  Widget build(BuildContext context) {
+    return ListItem.open(
+      leading: const GlyphIcon(AppGlyphs.gavel),
+      title: Text(KitLocalizations.of(context).disclaimer),
+      widget: const DisclaimerView(),
+    );
+  }
+}
+""")
     a.replace('const ToolsView({super.key});', '''const ToolsView({super.key, this.settingsItems = const [], this.otherItems = const []});
   final List<Widget> settingsItems, otherItems;''')
     a.replace('navigationItem.label.label', 'navigationItem.titleOf(context)')
     a.replace('''        const _DisclaimerItem(),
         if (enableDeveloperMode) const _DeveloperItem(),
-        const _InfoItem(),''', '        ...widget.otherItems,')
+        const _InfoItem(),''', '''        if (widget.otherItems.isEmpty) ...const [
+          _DisclaimerItem(),
+        ],
+        ...widget.otherItems,''')
     start = a.code.index('        const _LocaleItem(),')
     end = a.code.index('\n      ],', start)
     a.replace(a.code[start:end], '''        const _LocaleItem(),
@@ -406,6 +422,111 @@ def register_about_tools(register, base):
               '      value: currentLocale,\n    );\n  }\n}\n')
     a.save(register, 'shell/tools.dart')
 
+
+
+def register_disclaimer(register, base):
+    a = Adaptation(base, 'lib/views/disclaimer.dart', WIDGETS)
+    a.replace("""Future<bool> requestDisclaimerConsent() async {
+  return await BaseNavigator.push<bool>(
+        rootNavigatorKey.currentContext!,
+        const DisclaimerView(requireConsent: true),
+      ) ??
+      false;
+}""", """Future<bool> requestDisclaimerConsent([BuildContext? context]) async {
+  final targetContext = context ?? rootNavigatorKey.currentContext;
+  if (targetContext == null) return false;
+  return await BaseNavigator.push<bool>(
+        targetContext,
+        const DisclaimerView(requireConsent: true),
+      ) ??
+      false;
+}""")
+    a.replace('List<({String title, String content})> _terms(AppLocalizations l) => [',
+              'List<({String title, String content})> _terms(KitLocalizations l) => [')
+    a.replace("""    return Consumer(
+      builder: (context, ref, _) {
+        if (ref.watch(isMobileViewProvider)) {
+          return Scaffold(
+            title: appLocalizations.disclaimer,
+            body: _ConsentLayout(
+              maxWidth: _maxContentWidth,
+              gutter: _mobileGutter,
+              compact: true,
+              child: body,
+            ),
+          );
+        }
+        return Surface(
+          color: Theme.of(context).scaffoldBackgroundColor,
+          child: SafeArea(
+            child: _ConsentLayout(
+              maxWidth: _maxContentWidth,
+              gutter: _desktopGutter,
+              compact: false,
+              child: _buildBody(
+                padding: const EdgeInsets.fromLTRB(
+                  _desktopGutter,
+                  _desktopTopPadding,
+                  _desktopGutter,
+                  32,
+                ),
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: Text(
+                      appLocalizations.disclaimer,
+                      style: AppTextStyle.title2.of(context, emphasized: true),
+                    ),
+                  ),
+                  ...terms,
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );""", """    if (context.isMobileView) {
+      return Scaffold(
+        title: appLocalizations.disclaimer,
+        body: _ConsentLayout(
+          maxWidth: _maxContentWidth,
+          gutter: _mobileGutter,
+          compact: true,
+          child: body,
+        ),
+      );
+    }
+    return Surface(
+      color: SurfaceLevel.page.colorOf(context.colorScheme),
+      child: SafeArea(
+        child: _ConsentLayout(
+          maxWidth: _maxContentWidth,
+          gutter: _desktopGutter,
+          compact: false,
+          child: _buildBody(
+            padding: const EdgeInsets.fromLTRB(
+              _desktopGutter,
+              _desktopTopPadding,
+              _desktopGutter,
+              32,
+            ),
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: Text(
+                  appLocalizations.disclaimer,
+                  style: AppTextStyle.title2.of(context, emphasized: true),
+                ),
+              ),
+              ...terms,
+            ],
+          ),
+        ),
+      ),
+    );""")
+    a.replace('dialogs.showCommonDialog<bool>(', 'showFloatingDialog<bool>(')
+    a.common()
+    a.save(register, 'shell/disclaimer.dart')
 
 def register_profiles(register, base):
     register('lib/models/profile.dart', 'profiles/subscription_extensions.dart', [

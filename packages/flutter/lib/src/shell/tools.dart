@@ -28,6 +28,9 @@ class _ToolViewState extends State<ToolsView> {
     return generateSection(
       title: KitLocalizations.of(context).other,
       items: [
+        if (widget.otherItems.isEmpty) ...const [
+          _DisclaimerItem(),
+        ],
         ...widget.otherItems,
       ],
     );
@@ -105,6 +108,18 @@ class _LocaleItem extends StatelessWidget {
       },
       textBuilder: (locale) => _getLocaleString(context, locale),
       value: currentLocale,
+    );
+  }
+}
+class _DisclaimerItem extends StatelessWidget {
+  const _DisclaimerItem();
+
+  @override
+  Widget build(BuildContext context) {
+    return ListItem.open(
+      leading: const GlyphIcon(AppGlyphs.gavel),
+      title: Text(KitLocalizations.of(context).disclaimer),
+      widget: const DisclaimerView(),
     );
   }
 }

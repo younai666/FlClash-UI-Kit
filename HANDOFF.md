@@ -5,7 +5,7 @@
 ## 架构与关键路径
 
 - `packages/flutter/lib/flclash_ui_kit.dart`：统一入口；`vendor/prism_ui` 为完整运行时。核心自有 lib 不得导入 IO/FFI/Isolate、Riverpod 或原 app，门禁已检查。
-- `src/shell/{controller,home,sidebar,tools,about}.dart`：宿主控制器、自适应导航、原切页/快照/活跃状态/返回与元数据页。
+- `src/shell/{controller,home,sidebar,tools,about,disclaimer}.dart`：宿主控制器、自适应导航、原切页/快照/活跃状态/返回、元数据页及免责声明（含签署确认流与复述校验）。
 - `src/theme/{models,view,font_family}.dart`、`src/hotkey/{models,view,keyboard}.dart`、`src/profiles/{models,view,add}.dart`：显式模型与 Scope；全局字体、热键注册、文件/下载/持久化由宿主接入。
 - `src/dashboard`、`src/proxies`、`src/records`：已保留完整 Dashboard、节点列表/tab、请求/DNS/日志、feed/table/summary。不要重新把它们列作未提取。
 - `packages/platform`：可选窗口/托盘/系统色及 `loadNativeFontFamilies`；FFI 字体枚举保持上游 DirectWrite/CoreText/fontconfig/Android。`packages/editor` 为独立 CodeForge + editor-only Rust，`packages/web` 为原生 JS Canvas。
@@ -21,13 +21,14 @@
 |独立及嵌套 prism_ui|`63450c0ac0e8e1b2c0f3ed4ad7926dc94e083185`|
 |Clash.Meta|`024245dc72bc92f48237f865119afe0cd53ac9e6`|
 
-完整 Git 子模块与版本：[source/upstream-lock.json](source/upstream-lock.json)。1,604 个直接条目、965 个前端关联条目；292 主库、54 editor、99 platform、3 Web 来源记录；778 个公开声明含支持类型，223 个有 Showcase 直接调用。**索引/来源记录数不等于组件数、逐行人工审查或所有变体覆盖率。** [六项审计](docs/audit/source-map.md)、[逐文件矩阵](docs/audit/extraction-matrix.md)、[发现与剩余范围](docs/audit/review-findings.md)。
+完整 Git 子模块与版本：[source/upstream-lock.json](source/upstream-lock.json)。1,604 个直接条目、965 个前端关联条目；293 主库、54 editor、99 platform、3 Web 来源记录；778 个公开声明含支持类型，223 个有 Showcase 直接调用。**索引/来源记录数不等于组件数、逐行人工审查或所有变体覆盖率。** [六项审计](docs/audit/source-map.md)、[逐文件矩阵](docs/audit/extraction-matrix.md)、[发现与剩余范围](docs/audit/review-findings.md)。
 
 锁定上游应用含 Android/Windows/macOS/Linux，未含 iOS 目录；Showcase 的 iOS 仅为附加 Flutter 模板，不构成已支持平台。
 
 ## 本轮实质完成与决策
 
 - 阶段 3.5 全部目标视图接入 Scope，保留原布局、物理参数、淡入/滑动、远距离切页、焦点、字体分帧预览、录制冲突移动、配置重排/菜单和五次点击开发者入口。
+- **UI/UX 与动效补齐**：补齐 FlClash 原版 `DisclaimerView` 与 `requestDisclaimerConsent` 完整法律声明与签署流。提取为纯 UI `src/shell/disclaimer.dart`，接入 `KitLocalizations`（补充 28 条免责声明英/中文字符串），支持条款编号徽标、响应式底栏（桌面右对齐/移动端整行）、实时输入复述校验（IME 拼音合成态安全比对，防误判 diverged）、遥控器 TV 模式（RemoteFocusAdapter 复选确认），并通过 `showFloatingDialog` 弹出。ToolsView 具备默认免责条目，Showcase 在“应用”页提供直接签署弹窗交互体验。门禁 recipes、ledger 与 250 项核心库测试全数同步通过。
 - Home 页面 GlobalKey 改为每个控制器独立持有，避免相同页面 ID 的多个壳层冲突。宿主 builder 捕获 setState 字段时，使用可重建的 `HomePage()`；所有 Scope 放在 Navigator 上方，保证弹层访问。
 - 未接入更新不再刷新成功时间；URL 本地条目不伪造下载；异步完成不通知已销毁控制器。PhoneLinkSession 启动/接收错误可见，取消后的迟到会话关闭一次。未提供的业务动作禁用。
 - 字体 reader 位于可选原生包，核心保持 Web 可用；Windows 实测 111 family，Android 模拟器 9 family。字体名仅为引用，不授予分发权。
@@ -42,13 +43,13 @@
 
 |范围|本轮结果|
 |---|---|
-|核心库|分析无问题；247 项测试通过（较基线新增 53）|
+|核心库|分析无问题；250 项测试通过（基线 194 + 阶段 3.5 53 + 免责声明 3 项）|
 |Showcase|分析无问题；11 项测试通过，包含 390×844 / 1280×900 完整应用导航和目录交互|
 |platform / standalone|分析无问题；7 / 1 项测试通过|
 |Windows|Showcase Release、真实 Profile 导航/主题/配置/字体/帧捕获通过；独立新项目 Release 和 Profile 复用测试通过|
 |Android|Release APK 62.4 MB；Android 11 x86_64 模拟器 Skia Profile 实测通过，默认 Impeller 仍有环境问题|
 |Web|当前 Release / Wasm dry run 通过；Chrome 157 实际导航、追加记录、请求与主题检查通过，无捕获到的 JS runtime exception|
-|来源/许可证|`check_repository.py` 复核完整源树、账册、资源、文档和核心移植边界；106 Dart 包/版本与 84 Rust 许可记录、2 份运行时许可资产|
+|来源/许可证|`check_repository.py` 293 主库 + 54 editor + 99 platform + 3 Web 来源记录；449 extraction records；106 Dart 包/版本与 84 Rust 许可记录、2 份运行时许可资产|
 |Skill|格式与项目级目录链接有效；Codex CLI 0.149.1 skills/list 返回 repo/enabled/errors=[]；新会话自动调用未通过环境验收|
 
 原始度量：[Windows](docs/audit/runtime-windows.json)、[Android](docs/audit/runtime-android.json)、[Web](docs/audit/runtime-web.json)；真实截图在 `docs/audit/screenshots/stage4-*`。原生画面通过 Flutter 引擎导出，不含系统窗口边框，不再排查 Computer Use 截图后端。导航小样本各 40 帧；Windows build/raster 平均 1.333/1.487 ms，Android 2.794/15.208 ms 且 raster 14/40 超预算，不能宣称性能全面通过。
@@ -59,7 +60,7 @@
 
 1. 按矩阵解耦 `views/config/*`、配置自定义/编辑/扩展/预览、资源、分应用代理、备份、连接/MITM 正文与菜单；Clash schema/completion/QuickEdit、相机/识别/图库/权限仍是参考/宿主边界。不能把这些全部叫作纯后端或用回调空壳计为完成。
 2. 补公开变体、其他本地化（目前英/中文）、更多布局/缩放/输入法/无障碍组合、动画中间帧对照、长时性能。Android 默认 Impeller 在此模拟器有 GLES shader link 错误；Skia 成功不能替代默认后端/真机验收。macOS/Linux/iOS 未构建运行；editor 没有 iOS Rust target。
-3. Skill 新会话调用曾遇到只读命令策略拒绝，后遇 CLI/账户不支持当前配置模型；未改全局配置或绕过策略。其他 Agent 原生机制、远程 Git 安装和 GitHub 发布未验证；README 保留手动资源路径接入。
+3. 独立 Agent 新会话验收由用户另行执行，不纳入本次任务。项目级 Skill 目录链接与 Codex CLI 0.149.1 skills/list 识别已通过，README 与 SKILL.md 均已完善接口说明与手动接入指引；远程 Git 安装和 GitHub 发布未验证。
 4. GPL/第三方原文保留；Twemoji COLRv0 许可描述冲突、未知头像/品牌资源仍隔离。未正式签名或发布，Android 为 debug key。见 [license-inventory.md](docs/audit/license-inventory.md)、[NOTICE.md](NOTICE.md)。
 
 ## 构建与复核

@@ -5,7 +5,7 @@
 ## 最终检查清单
 
 - [x] 固定完整上游与递归子模块；1,604 个直接条目、965 个前端关联条目与当前源码清点相符。清点不等于逐行语义审查或全 UI 提取。
-- [x] 阶段 3.5 主壳层、侧栏、工具、主题/字体、快捷键、关于、配置列表/添加进入核心库，并通过宿主 Scope 独立调用。
+- [x] 阶段 3.5 主壳层、侧栏、工具、主题/字体、快捷键、关于、免责声明（含签署确认流与复述校验）、配置列表/添加进入核心库，并通过宿主 Scope 独立调用。
 - [x] 原生系统字体枚举移入可选 platform；原绘制、导航/快照/活跃状态、远距离切页、焦点、录制冲突及延迟字体预览保留。
 - [x] 完整应用 Showcase 与 17 个组件分类均能交互；关键调用和宿主责任可检索。
 - [x] 仓库外新项目仅复制核心包，安装、分析、交互测试、Web/Windows Release 构建、Windows 原生 Profile 复用测试通过。
@@ -19,11 +19,11 @@
 
 |范围|实际结果|可复现入口 / 本地日志|
 |---|---|---|
-|核心库|分析无问题；247 项测试通过（基线 194 + 本轮 53）|`packages/flutter/test`；`.local/stage4-core-{analyze,tests}.log`|
+|核心库|分析无问题；250 项测试通过（基线 194 + 阶段 3.5 53 + 免责声明条款与签署校验 3 项）|`packages/flutter/test`；`.local/stage4-core-{analyze,tests}.log`|
 |Showcase|分析无问题；11 项测试通过，覆盖手机/桌面完整页面、控件目录、数据追加、实际模式选择及主题切换|`showcase/test`；`.local/stage4-{analyze,showcase-tests}.log`|
 |可选 platform|分析无问题；7 项测试通过，含 4 项原生字体行为测试|`packages/platform/test`；`.local/stage4-platform-{analyze,tests}.log`|
 |独立应用示例|分析无问题；1 项多步骤交互测试通过|`examples/standalone/test/reuse_test.dart`；`.local/standalone-{analyze,test}.log`|
-|来源与分发检查|292 主库 + 54 editor + 99 platform + 3 Web 来源记录；106 Dart 包/版本与 84 Rust 许可记录；两份运行时许可资产|`python tools/check_repository.py`；`.local/stage4-repository-check.log`|
+|来源与分发检查|293 主库 + 54 editor + 99 platform + 3 Web 来源记录；106 Dart 包/版本与 84 Rust 许可记录；两份运行时许可资产|`python tools/check_repository.py`；`.local/stage4-repository-check.log`|
 |Skill|quick_validate 通过；本地相对文档/资源路径可达|根 `SKILL.md`；来源门禁检查所有文档链接|
 
 不合并测试数与组件数。目录共索引 778 个公开声明、223 个含 Showcase 直接调用，含支持类型；不表示 778 个视觉组件或所有变体均已有独立演示。provenance 的摘录范围、修改与 Commit 以四份 extraction JSON 为准。

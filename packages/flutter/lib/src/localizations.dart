@@ -458,6 +458,65 @@ class KitLocalizations implements UiLocalizations {
   String get errorDetails => _zh ? '错误详情' : 'Error details';
   String failedItem(String label, String message) => _zh ? '$label：$message' : '$label: $message';
   String failedCount(int count) => _zh ? '$count 项失败，点击查看' : '$count items failed. Tap to view';
+  String get disclaimer => _zh ? '免责声明' : 'Disclaimer';
+  String get disclaimerDesc => _zh
+      ? '在使用本软件前，请仔细阅读并充分理解本声明。点击“同意”表示你已阅读并理解以下内容；如不想继续，可点击“退出”。'
+      : 'Before using this software, please read this statement carefully and make sure you understand it. Tapping "Agree" means you have read and understood what follows. If you do not want to continue, tap "Exit".';
+  String get disclaimerSoftwareTitle => _zh ? '软件性质' : 'Nature of the software';
+  String get disclaimerSoftwareContent => _zh
+      ? '本软件是基于开源核心的网络工具客户端，仅提供配置管理、规则分流与流量转发等本地工具功能。'
+      : 'The Software is an open-source network tool client. It only provides local tooling such as configuration management, rule-based routing, and traffic forwarding.';
+  String get disclaimerNoServiceStatement => _zh
+      ? '本软件自身不提供任何代理服务器、节点、订阅、机场或网络接入服务，也不与任何此类服务的提供者存在合作、代理或担保关系。'
+      : 'The Software itself does not provide any proxy server, node, subscription, or network access service, and has no partnership, agency, or guarantee relationship with any provider of such services.';
+  String get disclaimerUsageTitle => _zh ? '使用说明' : 'About use';
+  String get disclaimerUsageContent => _zh
+      ? '任何人基于本软件开展的商业活动，包括付费分发、捆绑销售或作为商业服务的组成部分，均与本软件的开发者无关，开发者不为其提供背书、支持或担保。\n\n你须自行遵守所在国家或地区的法律法规，因违法使用本软件产生的后果由你自行承担。'
+      : 'Any commercial activity anyone carries out with the Software, including paid distribution, bundled sales, or use as part of a commercial service, is unrelated to the Software\'s developers, who do not endorse, support, or guarantee it.\n\nYou are responsible for complying with the laws where you live, and you bear the consequences of any unlawful use of the Software.';
+  String get disclaimerResponsibilityTitle => _zh ? '用户责任' : 'Your responsibility';
+  String get disclaimerResponsibilityContent => _zh
+      ? '你应自行确认使用本软件在你所在国家或地区是合法的，并对使用本软件的全部行为及其后果独立承担法律责任。\n\n你导入的订阅、节点与配置由你自行选择和判断，其来源是否合法、内容是否安全、服务是否稳定，均由你与相关提供者自行负责。'
+      : 'You are responsible for making sure that using the Software is lawful where you live, and you alone bear the legal responsibility for everything you do with it and its consequences.\n\nThe subscriptions, nodes, and configurations you import are your own choice. Whether their source is lawful, their content is safe, and their service is reliable is a matter between you and their providers.';
+  String get disclaimerThirdPartyTitle => _zh ? '第三方内容' : 'Third-party content';
+  String get disclaimerThirdPartyContent => _zh
+      ? '订阅链接、配置文件、规则集、脚本、外部资源及外部链接均由第三方提供，开发者无法也不会对其合法性、准确性、安全性和可用性进行审查或担保。\n\n因使用第三方内容导致的数据泄露、财产损失、账号封禁或其他任何损失，由你与第三方自行解决，开发者不承担任何责任。'
+      : 'Subscription links, configuration files, rule sets, scripts, external resources, and external links are all provided by third parties. The developers cannot and do not review or guarantee their legality, accuracy, security, or availability.\n\nAny data leak, financial loss, account ban, or other loss caused by third-party content is to be settled between you and the third party; the developers bear no responsibility for it.';
+  String get disclaimerWarrantyTitle => _zh ? '无担保声明' : 'No warranty';
+  String get disclaimerWarrantyContent => _zh
+      ? '本软件按“现状”和“可用”的原则提供，不附带任何明示或默示的担保，包括但不限于适销性、特定用途适用性、不侵权以及持续可用、无错误、无安全漏洞的担保。\n\n开发者不保证本软件能满足你的需求，也不保证本软件的运行不会中断或不会出现错误。'
+      : 'The Software is provided "as is" and "as available", without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, non-infringement, uninterrupted availability, freedom from errors, or freedom from security vulnerabilities.\n\nThe developers do not guarantee that the Software will meet your needs or that it will run without interruption or error.';
+  String get disclaimerLiabilityTitle => _zh ? '责任限制' : 'Limitation of liability';
+  String get disclaimerLiabilityContent => _zh
+      ? '在适用法律允许的最大范围内，开发者及所有贡献者均不对因使用或无法使用本软件而产生的任何直接、间接、偶然、特殊、惩罚性或后果性损害承担责任，包括但不限于数据丢失、设备损坏、网络异常、业务中断、利润损失或因此引起的任何法律纠纷，即使已被告知发生此类损害的可能性。'
+      : 'To the maximum extent permitted by applicable law, neither the developers nor any contributor shall be liable for any direct, indirect, incidental, special, punitive, or consequential damages arising from the use of or inability to use the Software, including but not limited to data loss, device damage, network failures, business interruption, lost profits, or any resulting legal dispute, even if advised of the possibility of such damages.';
+  String get disclaimerPrivacyTitle => _zh ? '数据收集与隐私' : 'Data collection and privacy';
+  String get disclaimerPrivacyContent => _zh
+      ? '本软件不会收集或上传你的订阅地址、节点信息、配置内容、访问的网站、连接记录、流量内容和日志，这些数据仅保存在你的设备本地，开发者无法获取。\n\n本软件只会在你使用相应功能时访问外部网络，例如更新订阅时访问你提供的订阅地址、检查更新时访问发布源。\n\n本软件在所有平台上均未集成任何数据统计或崩溃上报服务。'
+      : 'The Software does not collect or upload your subscription URLs, node details, configuration content, visited websites, connection records, traffic content, or logs. This data stays on your device and the developers have no access to it.\n\nThe Software only reaches the network when you use a feature that needs it, such as fetching the subscription URL you provided when updating a profile, or contacting release repositories when checking for updates.\n\nThe Software includes no analytics or crash reporting service on any platform.';
+  String get disclaimerLicenseTitle => _zh ? '开源协议' : 'Open-source license';
+  String get disclaimerLicenseContent => _zh
+      ? '本软件以开源协议分发，你可以依该协议运行、研究、修改和分发本软件；分发本软件或其修改版本时，须同样依对应协议提供源代码并保留原有的版权声明。\n\n本软件包含的第三方组件分别遵循其各自的开源协议。基于本软件修改或分发的版本所产生的任何问题，与原作者无关。'
+      : 'The Software is distributed under an open-source license. You may run, study, modify, and distribute it in accordance with the license; when distributing modified versions, you must preserve original copyright notices.\n\nThird-party components follow their own licenses. The original authors are not responsible for problems arising from modified or redistributed versions.';
+  String get disclaimerChangesTitle => _zh ? '声明变更' : 'Changes to this statement';
+  String get disclaimerChangesContent => _zh
+      ? '本声明可能随版本更新而修订，以每个版本附带的内容为准。'
+      : 'This statement may be revised in later releases; each release carries the version that applies to it.';
+  String get disclaimerAcceptTitle => _zh ? '与开源协议的关系' : 'Relation to open-source license';
+  String get disclaimerAcceptContent => _zh
+      ? '本声明是对软件性质、风险与责任的说明，不是开源协议之外的附加条款，也不限制该协议授予你的运行、复制、修改和分发等任何权利；两者不一致时，以开源协议为准。'
+      : 'This statement explains the nature, risks, and responsibilities of using the Software. It is not an additional term beyond the open-source license and does not limit any right that license grants you. Where the two differ, the open-source license prevails.';
+  String get disclaimerRestateTitle => _zh ? '复述声明' : 'Restate statement';
+  String get disclaimerRestateTip => _zh
+      ? '为确认你已知悉，请在下方输入框中完整复述以下声明：'
+      : 'To confirm you understand, enter the following statement in full in the field below:';
+  String get disclaimerRestateHint => _zh ? '在此输入上述声明' : 'Enter the statement above';
+  String get disclaimerRestateMismatch => _zh ? '与声明内容不一致' : 'Does not match the statement';
+  String get disclaimerAcknowledgeTitle => _zh ? '确认声明' : 'Confirm statement';
+  String get disclaimerAcknowledgeTip => _zh
+      ? '为确认你已知悉，请阅读以下声明并勾选下方选项：'
+      : 'To confirm you understand, read the following statement and check the box below:';
+  String get disclaimerAcknowledgeLabel => _zh ? '我已阅读并理解此声明' : 'I have read and understand this statement';
+  String get agree => _zh ? '同意' : 'Agree';
 }
 
 class KitLocalizationsDelegate extends LocalizationsDelegate<UiLocalizations> {

@@ -113,6 +113,7 @@ export 'src/profiles/models.dart';
 export 'src/shell/home.dart';
 export 'src/shell/sidebar.dart';
 export 'src/shell/tools.dart';
+export 'src/shell/disclaimer.dart';
 export 'src/shell/about.dart';
 export 'src/theme/view.dart';
 export 'src/theme/font_family.dart';
