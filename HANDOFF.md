@@ -33,6 +33,8 @@
 - 字体 reader 位于可选原生包，核心保持 Web 可用；Windows 实测 111 family，Android 模拟器 9 family。字体名仅为引用，不授予分发权。
 - Showcase 修正手机/桌面模式栏错用、手机 feed 跳转和宿主状态刷新；新增实际应用导航测试和原生验收 harness。
 - Showcase 使用 KitApp 原有字体/fallback/暗色 elevated 主题，不另建仅有颜色的 ThemeData；字体实际应用与导航语言切换已有回归。请求/DNS 图标按上游 Navigation 选择。
+- **空间审计与安全瘦身**：完成全工作区递归空间审计（工具 `tools/space_audit.py`）。工作区物理总占用从 **17,502.86 MB (17.09 GB, 39,115 文件)** 安全降至 **11,694.38 MB (11.42 GB, 24,883 文件)**，释放 **5,808.48 MB (-5.67 GB)**。安全清理项包括：Showcase 构建产物与 APK (3.72 GB)、Rust 编译 target (322 MB)、Flutter ephemeral 与测试缓存 (500+ MB)、临时字体评测副本 (396 MB)、无用 Chrome 临时缓存 (156 MB) 与 rustup-init 安装包 (12 MB)。Git 跟踪源码资产 (15.99 MB / 1,070 文件)、Git 历史 (100.70 MB)、上游源码快照 (126.61 MB)、必要的本地 Rust 工具链与 AVD 镜像 100% 完好保留。GitHub 干净克隆仅需约 **117 MB**（递归子模块约 **243 MB**）。
+- **规则与结构优化**：优化 `.gitignore` 为全局通配规则（递归忽略 `**/ephemeral/`, `**/.gradle/`, `**/*.tmp` 等），防止各工程构建时再次污染工作区。瘦身后重新执行全量门禁、全部测试套件与空白项目独立 Release 构建，零功能退化。
 
 ## 已验证证据
 

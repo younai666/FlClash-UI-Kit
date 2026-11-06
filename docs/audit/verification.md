@@ -48,6 +48,25 @@
 
 构建/运行日志：`.local/stage4-{windows,android}-{build,runtime}.log`、`stage4-web-{build,runtime}.log`。从测试模式切回 Release 必须正常运行 `flutter build ... --release` 以重生成排除 dev 插件的注册文件；曾复用 `--no-pub` 测试注册结果导致 Android Java 找不到 IntegrationTestPlugin，正常 Release 流程后通过。Android 的帧采样改用公开 FrameTiming callback，避免测试 SDK 的设备内 VM/DDS 连接问题。
 
+## 空间审计与安全瘦身
+
+本轮进行了递归全目录空间审计（执行工具 `tools/space_audit.py`），区分源码资产、版本历史、上游依赖、构建产物、工具链缓存与临时冗余，并在严格安全边界内完成瘦身清理与回归验证：
+
+| 类别 / 范围 | 清理前占用 | 清理后占用 | 变化 / 说明 |
+|---|---|---|---|
+| **工作区物理总占用** | 17,502.86 MB (17.09 GB) | 11,694.38 MB (11.42 GB) | **-5,808.48 MB (-5.67 GB)**，文件数从 39,115 降至 24,883 |
+| **Git 跟踪源码与资产** | 15.99 MB (1,070 文件) | 15.99 MB (1,070 文件) | 保持 100% 完整，源码、Shader、字体、测试与文档零丢失 |
+| **Git 仓库历史 (.git)** | 100.70 MB | 100.70 MB | 保持未改写历史，完整保留上游 submodule gitlink |
+| **上游冻结源码快照** | 126.61 MB (2,908 文件) | 126.61 MB (2,908 文件) | `source/upstream/{FlClash,prism_ui}` 保持原状冻结 |
+| **构建产物与中间缓存** | 5,481.70 MB | 114.21 MB | **-5,367.49 MB**（清理 showcase APK/Gradle/C++ 3.72 GB、Rust 322 MB target 与各包 test cache） |
+| **Dart/Flutter 工具缓存** | 667.25 MB | 0.03 MB | **-667.22 MB**（清理全工程 `.dart_tool` 临时构建缓存） |
+| **本地临时与冗余文件** | 564.26 MB | 0.00 MB | **-564.26 MB**（删除无用的 `.local/font-review-install-1` 396 MB、`stage4-chrome` 156 MB、`rustup-init.exe` 12 MB） |
+| **本地工具链与 AVD** | 11,434.68 MB | 11,434.68 MB | 完整保留本地必要依赖：`android-avd` (9.05 GB) 与 Rust/Cargo 本地工具链 (2.38 GB) |
+
+### 实际发布与克隆体积对比
+- **GitHub 实际发布/克隆体积**：纯源码及资产仅 **15.99 MB**，加上 `.git` 历史对象总克隆下载体积仅约 **117 MB**（若递归拉取上游子模块快照约为 **243 MB**）。
+- **清理保障与无损验证**：优化 `.gitignore` 为全局通配规则（`**/ephemeral/`, `**/.gradle/`, `**/*.tmp` 等）；瘦身后重新执行空白独立项目创建安装验证、全量 Flutter/Rust/Node 测试与 Windows/Web Release 构建，全部 100% 通过，未牺牲任何功能或产生退化。
+
 ## 全新项目独立复用
 
 `tools/verify_consumer.py` 在仓库外新建临时 Flutter 项目，复制完整 `packages/flutter`（含 vendor、字体、Shader、许可资产），不复制上游树、editor、platform 或代理业务。用 [独立示例](../../examples/standalone/lib/main.dart) 与 [复用测试](../../examples/standalone/test/reuse_test.dart) 验证：任意字符串页面 ID、自有笔记/布局数据、按钮、跨页文本保留、任意操作 ID 的 Ctrl+N 录制、主题切换。

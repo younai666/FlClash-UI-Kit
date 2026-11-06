@@ -7,12 +7,15 @@
 .local/
 **/__pycache__/
 *.log
-showcase/.metadata
-showcase/windows/flutter/ephemeral/
-showcase/linux/flutter/ephemeral/
-showcase/macos/Flutter/ephemeral/
-showcase/android/local.properties
-showcase/android/.gradle/
-showcase/ios/Pods/
-showcase/ios/Flutter/Generated.xcconfig
-showcase/ios/Flutter/flutter_export_environment.sh
+**/*.log
+
+# Flutter & Platform Ephemeral / Local Artifacts
+**/.metadata
+**/ephemeral/
+**/local.properties
+**/.gradle/
+**/Pods/
+**/Generated.xcconfig
+**/flutter_export_environment.sh
+**/*.tmp
+**/*.bak
