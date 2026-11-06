@@ -19,3 +19,28 @@
 **/flutter_export_environment.sh
 **/*.tmp
 **/*.bak
+
+# OS & Editor metadata
+.DS_Store
+**/.DS_Store
+Thumbs.db
+**/Thumbs.db
+.idea/
+**/.idea/
+.vscode/
+**/.vscode/
+
+# Binaries & Keys safeguards
+*.apk
+*.aab
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+*.key
+*.keystore
+*.jks
+*.p12
+*.pem
+*.env

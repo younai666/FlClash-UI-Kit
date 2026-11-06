@@ -17,8 +17,7 @@ def main():
     if records != audit.census():
         raise SystemExit('Source census drift; review and regenerate the audit.')
     failures = []
-    files = [ROOT / 'README.md', ROOT / 'SKILL.md', ROOT / 'NOTICE.md', ROOT / 'HANDOFF.md', *(ROOT / 'docs').rglob('*.md')]
-    files += [p for p in (ROOT / 'packages').glob('*/README.md')]
+    files = [p for p in [ROOT / 'README.md', ROOT / 'README_EN.md', ROOT / 'SKILL.md', ROOT / 'NOTICE.md', ROOT / 'HANDOFF.md', *(ROOT / 'docs').rglob('*.md'), *(ROOT / 'packages').glob('*/README.md')] if p.is_file()]
     for file in files:
         for target in re.findall(r'\]\(([^)]+)\)', file.read_text(encoding='utf-8')):
             if target.startswith(('https://', 'http://', '#', 'mailto:')):
