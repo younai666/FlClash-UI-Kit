@@ -16,7 +16,9 @@ Frontend visuals, interactions, and physics motions are thoroughly decoupled fro
 ## Table of Contents
 
 - [Core Features](#core-features)
-- [AI Agent Skill Installation](#ai-agent-skill-installation)
+- [AI Agent Integration & Prompts](#ai-agent-integration--prompts)
+  - [Option 1: One-Shot UI/UX Strict Constraint (Zero Install)](#option-1-one-shot-uiux-strict-constraint-zero-install)
+  - [Option 2: Project-Level Persistent Skill Installation (Long-Term Reuse)](#option-2-project-level-persistent-skill-installation-long-term-reuse)
 - [Quick Start](#quick-start)
 - [Key Components & Code Examples](#key-components--code-examples)
   - [1. Base Application Environment (KitApp)](#1-base-application-environment-kitapp)
@@ -43,24 +45,38 @@ Frontend visuals, interactions, and physics motions are thoroughly decoupled fro
 
 ---
 
-## AI Agent Skill Installation
+## AI Agent Integration & Prompts
 
-Install this repository as a skill in your AI Agent (e.g. Google Antigravity, Codex CLI, Claude Code, Cursor) so your AI assistant can directly invoke and reuse original components, eliminating reinvented wheels.
+Two standalone options are available depending on your workflow:
+
+### Option 1: One-Shot UI/UX Strict Constraint Prompt (Zero Install)
+
+> [!NOTE]
+> **Best For**: One-off tasks, single-turn prompts, or environments where you do not want to alter configs or install skills. Copy and send directly to your AI Agent:
+
+```text
+For this task only, use FlClash-UI-Kit (https://github.com/younai666/FlClash-UI-Kit) as the sole UI/UX and motion implementation standard. Do not install any Skill, and do not modify environment configs or persistent memory:
+
+1. Single Standard: Inspect the repository (prefer an existing local checkout; otherwise clone or fetch remotely). Visual styling, layouts, adaptive shells, palettes, and spring motion physics must strictly follow the real source in `packages/flutter` (including `vendor/prism_ui`).
+2. Real Component Reuse: Do not import unrelated UI libraries or invent phantom widget APIs. Prioritize directly reusing extracted production components (e.g., KitApp, HomePage, Dashboard cards, ThemeView, showSnapSheet, superellipse shapes).
+3. Tech Stack Rules: In Flutter, depend directly on `packages/flutter`. For other stacks (React, Vue, SwiftUI, Compose, etc.), inspect the actual Dart/Shader sources and token contracts to port geometry and motion, explicitly documenting fidelity boundaries.
+4. Safety & Licensing: Derivative code complies with GNU GPL-3.0, JetBrains Mono font under OFL-1.1, and service icons under CC0 1.0 (no trademark rights granted); do not import quarantined assets (emoji fonts, avatars, brand logos).
+```
+
+### Option 2: Project-Level Persistent Skill Installation Prompt (Long-Term Reuse)
 
 > [!TIP]
-> **Prompt to install this repository into your AI Agent:**
-> ```text
-> Please install the provided FlClash-UI-Kit repository as an available UI/UX Skill for the current project.
-> 
-> 1. Identify which Agent you are running as, inspect current project conventions, and check your actual Skill discovery/installation mechanism; do not assume all Agents use the same directory.
-> 2. Fetch the entire contents of the repository, reading the root README.md and SKILL.md. Prefer reusing an existing local checkout. When cloning, preserve submodules; if upstream submodules use SSH URLs, rewrite them to HTTPS for this command without altering global Git config.
-> 3. Perform a project-level installation according to your supported mechanism. You may use supported directories, directory symlinks, or record the resource root in agent instructions; do not merely copy SKILL.md, and do not modify global configuration or overwrite existing skills.
-> 4. Ensure that relative to the resource root, the entire packages directory (including respective vendor, fonts, shaders, and license assets), showcase, docs, source/upstream, licenses, LICENSE, and NOTICE.md are accessible. Record the actual resource root path in installation notes.
-> 5. Verify that flclash-ui-kit is recognized via your discovery mechanism; inspect the component directory pointed to by the Skill, locating actual source code and usage examples for Palette and showSnapSheet. If a Flutter environment is available, verify with a temporary project referencing packages/flutter by running flutter pub get and flutter analyze. Do not consider reading only the frontmatter as successful Skill execution.
-> 6. Report the installation path, usage instructions, and completed verification checks. If the current Agent cannot automatically install or confirm discovery, state so clearly and provide the simplest project-level manual steps; do not claim success prematurely. Do not install complex adapters, alter global configs, or publish the project without explicit instructions.
-> 
-> Whenever I request FlClash visuals or interactions in the future, first retrieve and reuse real implementations per this Skill. Call directly in Flutter; for other tech stacks, inspect source code before porting and clarify fidelity boundaries.
-> ```
+> **Best For**: Long-term project development and repeated UI tasks. Copy and send to your AI Agent for automatic project-level mounting:
+
+```text
+Please install FlClash-UI-Kit (https://github.com/younai666/FlClash-UI-Kit) as a persistent project-level UI/UX Skill for the current project:
+
+1. Agent Detection: Identify your current Agent runtime (e.g. Google Antigravity, Codex CLI, Claude Code, Cursor) and its native project-level Skill discovery mechanism (e.g. project skills folder, configuration, or instruction index). Do not modify global user configs.
+2. Full Acquisition: Prefer reusing an existing local checkout; if cloning remotely, clone with submodules (`git clone --recurse-submodules https://github.com/younai666/FlClash-UI-Kit.git`), using HTTPS for all submodules.
+3. Project-Level Mounting: Mount at project scope using directory symlinks, project skill directories, or recording the resource root in agent instructions. Do NOT copy `SKILL.md` in isolation; the entire root containing `packages/` (with vendors, fonts, shaders), `showcase/`, `docs/`, `NOTICE.md`, and `LICENSE` must remain accessible via relative paths.
+4. Genuine Verification: Verify that your discovery mechanism detects `flclash-ui-kit`. Test reading component source code (e.g., locating `Palette` and `showSnapSheet` implementations). If your environment cannot detect or install it, explain why and provide manual steps; do not report false success.
+5. Reuse Standard: Once installed, prioritize this Skill for subsequent UI/UX, responsive layout, and physics animation requests. Strictly adhere to GNU GPL-3.0 and third-party terms (OFL-1.1, CC0 1.0, quarantined unconfirmed assets).
+```
 
 ---
 

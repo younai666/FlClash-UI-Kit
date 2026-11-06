@@ -5,6 +5,8 @@ description: Reuse FlClash and prism_ui visuals, native Flutter widgets, motion,
 
 # FlClash UI Kit
 
+Canonical repository: https://github.com/younai666/FlClash-UI-Kit
+
 Treat this directory as the resource root. Keep the entire repository accessible; copying this file alone loses the component code, shaders, examples, provenance and licenses.
 
 ## Find the implementation

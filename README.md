@@ -16,7 +16,9 @@
 ## 目录
 
 - [核心特性](#核心特性)
-- [AI Agent Skill 安装](#ai-agent-skill-安装)
+- [AI Agent 提示词与接入方案](#ai-agent-提示词与接入方案)
+  - [方案 1：单次 UI/UX 唯一约束（无需安装）](#方案-1单次-uiux-唯一约束无需安装)
+  - [方案 2：项目级持久 Skill 安装（长效复用）](#方案-2项目级持久-skill-安装长效复用)
 - [快速开始](#快速开始)
 - [核心组件与代码示例](#核心组件与代码示例)
   - [1. 基础应用环境 (KitApp)](#1-基础应用环境-kitapp)
@@ -43,24 +45,38 @@
 
 ---
 
-## AI Agent Skill 安装
+## AI Agent 提示词与接入方案
 
-将本仓库整体作为技能安装到您的 AI Agent（如 Google Antigravity、Codex CLI、Claude Code、Cursor 等），即可让 AI 在后续开发中直接调用原版组件，避免重复造轮子。
+针对不同协作场景，提供两种即开即用的独立方案：
+
+### 方案 1：单次 UI/UX 唯一约束提示词（无需安装）
+
+> [!NOTE]
+> **适用场景**：临时任务、单轮对话、或不希望修改任何 Agent 配置与环境。直接将下方提示词复制发送给 AI Agent 即可：
+
+```text
+请在本任务中将 FlClash-UI-Kit（https://github.com/younai666/FlClash-UI-Kit）作为唯一 UI/UX 与动效设计实现标准。无需安装 Skill，不修改任何环境配置或持久记忆，约束仅对当前任务生效：
+
+1. 唯一标准：先检视仓库（优先复用本地现有 checkout，否则克隆或读取远程），前端视觉、布局、自适应壳层、色彩及弹簧物理动效严格以 `packages/flutter`（含 `vendor/prism_ui`）中的真实源码为唯一实现标准。
+2. 真实复用：严禁自行引入无关 UI 库或臆造不存在的组件接口。优先复用仓库中已解耦的真实组件（如 KitApp, HomePage, Dashboard 卡片, ThemeView, showSnapSheet, superellipse 形状等）。
+3. 技术栈规则：Flutter 项目直接引用 `packages/flutter` 依赖调用；非 Flutter 栈（React, Vue, SwiftUI, Compose 等）须先检视真实 Dart/Shader 源码与 token 契约进行对齐移植，并明确说明保真度与渲染器限制。
+4. 安全与许可：衍生代码遵循 GNU GPL-3.0 协议，JetBrains Mono 字体遵循 OFL-1.1，服务图标遵循 CC0 1.0（不授予商标权）；严禁引入未明确授权的隔离资产（Emoji 字库、作者头像、应用商标）。
+```
+
+### 方案 2：项目级持久 Skill 安装提示词（长效复用）
 
 > [!TIP]
-> **发给 AI Agent 的安装提示词：**
-> ```text
-> 请将我提供的 FlClash-UI-Kit 仓库安装为当前项目可用的 UI/UX Skill。
-> 
-> 1. 先识别你当前是哪一种 Agent，检查当前项目约定及你实际支持的 Skill 发现/安装机制；不要假定所有 Agent 使用相同目录。
-> 2. 获取仓库的完整内容，阅读根 README.md 和 SKILL.md。若已有本地 checkout，优先复用。远程克隆需保留源码子模块；上游公共子模块使用 SSH URL 时，仅对本次 Git 命令使用 HTTPS URL 重写，不改全局 Git 配置。
-> 3. 根据你实际支持的机制进行项目级安装。可使用该机制支持的目录、完整目录链接，或在项目 Agent 指引中登记资源根路径；不要仅复制 SKILL.md，且不要擅自修改全局配置或覆盖已有 Skill。
-> 4. 确保相对于资源根的整个 packages（包括各自 vendor、字体、shader 和许可资源）、showcase、docs、source/upstream、licenses、LICENSE 和 NOTICE.md 均可访问。安装说明中记录实际资源根路径。
-> 5. 用你的实际发现机制检查 flclash-ui-kit 是否被识别；读取 Skill 指向的组件目录，定位 Palette 与 showSnapSheet 的真实源码和调用示例。若有 Flutter 环境，再用一个临时项目引用完整 packages/flutter 执行 flutter pub get 和 flutter analyze。不要把只读到 frontmatter 当成已经成功调用 Skill。
-> 6. 报告实际安装位置、使用方式和已完成的检查。若当前 Agent 不支持自动安装或无法确认识别，请明确说明，并给出最简单的项目级手动步骤；不要声称安装成功。未经我要求，不安装复杂适配器、不改全局配置、不发布或上传项目。
-> 
-> 以后我要求采用 FlClash 的视觉和交互时，请先按该 Skill 检索并复用实际实现。Flutter 直接调用；其他技术栈阅读原始源码再移植，并说明保真边界。
-> ```
+> **适用场景**：需要长期开发维护的项目。发送给 AI Agent 自动进行项目级原生挂载：
+
+```text
+请将 FlClash-UI-Kit（https://github.com/younai666/FlClash-UI-Kit）安装为当前项目可用的持久 UI/UX Skill：
+
+1. Agent 识别与定位：先识别你当前是哪种 Agent（如 Google Antigravity, Codex CLI, Claude Code, Cursor 等），检查当前项目约定及其原生支持的 Skill 发现机制（如项目级 skills 目录、配置文件或指令索引）；切勿修改用户全局配置。
+2. 完整获取：优先复用本地已存在的仓库副本；若需克隆，必须保留完整源码与子模块（`git clone --recurse-submodules https://github.com/younai666/FlClash-UI-Kit.git`），上游公共子模块统一使用 HTTPS。
+3. 项目级接入：按原生机制进行项目级挂载（使用目录软链接、项目级 Skill 路径或在项目 Agent 指引中登记资源根路径）；严禁孤立复制单个 `SKILL.md`，必须确保根目录下的 `packages/`（含 vendor、字体、Shader）、`showcase/`、`docs/`、`NOTICE.md` 与 `LICENSE` 均可完整相对寻址。
+4. 真实能力验证：使用内部发现机制检查 `flclash-ui-kit` 是否被识别；通过 Skill 索引检索真实源码（如定位 `Palette` 与 `showSnapSheet` 实现与调用示例）。若当前环境无法识别，明确说明原因并提供最简手动接入步骤，严禁虚报成功。
+5. 优先使用约定：安装成功后，后续凡涉及该风格的 UI/UX、自适应布局或物理动效任务，均优先检索该 Skill 复用真实源码。遵守 GNU GPL-3.0 协议及第三方授权（OFL-1.1、CC0 1.0，隔离未确认资产）。
+```
 
 ---
 
